@@ -1,0 +1,220 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<base target="_blank">
+<script type="text/javascript">
+function spoiler(element, event)
+{
+    if (event.target.nodeName == 'A')//чтобы работали ссылки в спойлерах
+        return;
+    var e = element.firstChild.nextSibling.nextSibling;//element.getElementsByTagName('span')[0]
+    e.previousSibling.style.display = e.style.display;//<span>…</span> must have inverted display style
+    e.style.display = (e.style.display == "none" ? "" : "none");
+    element.firstChild.style.fontWeight =
+    element. lastChild.style.fontWeight = (e.style.display == "" ? "normal" : "bold");
+    event.stopPropagation();
+}
+</script>
+<style type="text/css">
+    body td {
+        font-size: 14px;
+        font-family: Verdana, sans-serif;
+        line-height: 160%;
+    }
+    span.cu_brackets_b {
+        font-size: initial;
+        font-family: initial;
+        font-weight: bold;
+    }
+    a {
+        text-decoration: none;
+        color: #6da3bd;
+    }
+    a:hover {
+        text-decoration: underline;
+        color: #4d7285;
+    }
+    h3 {
+        margin: 0;
+        font-size: 137.5%;
+        font-weight: 400;
+    }
+    td {text-align: justify; /* font-family: Tahoma, sans-serif*/}
+    span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
+    span.sq_brackets {color: #DDD}
+    span.cu_brackets {cursor: pointer}
+    span.cu {background-color: #F7F7FF}
+    abbr {text-decoration: underline; text-decoration-style: dashed}
+    pre, code {font-family: 'Courier New'}
+    table table {margin: 1.5em 0; border-collapse: collapse}
+    table table th, table table td {padding: .3em; border: 1px solid #ccc}
+</style>
+</head>
+<body>
+<table width="55%" align="center"><tr><td>
+<h2>Basic Formatting Syntax</h2><br />
+<br />
+<h3>Styling text</h3><table>
+<tr><td><pre style="display: inline">*‘bold’</pre></td><td><b>bold</b></td></tr>
+<tr><td><pre style="display: inline">_‘underlined’</pre></td><td><u>underlined</u></td></tr>
+<tr><td><pre style="display: inline">-‘strikethrough’</pre></td><td><s>strikethrough</s></td></tr>
+<tr><td><pre style="display: inline">~‘italic’</pre></td><td><i>italic</i></td></tr>
+</table>
+<i>Remark</i>:<br />
+This does not work: <code>~*‘bold italics’</code> (it will be just ~<b>bold</b>), write this: <code>~‘*‘</code><i><b>bold italics</b></i><code>’’</code> or this: <code>*‘~‘</code><b><i>bold italics</i></b><code>’’</code>.<br />
+<br />
+<h3>Links and tooltips</h3><br />
+Link[http://address]<br />
+‘More (samples)’<span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><br />
+<table>
+<tr><th>pq markup</th><th>HTML</th><th>How it looks</th></tr>
+<tr><td>[http://address]</td><td>&lt;a href="http://address">http://address&lt;/a></td><td><a href="http://address">http://address</a></td></tr>
+<tr><td>link[http://address]</td><td>&lt;a href="http://address">link&lt;/a></td><td><a href="http://address">link</a></td></tr>
+<tr><td>link[https://address]</td><td>&lt;a href="https://address">link&lt;/a></td><td><a href="https://address">link</a></td></tr>
+<tr><td>‘multiword link’[http://address]</td><td>&lt;a href="http://address">multiword link&lt;/a></td><td><a href="http://address">multiword link</a></td></tr>
+<tr><td>link[https://address ‘tooltip text’]</td><td>&lt;a href="https://address" title="tooltip text">link&lt;/a></td><td><a href="https://address" title="tooltip text">link</a></td></tr>
+<tr><td>text[‘tooltip text’]</td><td>&lt;abbr title="tooltip text">text&lt;/abbr></td><td><abbr title="tooltip text">text</abbr></td></tr>
+</table>
+</span><span class="cu_brackets_b">}</span></span><br />
+<br />
+<h3>Headers, pictures, colors and tables</h3><table>
+<tr><td>H</td><td>Header</td></tr>
+<tr><td>P</td><td>Picture <abbr title="It is supposed to extend capabilities of this tag to something like tag <picture> from HTML 5.1.">[why not I(image)]</abbr></td></tr>
+<tr><td>C</td><td>Color</td></tr>
+<tr><td>T</td><td>Table</td></tr>
+</table>
+<i>Samples:</i><br />
+Image — P‘http://image_url’<br />
+‘More (samples)’<span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><br />
+<table>
+<tr><th>pq markup</th><th>HTML</th><th>How it looks</th></tr>
+<tr><th colspan="3">Headers</th></tr>
+<tr><td>H‘header’</td><td>&lt;h3>header&lt;/h3></td><td><h3>header</h3></td></tr>
+<tr><td>H(1)‘header’</td><td>&lt;h2>header&lt;/h2></td><td><h2>header</h2></td></tr>
+<tr><td>H(+1)‘header’</td><td>&lt;h2>header&lt;/h2></td><td><h2>header</h2></td></tr>
+<tr><td>H(-1)‘header’</td><td>&lt;h4>header&lt;/h4></td><td><h4>header</h4></td></tr>
+<tr><th colspan="3">Images/Pictures</th></tr>
+<tr><td>P‘http://image-url’</td><td>&lt;img src="http://image-url" /></td><td><img src="http://image-url" /></td></tr>
+<tr><td>P‘http://image-url’[http://address]</td><td>&lt;a href="http://address">&lt;img src="http://image-url" />&lt;/a></td><td><a href="http://address"><img src="http://image-url" /></a></td></tr>
+<tr><td>P‘http://image-url’[‘tooltip text’]</td><td>&lt;img src="http://image-url" title="tooltip text" /></td><td><img src="http://image-url" title="tooltip text" /></td></tr>
+<tr><td>P‘http://image-url’[http://address ‘tooltip text’]</td><td>&lt;a href="http://address" title="tooltip text">&lt;img src="http://image-url" />&lt;/a></td><td><a href="http://address" title="tooltip text"><img src="http://image-url" /></a></td></tr>
+<tr><th colspan="3">Color</th></tr>
+<tr><td>C(#ff0000)‘red text’</td><td>&lt;span style="color:#ff0000;">red text&lt;/span></td><td><span style="color:#ff0000;">red text</span></td></tr>
+<tr><th colspan="3">Tables</th></tr>
+<tr><td><pre style="display: inline">Т‘
+Н‘‘A’ ‘B’ ‘C’’
+‘‘1’ ‘2’ ‘3’’
+’</pre></td><td>&lt;table><br />
+&lt;tr>&lt;th>A&lt;/th>&lt;th>B&lt;/th>&lt;th>C&lt;/th>&lt;/tr><br />
+&lt;tr>&lt;td>1&lt;/td>&lt;td>2&lt;/td>&lt;td>3&lt;/td>&lt;/tr><br />
+&lt;/table></td><td><table>
+<tr><th>A</th><th>B</th><th>C</th></tr>
+<tr><td>1</td><td>2</td><td>3</td></tr>
+</table>
+</td></tr>
+</table>
+<!--[[[‘‘!‘link[http://address][1] ‘same link’[1]’’                    ‘<a href="http://addres>link</a> <a href="http://address">the same link</a>’ ’
+‘‘!‘link[http://address][-1] ‘same link’[-1]’’                     ‘<a href="http://address">link</a> <a href="http://address">the same link</a>’ ’
+]]]--></span><span class="cu_brackets_b">}</span></span><br />
+<br />
+<h3>Comments</h3><br />
+[[[comment]]]<br />
+<br />
+<h2>Advanced formatting</h2><br />
+‘Show/hide’<span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><br />
+<h3>Lists</h3><br />
+1. Ordered<br />
+2. list<br />
+3.‘multiline<br />
+list<br />
+element’<br />
+<!--[[[-
+  1. Nested
+  2. list
+-]]]--><br />
+. Unordered<br />
+. list<br />
+.‘multiline<br />
+list<br />
+element’<br />
+<br />
+<h3>Horizontal rule</h3><br />
+Horizontal rule tag (&lt;hr />) can be produced by placing three or more hyphens<!--[[[ or equal signs]]]--> (and also line should not contain any other characters).<br />
+<pre style="display: inline">---</pre><br />
+<hr />
+<br />
+<h3>Raw HTML</h3><br />
+<code>'‘HTML text’'</code><br />
+<br />
+(<!--[[[‘]]]-->If you want to insert unpaired single quotation mark characters ’ and ‘ than follow this rule: apostrophe ' before ‘‘such string’’ (example: '‘‘Don’t’) "absorbs" beginning ‘ characters, and after ‘‘such string’’ (example: ‘Don‘t’’') "absorbs" ending ’ characters, and if string contains some unpaired single quotation mark characters, than it is necessary to add corresponding amount of apostrophes ' at correct side, for example: '‘Don‘t! Don‘t! Don‘t!’’’’'''', '''‘‘‘‘Don’t! Don’t! Don’t!’, '''‘‘‘‘Don’t! Don’t! Don’t!’, ‘Don‘t! Don‘t! Don‘t!’’’’''', unpaired quotes (string "’‘"<!--[[[’]]]-->) — '‘‘’‘’’'<abbr title="may be this looks not very elegant, but [in most cases] raw strings with correct paired single quotes will look extremely briefly">.</abbr>)<br />
+<br />
+Samples:<br />
+<table>
+<tr><th>pq markup</th><th>HTML</th><th>How it looks</th></tr>
+<tr><td>&lt;</td><td>&amp;lt;</td><td>&lt;</td></tr>
+<tr><td>'‘&lt;div>&amp;lt;&lt;/div>’'</td><td>&lt;div>&amp;lt;&lt;/div></td><td><div>&lt;</div></td></tr>
+<tr><td>'‘Don‘t! Don‘t! Don‘t!’’’’''''</td><td colspan="2">Don‘t! Don‘t! Don‘t!</td></tr>
+<tr><td>''‘‘’‘’’''</td><td colspan="2">’‘</td></tr>
+<tr><td>''''‘‘‘‘Don’t! Don’t! Don’t!’'</td><td colspan="2">Don’t! Don’t! Don’t!</td></tr>
+</table>
+<br />
+!‘text/code *‘without’ formatting (normal font)’<br />
+‘why it was chosen character <code>!</code>’<span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><br />
+Character <code>!</code> associates among <!--[[[most]]]--> <abbr title="on languages based on C">programmers</abbr> with "logical not", and in that case text under ! with quotes ‘’ disables pq formatting.<br />
+</span><span class="cu_brackets_b">}</span></span><br />
+<!--[[[For text without formatting "raw" HTML can be used also (but in that case character `<` will not be replaced with `&lt;`):
+!‘'‘text/code *‘without’ formatting (normal font)’'’]]]--><br />
+<br />
+<h3>Code blocks</h3><br />
+`code`<br />
+``code``<br />
+```code```<br />
+#‘code’<br />
+#(language)‘code’ (for example: #(JavaScript)‘code’)<br />
+<br />
+<br />
+<h3>Blockquotes</h3><br />
+> Blockquote<br />
+<blockquote>Blockquote</blockquote>
+‘Is space necessary here? Why?’<span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><br />
+Yes, it is necessary.<br />
+<abbr title="same reason is applicable to lists (there also must be space character after `1.` and `.`)">Why</abbr> — to avoid problems in following cases<!--[[[ {and also in `<tag>text` [at the beginning of line] character `<` will not recognized as responding blockquote}]]]-->:<br />
+<code>>‘Link text’[http://...] following text.</code><br />
+can be treated as:<br />
+<code>>‘Link text’<br />
+[http://...] following text.</code><br />
+<!--[[[or (what is the same):
+`> Link text
+[http://...] following text.`]]]--><br />
+So, you should write:<br />
+<code>> ‘Link text’[http://...] following text.</code><br />
+or:<br />
+<code>>‘‘Link text’[http://...] following text.’</code><br />
+</span><span class="cu_brackets_b">}</span></span><br />
+<br />
+>‘Multiline<br />
+blockquote’<br />
+<blockquote>Multiline<br />
+blockquote</blockquote><br />
+<br />
+<h3>Text alignment</h3><br />
+<div align="left">&lt;&lt;‘left alignment’</div><div align="right">>>‘right alignment’</div><div align="center">>&lt;‘center alignment’</div><div align="justify">&lt;>‘justify alignment’</div><br />
+<sup>/\‘superscript’</sup> text<br />
+<sub>\/‘subscript’</sub> text<br />
+<br />
+<br />
+<h3>Alignment in table cells</h3><br />
+Vertical:<br />
+/\ — top<br />
+\/ — bottom<br />
+<br />
+Horizontal:<br />
+&lt;&lt; — left<br />
+>> — right<br />
+>&lt; — center<br />
+&lt;> — justify<br />
+</span><span class="cu_brackets_b">}</span></span><br />
+
+</td></tr></table>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<base target="_blank">
+<script type="text/javascript">
+function spoiler(element, event)
+{
+    if (event.target.nodeName == 'A')//чтобы работали ссылки в спойлерах
+        return;
+    var e = element.firstChild.nextSibling.nextSibling;//element.getElementsByTagName('span')[0]
+    e.previousSibling.style.display = e.style.display;//<span>…</span> must have inverted display style
+    e.style.display = (e.style.display == "none" ? "" : "none");
+    element.firstChild.style.fontWeight =
+    element. lastChild.style.fontWeight = (e.style.display == "" ? "normal" : "bold");
+    event.stopPropagation();
+}
+</script>
+<style type="text/css">
+    body td {
+        font-size: 14px;
+        font-family: Verdana, sans-serif;
+        line-height: 160%;
+    }
+    span.cu_brackets_b {
+        font-size: initial;
+        font-family: initial;
+        font-weight: bold;
+    }
+    a {
+        text-decoration: none;
+        color: #6da3bd;
+    }
+    a:hover {
+        text-decoration: underline;
+        color: #4d7285;
+    }
+    h3 {
+        margin: 0;
+        font-size: 137.5%;
+        font-weight: 400;
+    }
+    td {text-align: justify; /* font-family: Tahoma, sans-serif*/}
+    span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
+    span.sq_brackets {color: #DDD}
+    span.cu_brackets {cursor: pointer}
+    span.cu {background-color: #F7F7FF}
+    abbr {text-decoration: underline; text-decoration-style: dashed}
+    pre, code {font-family: 'Courier New'}
+    table table {margin: 1.5em 0; border-collapse: collapse}
+    table table th, table table td {padding: .3em; border: 1px solid #ccc}
+</style>
+</head>
+<body>
+<table width="55%" align="center"><tr><td>
+<h2>Базовый функционал<!--[[[ (ядро)]]]--></h2><br />
+<br />
+<h3><!--[[[Стилизация/]]]-->Оформление текста</h3><table>
+<tr><td><pre style="display: inline">*‘жирный’</pre></td><td><b>жирный</b> [символ * похоЖ на букву ж]</td></tr>
+<tr><td><pre style="display: inline">_‘подчёркнутый’</pre></td><td><u>подчёркнутый</u></td></tr>
+<tr><td><pre style="display: inline">-‘перечёркнутый’</pre></td><td><s>перечёркнутый</s></td></tr>
+<tr><td><pre style="display: inline">~‘курсив’</pre></td><td><i>курсив</i></td></tr>
+</table>
+<i>Примечание:</i><br />
+Вот так не работает: <code>~*‘жирный курсив’</code> (будет просто ~<b>жирный</b>), пишите так: <code>~‘*‘</code><i><b>жирный курсив</b></i><code>’’</code> или так: <code>*‘~‘</code><b><i>жирный курсив</i></b><code>’’</code> (так и задумано, чтобы не злоупотреблять форматированием и чтобы лучше было видно в исходной пк-разметке такие места).<br />
+<br />
+<h3>Ссылки и всплывающие подсказки</h3><br />
+Ссылка[http://адрес]<br />
+‘Подробнее (больше примеров)’<span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><br />
+<table>
+<tr><th>Пк-разметка</th><th>HTML</th><th>Как выглядит</th></tr>
+<tr><td>[http://address]</td><td>&lt;a href="http://address">http://address&lt;/a></td><td><a href="http://address">http://address</a></td></tr>
+<tr><td>ссылка[http://address]</td><td>&lt;a href="http://address">ссылка&lt;/a></td><td><a href="http://address">ссылка</a></td></tr>
+<tr><td>ссылка[https://address]</td><td>&lt;a href="https://address">ссылка&lt;/a></td><td><a href="https://address">ссылка</a></td></tr>
+<tr><td>‘многословная ссылка’[http://address]</td><td>&lt;a href="http://address">многословная ссылка&lt;/a></td><td><a href="http://address">многословная ссылка</a></td></tr>
+<tr><td>ссылка[https://address ‘текст всплывающей подсказки’]</td><td>&lt;a href="https://address" title="текст всплывающей подсказки">ссылка&lt;/a></td><td><a href="https://address" title="текст всплывающей подсказки">ссылка</a></td></tr>
+<tr><td>текст[‘текст всплывающей подсказки’]</td><td>&lt;abbr title="текст всплывающей подсказки">текст&lt;/abbr></td><td><abbr title="текст всплывающей подсказки">текст</abbr></td></tr>
+</table>
+</span><span class="cu_brackets_b">}</span></span><br />
+<br />
+<h3>Заголовки, картинки, цвет и таблицы</h3><table>
+<tr><td>Н (русская)</td><td>H (английская)</td><td>Название(заголовок/подзаголовок)\Header</td></tr>
+<tr><td>Р (русская)</td><td>P (английская)</td><td>изобРажение/каРтинка/Рисунок\Picture <abbr title="предполагается расширить возможности P до аналога тега <picture> из HTML 5.1">[почему не I(image)]</abbr></td></tr>
+<tr><td>С (русская)</td><td>C (английская)</td><td>цвет(Свет)\Color</td></tr>
+<tr><td>Т (русская)</td><td>T (английская)</td><td>Таблица\Table</td></tr>
+</table>
+<i>Примеры:</i><br />
+Картинка — P‘http://адрес_картинки’<br />
+‘Подробнее (больше примеров)’<span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><br />
+<table>
+<tr><th>Пк-разметка</th><th>HTML</th><th>Как выглядит</th></tr>
+<tr><th colspan="3">Заголовки\Headers</th></tr>
+<tr><td>H‘заголовок’</td><td>&lt;h3>заголовок&lt;/h3></td><td><h3>заголовок</h3></td></tr>
+<tr><td>H(1)‘заголовок’</td><td>&lt;h2>заголовок&lt;/h2></td><td><h2>заголовок</h2></td></tr>
+<tr><td>H(+1)‘заголовок’</td><td>&lt;h2>заголовок&lt;/h2></td><td><h2>заголовок</h2></td></tr>
+<tr><td>H(-1)‘заголовок’</td><td>&lt;h4>заголовок&lt;/h4></td><td><h4>заголовок</h4></td></tr>
+<tr><th colspan="3">Изображения/картинки\Pictures</th></tr>
+<tr><td>P‘http://image-url’</td><td>&lt;img src="http://image-url" /></td><td><img src="http://image-url" /></td></tr>
+<tr><td>P‘http://image-url’[http://address]</td><td>&lt;a href="http://address">&lt;img src="http://image-url" />&lt;/a></td><td><a href="http://address"><img src="http://image-url" /></a></td></tr>
+<tr><td>P‘http://image-url’[‘текст всплывающей подсказки’]</td><td>&lt;img src="http://image-url" title="текст всплывающей подсказки" /></td><td><img src="http://image-url" title="текст всплывающей подсказки" /></td></tr>
+<tr><td>P‘http://image-url’[http://address ‘текст всплывающей подсказки’]</td><td>&lt;a href="http://address" title="текст всплывающей подсказки">&lt;img src="http://image-url" />&lt;/a></td><td><a href="http://address" title="текст всплывающей подсказки"><img src="http://image-url" /></a></td></tr>
+<tr><th colspan="3">Цвет текста</th></tr>
+<tr><td>C(#ff0000)‘красный текст’</td><td>&lt;span style="color:#ff0000;">красный текст&lt;/span></td><td><span style="color:#ff0000;">красный текст</span></td></tr>
+<tr><th colspan="3">Таблицы</th></tr>
+<tr><td><pre style="display: inline">Т‘
+Н‘‘A’ ‘B’ ‘C’’
+‘‘1’ ‘2’ ‘3’’
+’</pre></td><td>&lt;table><br />
+&lt;tr>&lt;th>A&lt;/th>&lt;th>B&lt;/th>&lt;th>C&lt;/th>&lt;/tr><br />
+&lt;tr>&lt;td>1&lt;/td>&lt;td>2&lt;/td>&lt;td>3&lt;/td>&lt;/tr><br />
+&lt;/table></td><td><table>
+<tr><th>A</th><th>B</th><th>C</th></tr>
+<tr><td>1</td><td>2</td><td>3</td></tr>
+</table>
+</td></tr>
+</table>
+<!--[[[‘‘!‘ссылка[http://address][1] ‘та же ссылка’[1]’’                    ‘<a href="http://addres>link</a> <a href="http://address">the same link</a>’ ’
+‘‘!‘ссылка[http://address][-1] ‘та же ссылка’[-1]’’                     ‘<a href="http://address">link</a> <a href="http://address">the same link</a>’ ’
+]]]--></span><span class="cu_brackets_b">}</span></span><br />
+<br />
+<h3>Комментарии</h3><br />
+[[[комментарий/<abbr title="А что? :) Очень удобно таким способом прятать в исходном тексте лишние слова/мысли, которые жалко удалять.">контейнер для воды (:</abbr>]]]<br />
+<br />
+<h2>Дополнительные возможности форматирования</h2><br />
+‘Показать/скрыть’<span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><br />
+<h3>Списки</h3><br />
+1. Нумерованный<br />
+2. список<br />
+3.‘если<br />
+требуется<br />
+многострочный<br />
+элемент списка’<br />
+<!--[[[-
+  1. Вложенный
+  2. список
+-]]]--><br />
+. Маркированный<br />
+. список<br />
+.‘многострочный<br />
+элемент<br />
+списка’<br />
+<br />
+<h3>Горизонтальная <!--[[[черта/]]]-->линия</h3><br />
+Горизонтальная <!--[[[черта/]]]-->линия (HTML-тег &lt;hr />) вставляется посредством трёх или более дефисов<!--[[[ или знаков равенства]]]--> (также строка не должна содержать никаких других символов).<br />
+<pre style="display: inline">---</pre><br />
+<hr />
+<br />
+<h3>"Сырой"\Raw HTML</h3><br />
+<code>'‘HTML text’'</code><br />
+<br />
+(<!--[[[‘]]]-->Вставка непарных кавычек ’ и ‘ — решается достаточно просто с помощью такого синтаксического правила: символ апострофа ' перед ‘‘такой строкой’’ (например: '‘‘Don’t’) "съедает" начальные символы ‘, а после ‘‘такой строки’’ (например: ‘Don‘t’’') "съедает" конечные символы ’, а если в тексте строки встречается несколько непарных кавычек, то необходимо добавить соответствующее количество апострофов ' с нужной стороны, примеры: '‘Don‘t! Don‘t! Don‘t!’’’’'''', '''‘‘‘‘Don’t! Don’t! Don’t!’, '''‘‘‘‘Don’t! Don’t! Don’t!’, ‘Don‘t! Don‘t! Don‘t!’’’’''', неправильные кавычки (строка "’‘"<!--[[[’]]]-->) — '‘‘’‘’’'<abbr title="может, и не очень красиво выглядит, зато [в подавляющем большинстве случаев] сырые\raw строки с корректной/соблюдённой парностью кавычек будут выглядеть предельно кратко">.</abbr>)<br />
+<br />
+Примеры:<br />
+<table>
+<tr><th>Пк-разметка</th><th>HTML</th><th>Как выглядит</th></tr>
+<tr><td>&lt;</td><td>&amp;lt;</td><td>&lt;</td></tr>
+<tr><td>'‘&lt;div>&amp;lt;&lt;/div>’'</td><td>&lt;div>&amp;lt;&lt;/div></td><td><div>&lt;</div></td></tr>
+<tr><td>'‘Don‘t! Don‘t! Don‘t!’’’’''''</td><td colspan="2">Don‘t! Don‘t! Don‘t!</td></tr>
+<tr><td>''‘‘’‘’’''</td><td colspan="2">’‘</td></tr>
+<tr><td>''''‘‘‘‘Don’t! Don’t! Don’t!’'</td><td colspan="2">Don’t! Don’t! Don’t!</td></tr>
+</table>
+<br />
+!‘текст/код *‘без’ форматирования (обычным шрифтом)’<br />
+‘почему был выбран символ <code>!</code>’<span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><br />
+Символ <code>!</code> ассоциируется у <!--[[[большинства]]]--> <abbr title="на языках, производных от Си">программистов</abbr> с not\отрицанием, и в данном случае текст под ! с кавычками ‘’ отрицает всё пк-форматирование.<br />
+</span><span class="cu_brackets_b">}</span></span><br />
+<!--[[[Для текста без форматирования ещё можно использовать "сырой" HTML (но при этом символ `<` не будет заменяться на `&lt;`):
+!‘'‘текст/код *‘без’ форматирования (обычным шрифтом)’'’]]]--><br />
+<br />
+<h3>Вставка исходного кода</h3><br />
+`код`<br />
+``код``<br />
+```код```<br />
+#‘код’<br />
+#(язык)‘код’ (например: #(JavaScript)‘код’)<br />
+<br />
+<br />
+<h3>Цитирование</h3><br />
+> Цитата<br />
+<blockquote>Цитата</blockquote>
+‘Пробел ставить обязательно? Зачем?’<span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><br />
+Да, обязательно.<br />
+<abbr title="эта же причина подходит и к спискам (там тоже обязателен пробел после `1.` и `.`)">Зачем</abbr> — для избежания/исключения возможных проблем в случаях<!--[[[ {а также чтобы в записи `<тег>текст` [в начале строки] символ `<` не воспринимался как обозначение ответной цитаты}]]]-->:<br />
+<code>>‘Текст ссылки’[http://...] продолжение текста.</code><br />
+может быть неверно истолковано как:<br />
+<code>>‘Текст ссылки’<br />
+[http://...] продолжение текста.</code><br />
+<!--[[[или (что то же самое):
+`> Текст ссылки
+[http://...] продолжение текста.`]]]--><br />
+Поэтому, следует писать так:<br />
+<code>> ‘Текст ссылки’[http://...] продолжение текста.</code><br />
+либо так:<br />
+<code>>‘‘Текст ссылки’[http://...] продолжение текста.’</code><br />
+</span><span class="cu_brackets_b">}</span></span><br />
+<br />
+>‘Многострочная<br />
+цитата’<br />
+<blockquote>Многострочная<br />
+цитата</blockquote><br />
+<br />
+<h3>Выравнивание текста</h3><br />
+<div align="left">&lt;&lt;‘выравнивание по левому краю’</div><div align="right">>>‘выравнивание по правому краю’</div><div align="center">>&lt;‘выравнивание по центру’</div><div align="justify">&lt;>‘выравнивание по ширине’</div><br />
+<sup>/\‘надстрочный’</sup> текст<br />
+<sub>\/‘подстрочный’</sub> текст<br />
+<br />
+<br />
+<h3>Выравнивание текста в ячейках таблиц</h3><br />
+Вертикальное:<br />
+/\ — по верхнему краю<br />
+\/ — по нижнему краю<br />
+<br />
+Горизонтальное:<br />
+&lt;&lt; — по левому краю<br />
+>> — по правому краю<br />
+>&lt; — по центру<br />
+&lt;> — по ширине<br />
+</span><span class="cu_brackets_b">}</span></span><br />
+
+</td></tr></table>
+</body>
+</html>
