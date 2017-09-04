@@ -68,16 +68,18 @@ div.spoiler_text {
 <table width="55%" align="center"><tr><td>
 <h2>Базовое форматирование<!--[[[ (ядро)]]]--></h2><br />
 <h3><!--[[[Стилизация/]]]-->Оформление текста</h3><table>
-<tr><td><pre style="display: inline">*‘жирный’</pre></td><td><b>жирный</b> [символ * похоЖ на букву ж]</td></tr>
+<tr><td><pre style="display: inline">*‘жирный’</pre></td><td><b>жирный</b></td></tr>
 <tr><td><pre style="display: inline">_‘подчёркнутый’</pre></td><td><u>подчёркнутый</u></td></tr>
 <tr><td><pre style="display: inline">-‘перечёркнутый’</pre></td><td><s>перечёркнутый</s></td></tr>
 <tr><td><pre style="display: inline">~‘курсив’</pre></td><td><i>курсив</i></td></tr>
 </table>
 <i>Примечание:</i><br />
-Вот так не работает: <code>~*‘жирный курсив’</code> (будет просто ~<b>жирный</b>), пишите так: <code>~‘*‘</code><i><b>жирный курсив</b></i><code>’’</code> или так: <code>*‘~‘</code><b><i>жирный курсив</i></b><code>’’</code> (так и задумано, чтобы не злоупотреблять форматированием и чтобы лучше было видно в исходной пк-разметке такие места).<br />
+Вот так не работает: <code>~*‘жирный курсив’</code> (будет просто ~<b>жирный</b>), пишите так: <code>~‘*‘</code><i><b>жирный курсив</b></i><code>’’</code> или так: <code>*‘~‘</code><b><i>жирный курсив</i></b><code>’’</code> (<abbr title="чтобы не злоупотреблять форматированием и чтобы лучше было видно в исходной пк-разметке такие места">так и задумано</abbr>).<br />
 <br />
 <h3>Ссылки и всплывающие подсказки</h3><br />
 Ссылка[http://адрес]<br />
+Ссылка[http://адрес ‘текст всплывающей подсказки’]<br />
+Текст[‘текст всплывающей подсказки’]<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Подробнее (больше примеров)<br /></span><div class="spoiler_text" style="display:none"><table>
 <tr><th>Пк-разметка</th><th>HTML</th><th>Как выглядит</th></tr>
 <tr><td>[http://address]</td><td>&lt;a href="http://address">http://address&lt;/a></td><td><a href="http://address">http://address</a></td></tr>
@@ -95,7 +97,9 @@ div.spoiler_text {
 <tr><td>Т (русская)</td><td>T (английская)</td><td>Таблица\Table</td></tr>
 </table>
 <i>Примеры:</i><br />
+Заголовок — H‘Название заголовка’<br />
 Картинка — P‘http://адрес_картинки’<br />
+Текст красным цветом — C(red)‘текст’<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Подробнее (больше примеров)<br /></span><div class="spoiler_text" style="display:none"><table>
 <tr><th>Пк-разметка</th><th>HTML</th><th>Как выглядит</th></tr>
 <tr><th colspan="3">Заголовки\Headers</th></tr>
@@ -104,16 +108,16 @@ div.spoiler_text {
 <tr><td>H(+1)‘заголовок’</td><td>&lt;h2>заголовок&lt;/h2></td><td><h2>заголовок</h2></td></tr>
 <tr><td>H(-1)‘заголовок’</td><td>&lt;h4>заголовок&lt;/h4></td><td><h4>заголовок</h4></td></tr>
 <tr><th colspan="3">Изображения/картинки\Pictures</th></tr>
-<tr><td>P‘http://image-url’</td><td>&lt;img src="http://image-url" /></td><td><img src="http://image-url" /></td></tr>
-<tr><td>P‘http://image-url’[http://address]</td><td>&lt;a href="http://address">&lt;img src="http://image-url" />&lt;/a></td><td><a href="http://address"><img src="http://image-url" /></a></td></tr>
-<tr><td>P‘http://image-url’[‘текст всплывающей подсказки’]</td><td>&lt;img src="http://image-url" title="текст всплывающей подсказки" /></td><td><img src="http://image-url" title="текст всплывающей подсказки" /></td></tr>
-<tr><td>P‘http://image-url’[http://address ‘текст всплывающей подсказки’]</td><td>&lt;a href="http://address" title="текст всплывающей подсказки">&lt;img src="http://image-url" />&lt;/a></td><td><a href="http://address" title="текст всплывающей подсказки"><img src="http://image-url" /></a></td></tr>
+<tr><td>P‘http://адрес_картинки’</td><td>&lt;img src="http://адрес_картинки" /></td><td><img src="http://адрес_картинки" /></td></tr>
+<tr><td>P‘http://адрес_картинки’[http://address]</td><td>&lt;a href="http://address">&lt;img src="http://адрес_картинки" />&lt;/a></td><td><a href="http://address"><img src="http://адрес_картинки" /></a></td></tr>
+<tr><td>P‘http://адрес_картинки’[‘текст всплывающей подсказки’]</td><td>&lt;img src="http://адрес_картинки" title="текст всплывающей подсказки" /></td><td><img src="http://адрес_картинки" title="текст всплывающей подсказки" /></td></tr>
+<tr><td>P‘http://адрес_картинки’[http://address ‘текст всплывающей подсказки’]</td><td>&lt;a href="http://address" title="текст всплывающей подсказки">&lt;img src="http://адрес_картинки" />&lt;/a></td><td><a href="http://address" title="текст всплывающей подсказки"><img src="http://адрес_картинки" /></a></td></tr>
 <tr><th colspan="3">Цвет текста</th></tr>
 <tr><td>C(#ff0000)‘красный текст’</td><td>&lt;span style="color:#ff0000;">красный текст&lt;/span></td><td><span style="color:#ff0000;">красный текст</span></td></tr>
 <tr><th colspan="3">Таблицы</th></tr>
 <tr><td><pre style="display: inline">Т‘
 Н‘‘A’ ‘B’ ‘C’’
-‘‘1’ ‘2’ ‘3’’
+ ‘‘1’ ‘2’ ‘3’’
 ’</pre></td><td>&lt;table><br />
 &lt;tr>&lt;th>A&lt;/th>&lt;th>B&lt;/th>&lt;th>C&lt;/th>&lt;/tr><br />
 &lt;tr>&lt;td>1&lt;/td>&lt;td>2&lt;/td>&lt;td>3&lt;/td>&lt;/tr><br />
