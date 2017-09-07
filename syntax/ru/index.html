@@ -134,7 +134,21 @@ div.spoiler_text {
 [[[комментарий/<abbr title="А что? :) Очень удобно таким способом прятать в исходном тексте лишние слова/мысли, которые жалко удалять.">контейнер для воды (:</abbr>]]]<br />
 <br />
 <h2>Дополнительные возможности форматирования</h2><br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Показать/скрыть<br /></span><div class="spoiler_text" style="display:none"><h3>Списки</h3><br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Показать/скрыть<br /></span><div class="spoiler_text" style="display:none"><br />
+<h3>Спойлер (разворачиваемый блок информации)</h3><br />
+<table>
+<tr><th>Пк-разметка</th><th>Как выглядит</th></tr>
+<tr><td>‘Заголовок спойлера’{Содержимое спойлера}</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Заголовок спойлера<br /></span><div class="spoiler_text" style="display:none">Содержимое спойлера</div></td></tr>
+<tr><td>‘Заголовок спойлера’{<br />
+Содержимое<br />
+спойлера<br />
+}</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Заголовок спойлера<br /></span><div class="spoiler_text" style="display:none">Содержимое<br />
+спойлера<br />
+</div></td></tr>
+<tr><td>текст {пояснение} продолжение текста</td><td>текст <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">пояснение</span><span class="cu_brackets_b">}</span></span> продолжение текста</td></tr>
+</table>
+<br />
+<h3>Списки</h3><br />
 1. Нумерованный<br />
 2. список<br />
 3.‘если<br />

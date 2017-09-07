@@ -134,7 +134,21 @@ Red text — C(red)‘text’<br />
 [[[comment]]]<br />
 <br />
 <h2>Advanced formatting</h2><br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Show/hide<br /></span><div class="spoiler_text" style="display:none"><h3>Lists</h3><br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Show/hide<br /></span><div class="spoiler_text" style="display:none"><br />
+<h3>Spoilers</h3><br />
+<table>
+<tr><th>pq markup</th><th>How it looks</th></tr>
+<tr><td>‘Spoiler title’{Spoiler contents}</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Spoiler title<br /></span><div class="spoiler_text" style="display:none">Spoiler contents</div></td></tr>
+<tr><td>‘Spoiler title’{<br />
+Spoiler<br />
+contents<br />
+}</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Spoiler title<br /></span><div class="spoiler_text" style="display:none">Spoiler<br />
+contents<br />
+</div></td></tr>
+<tr><td>text {spoiler} continuation of the text</td><td>text <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">spoiler</span><span class="cu_brackets_b">}</span></span> continuation of the text</td></tr>
+</table>
+<br />
+<h3>Lists</h3><br />
 1. Ordered<br />
 2. list<br />
 3.‘multiline<br />
