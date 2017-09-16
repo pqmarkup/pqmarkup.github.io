@@ -91,15 +91,15 @@ div.spoiler_text {
 </table>
 </div><br />
 <h3>Заголовки, картинки, цвет и таблицы</h3><table>
-<tr><td>Н (русская)</td><td>H (английская)</td><td>Название(заголовок/подзаголовок)\Header</td></tr>
-<tr><td>Р (русская)</td><td>P (английская)</td><td>изобРажение/каРтинка/Рисунок\Picture <abbr title="предполагается расширить возможности P до аналога тега <picture> из HTML 5.1">[почему не I(image)]</abbr></td></tr>
+<tr><td>Н (русская)</td><td>H (английская)</td><td>Название заголовка\Header</td></tr>
+<tr><td>Р (русская)</td><td>P (английская)</td><td><!--[[[изобРажение/каРтинка/]]]-->Рисунок\Picture <abbr title="предполагается расширить возможности P до аналога тега <picture> из HTML 5.1">[почему не I(image)]</abbr></td></tr>
 <tr><td>С (русская)</td><td>C (английская)</td><td>цвет(Свет)\Color</td></tr>
 <tr><td>Т (русская)</td><td>T (английская)</td><td>Таблица\Table</td></tr>
 </table>
 <i>Примеры:</i><br />
-Заголовок — H‘Название заголовка’<br />
-Картинка — P‘http://адрес_картинки’<br />
-Текст красным цветом — C(red)‘текст’<br />
+Заголовок — Н‘Название заголовка’<br />
+Картинка — Р‘http://адрес_картинки’<br />
+Текст красным цветом — С(#фф0000)‘текст’<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Подробнее (больше примеров)<br /></span><div class="spoiler_text" style="display:none"><table>
 <tr><th>Пк-разметка</th><th>HTML</th><th>Как выглядит</th></tr>
 <tr><th colspan="3">Заголовки\Headers</th></tr>
@@ -112,8 +112,10 @@ div.spoiler_text {
 <tr><td>P‘http://адрес_картинки’[http://address]</td><td>&lt;a href="http://address">&lt;img src="http://адрес_картинки" />&lt;/a></td><td><a href="http://address"><img src="http://адрес_картинки" /></a></td></tr>
 <tr><td>P‘http://адрес_картинки’[‘текст всплывающей подсказки’]</td><td>&lt;img src="http://адрес_картинки" title="текст всплывающей подсказки" /></td><td><img src="http://адрес_картинки" title="текст всплывающей подсказки" /></td></tr>
 <tr><td>P‘http://адрес_картинки’[http://address ‘текст всплывающей подсказки’]</td><td>&lt;a href="http://address" title="текст всплывающей подсказки">&lt;img src="http://адрес_картинки" />&lt;/a></td><td><a href="http://address" title="текст всплывающей подсказки"><img src="http://адрес_картинки" /></a></td></tr>
-<tr><th colspan="3">Цвет текста</th></tr>
+<tr><th colspan="3"><abbr title="Цвет задаётся в формате #ККЗЗСС (Красный, Зелёный, Синий) посредством шестнадцатеричных цифр (можно использовать кириллицу — абсдеф/АБСДЕФ является аналогом abcdef/ABCDEF) или в формате КЗС посредством цифр от 1 до 5 [{считаю, что для оформления большинства статей 5 уровней/градаций для компонент цвета более чем достаточно , и, кстати, в псевдографике их тоже всего 5 (░ ▒ ▓ █)}] ">Цвет текста</abbr></th></tr>
 <tr><td>C(#ff0000)‘красный текст’</td><td>&lt;span style="color:#ff0000;">красный текст&lt;/span></td><td><span style="color:#ff0000;">красный текст</span></td></tr>
+<tr><td>C(511)‘тоже красный текст’</td><td>&lt;span style="color:#FF0000;">тоже красный текст&lt;/span></td><td><span style="color:#FF0000;">тоже красный текст</span></td></tr>
+<tr><td>C(111)‘[почти] чёрный текст’</td><td>&lt;span style="color:#000000;"><abbr title="большинство мониторов всё равно не умеет отображать абсолютно чёрный цвет ☻, это скорее очень-тёмно-тёмно-тёмно-серый">[почти]</abbr> чёрный текст&lt;/span></td><td><span style="color:#000000;"><span class="sq"><span class="sq_brackets">[</span>почти<span class="sq_brackets">]</span></span> чёрный текст</span></td></tr>
 <tr><th colspan="3">Таблицы</th></tr>
 <tr><td><pre style="display: inline">Т‘
 Н‘‘A’ ‘B’ ‘C’’
@@ -124,6 +126,19 @@ div.spoiler_text {
 &lt;/table></td><td><table>
 <tr><th>A</th><th>B</th><th>C</th></tr>
 <tr><td>1</td><td>2</td><td>3</td></tr>
+</table>
+</td></tr>
+<tr><td><pre style="display: inline">Т‘‘
+‘A’ ‘B’
+’‘
+-   ‘C’
+’’
+</pre></td><td>&lt;table><br />
+&lt;tr>&lt;td>A&lt;/td>&lt;td>B&lt;/td>&lt;/tr><br />
+&lt;tr>&lt;td colspan="2">C&lt;/td>&lt;/tr><br />
+&lt;/table></td><td><table>
+<tr><td>A</td><td>B</td></tr>
+<tr><td colspan="2">C</td></tr>
 </table>
 </td></tr>
 </table>
@@ -173,7 +188,7 @@ div.spoiler_text {
 <h3>"Сырой"\Raw HTML</h3><br />
 <code>'‘HTML-код...<br />
 ...’'</code><br />
-(<!--[[[‘]]]-->Вставка непарных кавычек ’ и ‘ внутри HTML-кода решается посредством такого синтаксического правила: символ апострофа ' перед ‘такой строкой’ "съедает" начальные символы ‘, а после ‘такой строки’ "съедает" конечные символы ’, а если в тексте строки встречается несколько непарных кавычек, то необходимо добавить соответствующее количество апострофов ' с нужной стороны, например: <pre style="display: inline">'''‘‘‘Don’t! Don’t!’'</pre>, неправильные кавычки ’‘<!--[[[’]]]--> — <pre style="display: inline">''‘‘’‘’’''</pre> (<abbr title="может это и не очень красиво выглядит, зато [в подавляющем большинстве случаев] сырые\raw строки с корректной/соблюдённой парностью кавычек будут выглядеть предельно кратко">примечание</abbr>).)<br />
+(<!--[[[‘]]]-->Вставка непарных кавычек ’ и ‘ внутри HTML-кода решается посредством такого синтаксического правила: символ апострофа ' перед ‘такой строкой’ <abbr title="один символ апострофа съедает один символ кавычки">съедает</abbr> начальные символы ‘, а после ‘такой строки’ съедает конечные символы ’, и если в тексте строки встречается несколько непарных кавычек, то необходимо добавить соответствующее количество апострофов ' с нужной стороны, например: <pre style="display: inline">'''‘‘‘Don’t! Don’t!’'</pre>, неправильные кавычки ’‘<!--[[[’]]]--> — <pre style="display: inline">''‘‘’‘’’''</pre> (<abbr title="может это и не очень красиво выглядит, зато [в подавляющем большинстве случаев] сырые\raw строки с корректной/соблюдённой парностью кавычек будут выглядеть очень кратко">примечание</abbr>).)<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Примеры<br /></span><div class="spoiler_text" style="display:none"><table>
 <tr><th>Пк-разметка</th><th>HTML</th><th>Как выглядит</th></tr>
 <tr><td>&lt;</td><td>&amp;lt;</td><td>&lt;</td></tr>
@@ -181,6 +196,7 @@ div.spoiler_text {
 <tr><td><pre style="display: inline">'‘Don‘t! Don‘t! Don‘t!’’’’''''</pre></td><td colspan="2">Don‘t! Don‘t! Don‘t!</td></tr>
 <tr><td><pre style="display: inline">''‘‘’‘’’''</pre></td><td colspan="2">’‘</td></tr>
 <tr><td><pre style="display: inline">''''‘‘‘‘Don’t! Don’t! Don’t!’'</pre></td><td colspan="2">Don’t! Don’t! Don’t!</td></tr>
+<tr><td><pre style="display: inline">Don'‘’t! Don'‘’t! Don'‘’t!</pre></td><td colspan="2">Don’t! Don’t! Don’t!</td></tr>
 </table>
 </div><br />
 !‘текст/код *‘без’ форматирования (обычным шрифтом)’<br />
