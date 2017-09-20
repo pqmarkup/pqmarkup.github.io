@@ -1,0 +1,105 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<base target="_blank">
+<script type="text/javascript">
+function spoiler(element, event)
+{
+    if (event.target.nodeName == 'A')//чтобы работали ссылки в спойлерах
+        return;
+    var e = element.firstChild.nextSibling.nextSibling;//element.getElementsByTagName('span')[0]
+    e.previousSibling.style.display = e.style.display;//<span>…</span> must have inverted display style
+    e.style.display = (e.style.display == "none" ? "" : "none");
+    element.firstChild.style.fontWeight =
+    element. lastChild.style.fontWeight = (e.style.display == "" ? "normal" : "bold");
+    event.stopPropagation();
+}
+function spoiler2(element, event)
+{
+    element.nextSibling.style.display = (element.nextSibling.style.display == "none" ? "" : "none");
+}
+</script>
+<style type="text/css">
+body td {
+    font-size: 14px;
+    font-family: Verdana, sans-serif;
+    line-height: 160%;
+}
+span.cu_brackets_b {
+    font-size: initial;
+    font-family: initial;
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+    color: #6da3bd;
+}
+a:hover {
+    text-decoration: underline;
+    color: #4d7285;
+}
+h3 {
+    margin: 0;
+    font-size: 137.5%;
+    font-weight: 400;
+}
+td {text-align: justify; /*font-family: Tahoma, sans-serif*/}
+span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
+span.sq_brackets {color: #DDD}
+span.cu_brackets {cursor: pointer}
+span.cu {background-color: #F7F7FF}
+abbr {text-decoration: none; border-bottom: 1px dotted}
+pre, code {font-family: 'Courier New'}
+table table {margin: 1.5em 0; border-collapse: collapse}
+table table th, table table td {padding: .3em; border: 1px solid #ccc}
+span.spoiler_title {
+    color: #548eaa;
+    cursor: pointer;
+    border-bottom: 1px dotted;
+}
+div.spoiler_text {
+    /*border: 1px dotted;*/
+    margin: 5px;
+    padding: 3px;
+}
+</style>
+</head>
+<body>
+<table width="55%" align="center"><tr><td>
+<div align="right"><sub><a href="./ru">(Эта страница на русском\This page in Russian)</a></sub></div><a href="./syntax">Syntax of pqmarkup</a><br />
+<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">How to type paired single quotation marks (characters ‘ and ’)...<br /></span><div class="spoiler_text" style="display:none"><ul>
+<li>In Windows you can use without additional settings hotkeys Alt+0145 (on the numeric keypad) for left mark <code>‘</code> and Alt+0146 for right mark <code>’</code> (though it works not at all programs/applications).<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">By the way, this numbers on the numeric keypad situated very felicitously:<br /></span><div class="spoiler_text" style="display:none"><pre style="display: inline">
+┌───┬───┐
+│ 4 │ 5 │
+├───┼───┘
+│ 1 │
+├───┴───┐
+│ 0     │
+└───────┘</pre><br />
+It is similar to left square bracket <code>[</code>.<!--]--><br />
+It's very easy to remember.<br />
+</div></li>
+<li>Using program <a href="https://autohotkey.com/download/">AutoHotkey</a> you can assign for example hotkeys <!--[[[Right]]]-->Alt+9 and <!--[[[Right]]]-->Alt+0 to insert single quotation marks by adding this two lines in your ahk-file:<br />
+<code>
+Alt &amp; 9:: SendInput {‘}<br />
+Alt &amp; 0:: SendInput {’}<br />
+</code></li>
+<li><span class="spoiler_title" onclick="return spoiler2(this, event)">В SublimeText<br /></span><div class="spoiler_text" style="display:none"><span class="sq"><span class="sq_brackets">[</span>-TODO: translate corresponding text into English from ru.pq-<span class="sq_brackets">]</span></span><br />
+</div></li>
+</ul>
+</div><br />
+Base implementation on Python:<br />
+<ul>
+<li><a href="https://pypi.python.org/pypi/pqmarkup">Project pqmarkup at the Python Package Index</a></li>
+<li><a href="https://bitbucket.org/pqmarkup/pqmarkup">Link to the main repository</a></li>
+</ul>
+<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Articles on pqmarkup<br /></span><div class="spoiler_text" style="display:none"><ul>
+<li>‘Article on habrahabr.ru (in Russian) titled ‘‘Новый облегчённый язык разметки текста на основе одиночных парных кавычек (pq)’’’<span class="sq"><span class="sq_brackets">[</span>-вставить ссылку после публикации статьи-<span class="sq_brackets">]</span></span></li>
+</ul>
+</div>
+</td></tr></table>
+</body>
+</html>
