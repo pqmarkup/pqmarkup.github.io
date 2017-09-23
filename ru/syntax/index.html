@@ -128,10 +128,12 @@ div.spoiler_text {
 <tr><td>1</td><td>2</td><td>3</td></tr>
 </table>
 </td></tr>
+<tr><th colspan="3"><sub>Объединение ячеек таблицы</sub></th></tr>
+<tr><td colspan="3"><sub>Чтобы объединить ячейки таблицы, нужно каждую отсутствующую ячейку заменить на символ <code>-</code> или символ <code>|</code> таким образом, чтобы следуя по символу <code>-</code> влево и по символу <code>|</code> вверх можно было выйти на соответствующую значимую ячейку.</sub></td></tr>
 <tr><td><pre style="display: inline">Т‘‘
 ‘A’ ‘B’
 ’‘
--   ‘C’
+‘C’  -
 ’’
 </pre></td><td>&lt;table><br />
 &lt;tr>&lt;td>A&lt;/td>&lt;td>B&lt;/td>&lt;/tr><br />
@@ -139,6 +141,52 @@ div.spoiler_text {
 &lt;/table></td><td><table>
 <tr><td>A</td><td>B</td></tr>
 <tr><td colspan="2">C</td></tr>
+</table>
+</td></tr>
+<tr><td><pre style="display: inline">T‘‘
+‘ ’ ‘ ’ ‘1’ ’‘
+‘ ’ ‘ ’  |  ’‘
+‘2’  -   |  ’’
+</pre></td><td>&lt;table><br />
+&lt;tr>&lt;td> &lt;/td> &lt;td>&lt;/td>&lt;td rowspan="3">1&lt;/td>&lt;/tr><br />
+&lt;tr>&lt;td> &lt;/td> &lt;td>&lt;/td>&lt;/tr><br />
+&lt;tr>&lt;td colspan="2">2&lt;/td>&lt;/tr><br />
+&lt;/table></td><td><table>
+<tr><td> </td><td> </td><td rowspan="3">1</td></tr>
+<tr><td> </td><td> </td></tr>
+<tr><td colspan="2">2</td></tr>
+</table>
+</td></tr>
+<tr><td><pre style="display: inline">T‘‘
+‘ ’ ‘ ’ ‘1’ ’‘
+‘ ’ ‘ ’  |  ’‘
+‘2’  -   -  ’’
+</pre></td><td>&lt;table><br />
+&lt;tr>&lt;td> &lt;/td>&lt;td> &lt;/td>&lt;td rowspan="2">1&lt;/td>&lt;/tr><br />
+&lt;tr>&lt;td> &lt;/td>&lt;td> &lt;/td>&lt;/tr><br />
+&lt;tr>&lt;td colspan="3">2&lt;/td>&lt;/tr><br />
+&lt;/table></td><td><table>
+<tr><td> </td><td> </td><td rowspan="2">1</td></tr>
+<tr><td> </td><td> </td></tr>
+<tr><td colspan="3">2</td></tr>
+</table>
+</td></tr>
+<tr><td colspan="3"><sub>Для больших объединений ячеек (2х2 и более): вправо от значимой ячейки идут символы <code>-</code>, вниз идут символы <code>|</code>, а остальные отсутствующие ячейки можно заполнять либо символом <code>-</code> либо <code>|</code>, но рекомендуется всегда использовать <code>-</code>.</sub></td></tr>
+<tr><td><pre style="display: inline">T‘‘
+‘1’  -   -  ‘2’ ’‘
+ |   -   -  ‘3’ ’‘
+ |   -   -  ‘4’ ’‘
+‘5’ ‘6’ ‘7’     ’’
+</pre></td><td>&lt;table><br />
+&lt;tr>&lt;td colspan="3" rowspan="3">1&lt;/td>&lt;td>2&lt;/td>&lt;/tr><br />
+&lt;tr>&lt;td>3&lt;/td>&lt;/tr><br />
+&lt;tr>&lt;td>4&lt;/td>&lt;/tr><br />
+&lt;tr>&lt;td>5&lt;/td>&lt;td>6&lt;/td>&lt;td>7&lt;/td>&lt;/tr><br />
+&lt;/table></td><td><table>
+<tr><td colspan="3" rowspan="3">1</td><td>2</td></tr>
+<tr><td>3</td></tr>
+<tr><td>4</td></tr>
+<tr><td>5</td><td>6</td><td>7</td></tr>
 </table>
 </td></tr>
 </table>

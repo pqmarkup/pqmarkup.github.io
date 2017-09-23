@@ -2,8 +2,8 @@
 ‘Syntax of pqmarkup’[./syntax]
 
 ‘How to type paired single quotation marks (characters ‘ and ’)...’{
-.‘In Windows you can use without additional settings hotkeys Alt+0145 (on the numeric keypad) for left mark `‘` and Alt+0146 for right mark `’` (though it works not at all programs/applications).
-‘By the way, this numbers on the numeric keypad situated very felicitously:’{
+.‘In Windows you can use without additional settings hotkey Alt+0145 (on the numeric keypad) for left mark `‘` and hotkey Alt+0146 for right mark `’` (though it works not at all programs/applications).
+‘By the way, this numbers on the numeric keypad are situated very felicitously:’{
 #‘
 ┌───┬───┐
 │ 4 │ 5 │
