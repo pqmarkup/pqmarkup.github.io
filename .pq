@@ -32,3 +32,7 @@ Base implementation on Python:
 ‘Articles on pqmarkup’{
 . ‘Article on habrahabr.ru (in Russian) titled ‘‘Новый облегчённый язык разметки текста на основе одиночных парных кавычек (pq)’’’[-вставить ссылку после публикации статьи-]
 }
+
+
+
+><‘P‘https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png’[https://www.paypal.me/pqmarkup ‘Please donate to prevent further development of this project (: and so to keep it at maximum stable state :).’]’

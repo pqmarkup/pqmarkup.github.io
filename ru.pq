@@ -86,3 +86,7 @@ class pq_format_char(sublime_plugin.TextCommand):
 ‘Статьи по пк-разметке\pqmarkup’{
 . ‘Статья на Хабрахабре ‘‘Новый облегчённый язык разметки текста на основе одиночных парных кавычек (pq)’’’[-вставить ссылку после публикации статьи-]
 }
+
+
+
+><‘P‘https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png’[https://www.paypal.me/pqmarkup ‘Please donate to prevent further development of this project (: and so to keep it at maximum stable state :).’]’
