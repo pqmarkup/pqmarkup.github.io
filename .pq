@@ -1,5 +1,7 @@
 >>‘\/‘‘(Эта страница на русском\This page in Russian)’[./ru]’’
+
 ‘Syntax of pqmarkup’[./syntax]
+
 
 ‘How to type paired single quotation marks (characters ‘ and ’)...’{
 .‘In Windows you can use without additional settings hotkey Alt+0145 (on the numeric keypad) for the [[[left/]]]opening quotation mark `‘` and hotkey Alt+0146 for the [[[right/]]]closing quotation mark `’` (though it works not at all programs/applications).
@@ -79,13 +81,16 @@ This makes simpler to format text with bold/underline/strikethrough/italic (just
 }
 }
 
-Base implementation on Python:
+
+Original implementation in Python:
 . ‘Project pqmarkup at the Python Package Index’[https://pypi.python.org/pypi/pqmarkup]
 . ‘Link to the main repository’[https://bitbucket.org/pqmarkup/pqmarkup]
+
 
 ‘Articles on pqmarkup’{
 . ‘Article on habrahabr.ru (in Russian) titled ‘‘Новый облегчённый язык разметки текста на основе парных кавычек (pq)’’’[-вставить ссылку после публикации статьи-]
 }
+
 
 
 
