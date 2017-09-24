@@ -87,7 +87,7 @@ Alt &amp; 9:: SendInput {‘}<br />
 Alt &amp; 0:: SendInput {’}<br />
 </code></li>
 <li><span class="spoiler_title" onclick="return spoiler2(this, event)">В SublimeText<br /></span><div class="spoiler_text" style="display:none"><ol>
-<li>Добавьте в файл настроек Default (xxx).sublime-keymap (можно открыть через меню Preferences -> Key Bindings):<br />
+<li>Добавьте в файл настроек <code>Default (xxx).sublime-keymap</code> (можно открыть через меню Preferences -> Key Bindings):<br />
 Если у вас уже настроен ввод символа ‘<!--[[[’]]]--> в AutoHotkey:<br />
 <pre style="display: inline">
     { "keys": ["‘"], "command": "insert_pq" }, // ’ (for balance)
@@ -140,7 +140,7 @@ class pq_format_char(sublime_plugin.TextCommand):
     { "keys": ["-"], "command": "pq_format_char", "args": {"char": "-"} },
     { "keys": ["~"], "command": "pq_format_char", "args": {"char": "~"} },
 </pre><br />
-Так будет гораздо проще выделять жирным/курсивом/подчёркиванием/зачёркиванием выделенный текст (достаточно просто выделить текст и нажать клавишу для ввода соответствующего символа форматирования).<br />
+Так будет гораздо проще выделять текст жирным/подчёркиванием/зачёркиванием/курсивом (достаточно просто выделить текст и нажать клавишу соответствующего символа форматирования).<br />
 </div></div></li>
 </ul>
 </div><br />
@@ -151,7 +151,7 @@ class pq_format_char(sublime_plugin.TextCommand):
 </ul>
 <br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Статьи по пк-разметке\pqmarkup<br /></span><div class="spoiler_text" style="display:none"><ul>
-<li>‘Статья на Хабрахабре ‘‘Новый облегчённый язык разметки текста на основе одиночных парных кавычек (pq)’’’<span class="sq"><span class="sq_brackets">[</span>-вставить ссылку после публикации статьи-<span class="sq_brackets">]</span></span></li>
+<li>‘Статья на Хабрахабре ‘‘Новый облегчённый язык разметки текста на основе парных кавычек (pq)’’’<span class="sq"><span class="sq_brackets">[</span>-вставить ссылку после публикации статьи-<span class="sq_brackets">]</span></span></li>
 </ul>
 </div><br />
 <br />

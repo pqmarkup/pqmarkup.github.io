@@ -69,7 +69,7 @@ div.spoiler_text {
 <div align="right"><sub><a href="./ru" target="_self">(Эта страница на русском\This page in Russian)</a></sub></div><a href="./syntax" target="_self">Syntax of pqmarkup</a><br />
 <br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">How to type paired single quotation marks (characters ‘ and ’)...<br /></span><div class="spoiler_text" style="display:none"><ul>
-<li>In Windows you can use without additional settings hotkey Alt+0145 (on the numeric keypad) for left mark <code>‘</code> and hotkey Alt+0146 for right mark <code>’</code> (though it works not at all programs/applications).<br />
+<li>In Windows you can use without additional settings hotkey Alt+0145 (on the numeric keypad) for the <!--[[[left/]]]-->opening quotation mark <code>‘</code> and hotkey Alt+0146 for the <!--[[[right/]]]-->closing quotation mark <code>’</code> (though it works not at all programs/applications).<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">By the way, this numbers on the numeric keypad are situated very felicitously:<br /></span><div class="spoiler_text" style="display:none"><pre style="display: inline">
 ┌───┬───┐
 │ 4 │ 5 │
@@ -78,16 +78,70 @@ div.spoiler_text {
 ├───┴───┐
 │ 0     │
 └───────┘</pre><br />
-It is similar to left square bracket <code>[</code>.<!--]--><br />
-It's very easy to remember.<br />
+It is similar to the left square bracket <code>[</code>.<!--]--><br />
+So it's very easy to remember.<br />
 </div></li>
 <li>Using program <a href="https://autohotkey.com/download/">AutoHotkey</a> you can assign for example hotkeys <!--[[[Right]]]-->Alt+9 and <!--[[[Right]]]-->Alt+0 to insert single quotation marks by adding this two lines in your ahk-file:<br />
 <code>
 Alt &amp; 9:: SendInput {‘}<br />
 Alt &amp; 0:: SendInput {’}<br />
 </code></li>
-<li><span class="spoiler_title" onclick="return spoiler2(this, event)">В SublimeText<br /></span><div class="spoiler_text" style="display:none"><span class="sq"><span class="sq_brackets">[</span>-TODO: translate corresponding text into English from ru.pq-<span class="sq_brackets">]</span></span><br />
-</div></li>
+<li><span class="spoiler_title" onclick="return spoiler2(this, event)">In SublimeText<br /></span><div class="spoiler_text" style="display:none"><ol>
+<li>Add following line(s) to <code>Default (xxx).sublime-keymap</code> file (it can be opened from menu Preferences -> Key Bindings):<br />
+If you have already assigned hotkey for inserting character ‘<!--[[[’]]]--> in AutoHotkey:<br />
+<pre style="display: inline">
+    { "keys": ["‘"], "command": "insert_pq" }, // ’ (for balance)
+</pre>Otherwise:<br />
+<pre style="display: inline">
+    { "keys": ["alt+9"], "command": "insert_pq" }, // ‘ (for balance)
+    { "keys": ["alt+0"], "command": "insert_snippet", "args": {"contents": "’"} },
+    // pressing right alt+X is treated as ctrl+alt+X
+    { "keys": ["ctrl+alt+9"], "command": "insert_pq" }, // ‘ (for balance)              
+    { "keys": ["ctrl+alt+0"], "command": "insert_snippet", "args": {"contents": "’"} },
+</pre></li>
+<li>Add to a <abbr title="already present in directory SublimeText/Data/Packages/User, or you can create new py-file in that directory">py-file</abbr> (near with your .sublime-keymap file):<br />
+<pre style="display: inline">
+def balance_pq_string(s): # input: string without quotes, output: string surrounded with quotes
+    min_nesting_level = 0
+    nesting_level = 0
+    i = 0
+    while i &lt; len(s):
+        ch = s[i]
+        if ch == "‘":
+            nesting_level += 1
+        elif ch == "’":
+            nesting_level -= 1
+            min_nesting_level = min(min_nesting_level, nesting_level)
+        i += 1
+    nesting_level -= min_nesting_level
+    return "'"*-min_nesting_level + "‘"*-min_nesting_level + "‘" + s + "’" + "’"*nesting_level + "'"*nesting_level
+
+class insert_pq(sublime_plugin.TextCommand):
+    def run(self, edit, prefix = '', postfix = ''):
+        for ri, rgn in enumerate(self.view.sel()):
+            self.view.replace(edit, rgn, prefix + balance_pq_string(self.view.substr(rgn)) + postfix)
+            rgn = self.view.sel()[ri]
+            self.view.sel().subtract(rgn)
+            self.view.sel().add(sublime.Region(rgn.a+1+len(prefix), rgn.b-1-len(postfix)))
+
+class pq_format_char(sublime_plugin.TextCommand):
+    def run(self, edit, char):
+        selected_text = self.view.substr(self.view.sel()[0])
+        if selected_text == '':
+            self.view.run_command("insert_snippet", {"contents": char})
+        else:
+            self.view.run_command("insert_pq", {"prefix": char})
+</pre><br />
+    </li>
+</ol>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">You can also add this lines to Default (xxx).sublime-keymap:<br /></span><div class="spoiler_text" style="display:none"><pre style="display: inline">
+    { "keys": ["*"], "command": "pq_format_char", "args": {"char": "*"} },
+    { "keys": ["_"], "command": "pq_format_char", "args": {"char": "_"} },
+    { "keys": ["-"], "command": "pq_format_char", "args": {"char": "-"} },
+    { "keys": ["~"], "command": "pq_format_char", "args": {"char": "~"} },
+</pre><br />
+This makes simpler to format text with bold/underline/strikethrough/italic (just select text and press corresponding key to format selected text).<br />
+</div></div></li>
 </ul>
 </div><br />
 Base implementation on Python:<br />
@@ -97,7 +151,7 @@ Base implementation on Python:<br />
 </ul>
 <br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Articles on pqmarkup<br /></span><div class="spoiler_text" style="display:none"><ul>
-<li>‘Article on habrahabr.ru (in Russian) titled ‘‘Новый облегчённый язык разметки текста на основе одиночных парных кавычек (pq)’’’<span class="sq"><span class="sq_brackets">[</span>-вставить ссылку после публикации статьи-<span class="sq_brackets">]</span></span></li>
+<li>‘Article on habrahabr.ru (in Russian) titled ‘‘Новый облегчённый язык разметки текста на основе парных кавычек (pq)’’’<span class="sq"><span class="sq_brackets">[</span>-вставить ссылку после публикации статьи-<span class="sq_brackets">]</span></span></li>
 </ul>
 </div><br />
 <br />
