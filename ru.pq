@@ -1,6 +1,9 @@
 >>‘\/‘‘(This page in English\Эта страница на английском)’[./..]’’
 
-‘Описание синтаксиса пк-разметки’[./syntax]
+Пк-разметка\pqmarkup — это ‘облегчённый язык разметки’[https://ru.wikipedia.org/wiki/Язык_разметки#.D0.9E.D0.B1.D0.BB.D0.B5.D0.B3.D1.87.D1.91.D0.BD.D0.BD.D1.8B.D0.B5_.D1.8F.D0.B7.D1.8B.D0.BA.D0.B8_.D1.80.D0.B0.D0.B7.D0.BC.D0.B5.D1.82.D0.BA.D0.B8] текста (как Markdown, BBCode, вики-разметка и т.п.), основанный на одиночных парных кавычках — символах `‘` и `’`.
+
+
+*‘‘Описание синтаксиса пк-разметки.’[./syntax]’
 
 
 ‘‘Советы по набору’/‘способы набора’ символов одиночных парных кавычек ‘ и ’...’{
@@ -77,6 +80,24 @@ class pq_format_char(sublime_plugin.TextCommand):
     { "keys": ["~"], "command": "pq_format_char", "args": {"char": "~"} },
 ’
 Так будет гораздо проще выделять текст жирным/подчёркиванием/зачёркиванием/курсивом (достаточно просто выделить текст и нажать клавишу соответствующего символа форматирования).
+А также можно добавить:
+#(Javascript)‘
+    { "keys": [     "alt+`"], "command": "pq_format_char", "args": {"char": "~"} },
+    { "keys": ["ctrl+alt+`"], "command": "pq_format_char", "args": {"char": "~"} },
+    //(почему ~, а не ` — обычно код всё равно на английском и для ввода символа ` допустимо переключать раскладку)
+
+    { "keys": [     "alt+3"], "command": "pq_format_char", "args": {"char": "#"} },
+    { "keys": ["ctrl+alt+3"], "command": "pq_format_char", "args": {"char": "#"} },
+    { "keys": [     "alt+2"], "command": "insert", "args": {"characters": "@"} },
+    { "keys": ["ctrl+alt+2"], "command": "insert", "args": {"characters": "@"} },
+    { "keys": [     "alt+4"], "command": "insert", "args": {"characters": "$"} },
+    { "keys": ["ctrl+alt+4"], "command": "insert", "args": {"characters": "$"} },
+    { "keys": [     "alt+6"], "command": "insert", "args": {"characters": "^"} },
+    { "keys": ["ctrl+alt+6"], "command": "insert", "args": {"characters": "^"} },
+    { "keys": [     "alt+7"], "command": "insert", "args": {"characters": "&"} },
+    { "keys": ["ctrl+alt+7"], "command": "insert", "args": {"characters": "&"} },
+’
+Это пригодится для ввода символов #, @, $, ^ и & при активированной русской раскладке.
 }
 }
 }
