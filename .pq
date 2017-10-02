@@ -82,6 +82,8 @@ class pq_format_char(sublime_plugin.TextCommand):
 This makes simpler to format text with bold/underline/strikethrough/italic (just select text and press corresponding key to format selected text).
 }
 }
+.‘In Android you can use ‘Jbak Keyboard’[https://play.google.com/store/apps/details?id=com.jbak.JbakKeyboard], which allows you to customize your keyboard layout.
+‘Here is a zip file’[./files/keyboards.zip] with keyboard layouts with added characters ‘ and ’.’
 }
 
 
