@@ -5,7 +5,7 @@
 <script type="text/javascript">
 function spoiler(element, event)
 {
-    if (event.target.nodeName == 'A')//чтобы работали ссылки в спойлерах
+    if (event.target.nodeName == 'A' || event.target.onclick)//чтобы работали ссылки в спойлерах и спойлеры2 в спойлерах
         return;
     var e = element.firstChild.nextSibling.nextSibling;//element.getElementsByTagName('span')[0]
     e.previousSibling.style.display = e.style.display;//<span>…</span> must have inverted display style
@@ -67,14 +67,14 @@ div.spoiler_text {
 <body>
 <table width="55%" align="center"><tr><td>
 <div align="right"><sub><a href="./ru" target="_self">(Эта страница на русском\This page in Russian)</a></sub></div><br />
-pqmarkup is a <a href="https://en.wikipedia.org/wiki/Lightweight_markup_language">lightweight markup language</a> (like Markdown, BBCode, wiki markup, etc.), which is based on single paired quotation marks: characters <code>‘</code> and <code>’</code>.<br />
+pqmarkup is a <a href="https://en.wikipedia.org/wiki/Lightweight_markup_language">lightweight markup language</a> (like Markdown, BBCode, wiki markup, etc.), which is based on single paired quotation marks: characters <pre style="display: inline">‘</pre> and <pre style="display: inline">’</pre>.<br />
 <br />
 <br />
 <b><a href="./syntax" target="_self">Syntax of pqmarkup.</a></b><br />
 <br />
 <br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">How to type paired single quotation marks (characters ‘ and ’)...<br /></span><div class="spoiler_text" style="display:none"><ul>
-<li>In Windows you can use without additional settings hotkey Alt+0145 (on the numeric keypad) for the <!--[[[left/]]]-->opening quotation mark <code>‘</code> and hotkey Alt+0146 for the <!--[[[right/]]]-->closing quotation mark <code>’</code> (though it works not at all programs/applications).<br />
+<li>In Windows you can use without additional settings hotkey Alt+0145 (on the numeric keypad) for the <!--[[[left/]]]-->opening quotation mark <pre style="display: inline">‘</pre> and hotkey Alt+0146 for the <!--[[[right/]]]-->closing quotation mark <pre style="display: inline">’</pre><!--[[[ (though it works not at all programs/applications)]]]-->.<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">By the way, this numbers on the numeric keypad are situated very felicitously:<br /></span><div class="spoiler_text" style="display:none"><pre style="display: inline">
 ┌───┬───┐
 │ 4 │ 5 │
@@ -83,16 +83,16 @@ pqmarkup is a <a href="https://en.wikipedia.org/wiki/Lightweight_markup_language
 ├───┴───┐
 │ 0     │
 └───────┘</pre><br />
-It is similar to the left square bracket <code>[</code>.<!--]--><br />
+It is similar to the left square bracket <pre style="display: inline">[</pre>.<!--]--><br />
 So it's very easy to remember.<br />
 </div></li>
 <li>Using program <a href="https://autohotkey.com/download/">AutoHotkey</a> you can assign for example hotkeys <!--[[[Right]]]-->Alt+9 and <!--[[[Right]]]-->Alt+0 to insert single quotation marks by adding this two lines in your ahk-file:<br />
-<code>
-Alt &amp; 9:: SendInput {‘}<br />
-Alt &amp; 0:: SendInput {’}<br />
-</code></li>
+<pre style="display: inline">
+Alt &amp; 9:: SendInput {‘}
+Alt &amp; 0:: SendInput {’}
+</pre></li>
 <li><span class="spoiler_title" onclick="return spoiler2(this, event)">In SublimeText<br /></span><div class="spoiler_text" style="display:none"><ol>
-<li>Add following line(s) to <code>Default (xxx).sublime-keymap</code> file (it can be opened from menu Preferences -> Key Bindings):<br />
+<li>Add following line(s) to <pre style="display: inline">Default (xxx).sublime-keymap</pre> file (it can be opened from menu Preferences -> Key Bindings):<br />
 If you have already assigned hotkey for inserting character ‘<!--[[[’]]]--> in AutoHotkey:<br />
 <pre style="display: inline">
     { "keys": ["‘"], "command": "insert_pq" }, // ’ (for balance)

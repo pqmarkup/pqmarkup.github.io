@@ -5,7 +5,7 @@
 <script type="text/javascript">
 function spoiler(element, event)
 {
-    if (event.target.nodeName == 'A')//чтобы работали ссылки в спойлерах
+    if (event.target.nodeName == 'A' || event.target.onclick)//чтобы работали ссылки в спойлерах и спойлеры2 в спойлерах
         return;
     var e = element.firstChild.nextSibling.nextSibling;//element.getElementsByTagName('span')[0]
     e.previousSibling.style.display = e.style.display;//<span>…</span> must have inverted display style
@@ -67,14 +67,14 @@ div.spoiler_text {
 <body>
 <table width="55%" align="center"><tr><td>
 <div align="right"><sub><a href="./.." target="_self">(This page in English\Эта страница на английском)</a></sub></div><br />
-Пк-разметка\pqmarkup — это <a href="https://ru.wikipedia.org/wiki/Язык_разметки#.D0.9E.D0.B1.D0.BB.D0.B5.D0.B3.D1.87.D1.91.D0.BD.D0.BD.D1.8B.D0.B5_.D1.8F.D0.B7.D1.8B.D0.BA.D0.B8_.D1.80.D0.B0.D0.B7.D0.BC.D0.B5.D1.82.D0.BA.D0.B8">облегчённый язык разметки</a> текста (как Markdown, BBCode, вики-разметка и т.п.), основанный на одиночных парных кавычках — символах <code>‘</code> и <code>’</code>.<br />
+Пк-разметка\pqmarkup — это <a href="https://ru.wikipedia.org/wiki/Язык_разметки#.D0.9E.D0.B1.D0.BB.D0.B5.D0.B3.D1.87.D1.91.D0.BD.D0.BD.D1.8B.D0.B5_.D1.8F.D0.B7.D1.8B.D0.BA.D0.B8_.D1.80.D0.B0.D0.B7.D0.BC.D0.B5.D1.82.D0.BA.D0.B8">облегчённый язык разметки</a> текста (как Markdown, BBCode, вики-разметка и т.п.), основанный на одиночных парных кавычках — символах <pre style="display: inline">‘</pre> и <pre style="display: inline">’</pre>.<br />
 <br />
 <br />
 <b><a href="./syntax" target="_self">Описание синтаксиса пк-разметки.</a></b><br />
 <br />
 <br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">‘Советы по набору’/‘способы набора’ символов одиночных парных кавычек ‘ и ’...<br /></span><div class="spoiler_text" style="display:none"><ul>
-<li>В Windows можно использовать без дополнительных настроек сочетание клавиш Alt+0145 (на цифровой клавиатуре) для открывающей кавычки <code>‘</code> и Alt+0146 для закрывающей <code>’</code> (правда, работает это не во всех программах).<br />
+<li>В Windows можно использовать без дополнительных настроек сочетание клавиш <abbr title="в русской раскладке работает только через левый Alt">Alt</abbr>+0145 (на цифровой клавиатуре) для открывающей кавычки <pre style="display: inline">‘</pre> и Alt+0146 для закрывающей <pre style="display: inline">’</pre><!--[[[ (правда, работает это не во всех программах)][-необходимо указать хотя бы один пример такой программы (вроде в Chrome не работало, но сейчас не повторяется/не воспроизводится)-]]]-->.<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Визуально на цифровой клавиатуре эти цифры расположены очень удачно:<br /></span><div class="spoiler_text" style="display:none"><pre style="display: inline">
 ┌───┬───┐
 │ 4 │ 5 │
@@ -83,16 +83,16 @@ div.spoiler_text {
 ├───┴───┐
 │ 0     │
 └───────┘</pre><br />
-Похоже на открывающую квадратную скобочку <code>[</code>.<!--]--><br />
+Похоже на открывающую квадратную скобочку <pre style="display: inline">[</pre>.<!--]--><br />
 Очень легко запомнить.<br />
 </div></li>
 <li>С помощью программы <a href="https://autohotkey.com/download/">AutoHotkey</a> можно назначить например сочетания клавиш <!--[[[Right]]]-->Alt+9 и <!--[[[Right]]]-->Alt+0 для ввода одиночных парных кавычек добавив такие две строчки в файл-скрипт настроек:<br />
-<code>
-Alt &amp; 9:: SendInput {‘}<br />
-Alt &amp; 0:: SendInput {’}<br />
-</code></li>
+<pre style="display: inline">
+Alt &amp; 9:: SendInput {‘}
+Alt &amp; 0:: SendInput {’}
+</pre></li>
 <li><span class="spoiler_title" onclick="return spoiler2(this, event)">В SublimeText<br /></span><div class="spoiler_text" style="display:none"><ol>
-<li>Добавьте в файл настроек <code>Default (xxx).sublime-keymap</code> (можно открыть через меню Preferences -> Key Bindings):<br />
+<li>Добавьте в файл настроек <pre style="display: inline">Default (xxx).sublime-keymap</pre> (можно открыть через меню Preferences -> Key Bindings):<br />
 Если у вас уже настроен ввод символа ‘<!--[[[’]]]--> в AutoHotkey:<br />
 <pre style="display: inline">
     { "keys": ["‘"], "command": "insert_pq" }, // ’ (for balance)

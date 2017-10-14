@@ -7,7 +7,7 @@ pqmarkup is a ‘lightweight markup language’[https://en.wikipedia.org/wiki/Li
 
 
 ‘How to type paired single quotation marks (characters ‘ and ’)...’{
-.‘In Windows you can use without additional settings hotkey Alt+0145 (on the numeric keypad) for the [[[left/]]]opening quotation mark `‘` and hotkey Alt+0146 for the [[[right/]]]closing quotation mark `’` (though it works not at all programs/applications).
+.‘In Windows you can use without additional settings hotkey Alt+0145 (on the numeric keypad) for the [[[left/]]]opening quotation mark `‘` and hotkey Alt+0146 for the [[[right/]]]closing quotation mark `’`[[[ (though it works not at all programs/applications)]]].
 ‘By the way, this numbers on the numeric keypad are situated very felicitously:’{
 #‘
 ┌───┬───┐

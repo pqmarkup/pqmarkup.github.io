@@ -5,7 +5,7 @@
 <script type="text/javascript">
 function spoiler(element, event)
 {
-    if (event.target.nodeName == 'A')//чтобы работали ссылки в спойлерах
+    if (event.target.nodeName == 'A' || event.target.onclick)//чтобы работали ссылки в спойлерах и спойлеры2 в спойлерах
         return;
     var e = element.firstChild.nextSibling.nextSibling;//element.getElementsByTagName('span')[0]
     e.previousSibling.style.display = e.style.display;//<span>…</span> must have inverted display style
@@ -74,7 +74,7 @@ div.spoiler_text {
 <tr><td><pre style="display: inline">~‘italic’</pre></td><td><i>italic</i></td></tr>
 </table>
 <i>Remark</i>:<br />
-This does not work: <code>~*‘bold italics’</code> (it will be just ~<b>bold</b>), write this: <code>~‘*‘</code><i><b>bold italics</b></i><code>’’</code> or this: <code>*‘~‘</code><b><i>bold italics</i></b><code>’’</code>.<br />
+This does not work: <pre style="display: inline">~*‘bold italics’</pre> (it will be just ~<b>bold</b>), write this: <pre style="display: inline">~‘*‘</pre><i><b>bold italics</b></i><pre style="display: inline">’’</pre> or this: <pre style="display: inline">*‘~‘</pre><b><i>bold italics</i></b><pre style="display: inline">’’</pre>.<br />
 <br />
 <h3>Links and tooltips</h3><br />
 Link[http://address]<br />
@@ -130,7 +130,7 @@ Red text — C(red)‘text’<br />
 </table>
 </td></tr>
 <tr><th colspan="3"><sub>How to merge table cells</sub></th></tr>
-<tr><td colspan="3"><sub>To merge cells of the table you should replace each absent cell with a character <code>-</code> or character <code>|</code>, so moving left on characters <code>-</code> and moving up on characters <code>|</code> you can go out to the corresponding meaningful cell.</sub></td></tr>
+<tr><td colspan="3"><sub>To merge cells of the table you should replace each absent cell with a character <pre style="display: inline">-</pre> or character <pre style="display: inline">|</pre>, so moving left on characters <pre style="display: inline">-</pre> and moving up on characters <pre style="display: inline">|</pre> you can go out to the corresponding meaningful cell.</sub></td></tr>
 <tr><td><pre style="display: inline">Т‘‘
 ‘A’ ‘B’
 ’‘
@@ -172,7 +172,7 @@ Red text — C(red)‘text’<br />
 <tr><td colspan="3">2</td></tr>
 </table>
 </td></tr>
-<tr><td colspan="3"><sub>To merge cells 2x2 and more: put characters <code>-</code> to the right of the merged cell, and put characters <code>|</code> downwards, and the rest absent cells should be filled with character <code>-</code> (recommended) or character <code>|</code>.</sub></td></tr>
+<tr><td colspan="3"><sub>To merge cells 2x2 and more: put characters <pre style="display: inline">-</pre> to the right of the merged cell, and put characters <pre style="display: inline">|</pre> downwards, and the rest absent cells should be filled with character <pre style="display: inline">-</pre> (recommended) or character <pre style="display: inline">|</pre>.</sub></td></tr>
 <tr><td><pre style="display: inline">T‘‘
 ‘1’  -   -  ‘2’ ’‘
  |   -   -  ‘3’ ’‘
@@ -232,8 +232,8 @@ Horizontal rule tag (&lt;hr />) can be produced by placing three or more hyphens
 <hr />
 <br />
 <h3>Raw HTML</h3><br />
-<code>'‘HTML-code...<br />
-...’'</code><br />
+<pre style="display: inline">'‘HTML-code...
+...’'</pre><br />
 (<!--[[[‘]]]-->If you want to insert unpaired single quotation mark characters ’ and ‘ into HTML-code then follow this rule: apostrophe ' before ‘such string’ <abbr title="one apostrophe character absorbs one single quotation mark character">absorbs</abbr> beginning ‘ characters, and after ‘such string’ absorbs ending ’ characters, and if string contains some unpaired single quotation mark characters, then it is necessary to add corresponding amount of apostrophes ' at correct side, for example: <pre style="display: inline">'''‘‘‘Don’t! Don’t!’'</pre>, unpaired quotes ’‘<!--[[[’]]]--> — <pre style="display: inline">''‘‘’‘’’''</pre> (<abbr title="may be this looks not very elegant, but [in most cases] raw strings with correct paired single quotes will look extremely briefly">note</abbr>).)<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Samples<br /></span><div class="spoiler_text" style="display:none"><table>
 <tr><th>pq markup</th><th>HTML</th><th>How it looks</th></tr>
@@ -246,7 +246,7 @@ Horizontal rule tag (&lt;hr />) can be produced by placing three or more hyphens
 </table>
 </div><br />
 !‘text/code *‘without’ formatting (normal font)’<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Why it was chosen character `!`<br /></span><div class="spoiler_text" style="display:none">Character <code>!</code> associates among <!--[[[most]]]--> <abbr title="on languages based on C">programmers</abbr> with "logical not", and in that case text under ! with quotes ‘’ disables pq formatting.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Why it was chosen character `!`<br /></span><div class="spoiler_text" style="display:none">Character <pre style="display: inline">!</pre> associates among <!--[[[most]]]--> <abbr title="on languages based on C">programmers</abbr> with "logical not", and in that case text under ! with quotes ‘’ disables pq formatting.<br />
 </div><!--[[[For text without formatting "raw" HTML can be used also (but in that case character `<` will not be replaced with `&lt;`):
 !‘'‘text/code *‘without’ formatting (normal font)’'’]]]--><br />
 <br />
@@ -263,17 +263,17 @@ Horizontal rule tag (&lt;hr />) can be produced by placing three or more hyphens
 <blockquote>Blockquote</blockquote>
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Is space necessary here? Why?<br /></span><div class="spoiler_text" style="display:none">Yes, it is necessary.<br />
 <abbr title="same reason is applicable to lists (there also must be space character after `1.` and `.`)">Why</abbr> — to avoid problems in following cases<!--[[[ {and also in `<tag>text` [at the beginning of line] character `<` will not recognized as responding blockquote}]]]-->:<br />
-<code>>‘Link text’[http://...] following text.</code><br />
+<pre style="display: inline">>‘Link text’[http://...] following text.</pre><br />
 can be treated as:<br />
-<code>>‘Link text’<br />
-[http://...] following text.</code><br />
+<pre style="display: inline">>‘Link text’
+[http://...] following text.</pre><br />
 <!--[[[or (what is the same):
 `> Link text
 [http://...] following text.`]]]--><br />
 So, you should write:<br />
-<code>> ‘Link text’[http://...] following text.</code><br />
+<pre style="display: inline">> ‘Link text’[http://...] following text.</pre><br />
 or:<br />
-<code>>‘‘Link text’[http://...] following text.’</code><br />
+<pre style="display: inline">>‘‘Link text’[http://...] following text.’</pre><br />
 </div><br />
 >‘Multiline<br />
 blockquote’<br />
