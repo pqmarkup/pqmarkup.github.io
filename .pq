@@ -1,5 +1,20 @@
 >>‘\/‘‘(Эта страница на русском\This page in Russian)’[./ru]’’
 
+><‘\/‘\/‘\/‘\/‘\/‘
+'‘<pre>
+████                                    ████
+  ██                                    ██  
+  ████  ████  ████        ████  ████  ████  
+    ██    ████    ██    ██    ████    ██    
+          ██      ██    ██      ██          
+          ██      ██    ██      ██          
+          ██      ██    ██      ██          
+          ████████        ████████          
+          ██                    ██          
+        ██████                ██████        
+</pre>’'
+’’’’’’
+
 pqmarkup is a ‘lightweight markup language’[https://en.wikipedia.org/wiki/Lightweight_markup_language] (like Markdown, BBCode, Wiki markup, etc.), which is based on single paired quotation marks: characters `‘` and `’`.
 
 

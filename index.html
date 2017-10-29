@@ -49,7 +49,7 @@ span.sq_brackets {color: #DDD}
 span.cu_brackets {cursor: pointer}
 span.cu {background-color: #F7F7FF}
 abbr {text-decoration: none; border-bottom: 1px dotted}
-pre, code {font-family: 'Courier New'}
+pre, code {font-family: 'Courier New'; line-height: normal}
 table table {margin: 1.5em 0; border-collapse: collapse}
 table table th, table table td {padding: .3em; border: 1px solid #ccc}
 span.spoiler_title {
@@ -66,7 +66,23 @@ div.spoiler_text {
 </head>
 <body>
 <table width="55%" align="center"><tr><td>
-<div align="right"><sub><a href="./ru" target="_self">(Эта страница на русском\This page in Russian)</a></sub></div><br />
+<div align="right"><sub><a href="./ru" target="_self">(Эта страница на русском\This page in Russian)</a></sub></div>
+<br />
+<div align="center"><sub><sub><sub><sub><sub><br />
+<pre>
+████                                    ████
+  ██                                    ██  
+  ████  ████  ████        ████  ████  ████  
+    ██    ████    ██    ██    ████    ██    
+          ██      ██    ██      ██          
+          ██      ██    ██      ██          
+          ██      ██    ██      ██          
+          ████████        ████████          
+          ██                    ██          
+        ██████                ██████        
+</pre><br />
+</sub></sub></sub></sub></sub></div>
+<br />
 pqmarkup is a <a href="https://en.wikipedia.org/wiki/Lightweight_markup_language">lightweight markup language</a> (like Markdown, BBCode, Wiki markup, etc.), which is based on single paired quotation marks: characters <pre style="display: inline">‘</pre> and <pre style="display: inline">’</pre>.<br />
 <br />
 <br />
@@ -85,7 +101,8 @@ pqmarkup is a <a href="https://en.wikipedia.org/wiki/Lightweight_markup_language
 └───────┘</pre><br />
 It is similar to the left square bracket <pre style="display: inline">[</pre>.<!--]--><br />
 So it's very easy to remember.<br />
-</div></li>
+</div>
+</li>
 <li>Using program <a href="https://autohotkey.com/download/">AutoHotkey</a> you can assign for example hotkeys <!--[[[Right]]]-->Alt+9 and <!--[[[Right]]]-->Alt+0 to insert single quotation marks by adding this two lines in your ahk-file:<br />
 <pre style="display: inline">
 Alt &amp; 9:: SendInput {‘}
@@ -95,7 +112,8 @@ Alt &amp; 0:: SendInput {’}
 <li>In Android you can use <a href="https://play.google.com/store/apps/details?id=com.jbak.JbakKeyboard">Jbak Keyboard</a>, which allows you to customize your keyboard layout.<br />
 <a href="./files/keyboards.zip" target="_self">Here is a zip file</a> with keyboard layouts with added characters ‘ and ’.</li>
 </ul>
-</div><br />
+</div>
+<br />
 <br />
 Original implementation in Python:<br />
 <ul>
@@ -107,11 +125,13 @@ Original implementation in Python:<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Articles on pqmarkup<br /></span><div class="spoiler_text" style="display:none"><ul>
 <li>‘Article on habrahabr.ru (in Russian) titled ‘‘Новый облегчённый язык разметки текста на основе парных кавычек (pq)’’’<span class="sq"><span class="sq_brackets">[</span>-вставить ссылку после публикации статьи-<span class="sq_brackets">]</span></span></li>
 </ul>
-</div><br />
+</div>
+<br />
 <br />
 <br />
 <br />
 <div align="center"><a href="https://www.paypal.me/pqmarkup" title="Please donate to prevent further development of this project (: and so to keep it at maximum stable state :)."><img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" /></a></div>
+
 </td></tr></table>
 </body>
 </html>

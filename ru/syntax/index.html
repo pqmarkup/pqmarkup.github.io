@@ -49,7 +49,7 @@ span.sq_brackets {color: #DDD}
 span.cu_brackets {cursor: pointer}
 span.cu {background-color: #F7F7FF}
 abbr {text-decoration: none; border-bottom: 1px dotted}
-pre, code {font-family: 'Courier New'}
+pre, code {font-family: 'Courier New'; line-height: normal}
 table table {margin: 1.5em 0; border-collapse: collapse}
 table table th, table table td {padding: .3em; border: 1px solid #ccc}
 span.spoiler_title {
@@ -68,10 +68,10 @@ div.spoiler_text {
 <table width="55%" align="center"><tr><td>
 <h2>Базовое форматирование<!--[[[ (ядро)]]]--></h2><br />
 <h3><!--[[[Стилизация/]]]-->Оформление текста</h3><table>
-<tr><td><pre style="display: inline">*‘жирный’</pre></td><td><b>жирный</b><abbr title="символ * похож на букву ж">.</abbr></td></tr>
+<tr><td><pre style="display: inline">*‘жирный’</pre></td><td><b>жирный</b><!--[[[‘.’[‘символ * похож на букву ж’]]]]--></td></tr>
 <tr><td><pre style="display: inline">_‘подчёркнутый’</pre></td><td><u>подчёркнутый</u></td></tr>
 <tr><td><pre style="display: inline">-‘зачёркнутый’</pre></td><td><s>зачёркнутый</s></td></tr>
-<tr><td><pre style="display: inline">~‘курсив’</pre></td><td><i>курсив</i><abbr title="почему не /‘курсив’ — во-первых, курсив даёт не только наклон, но и изменяет шрифт (особенно буквы т, д, г), и, во-вторых, курсив может использоваться для придания особого смысла выделенному курсивом тексту, например так: ~‘правильный’ (‘близкий к правильному’/‘приблизительно правильный’), а в математике знак ~ означает ‘приблизительно’">.</abbr></td></tr>
+<tr><td><pre style="display: inline">~‘курсив’</pre></td><td><i>курсив</i><!--[[[‘.’[‘почему не /‘курсив’ — во-первых, курсив даёт не только наклон, но и изменяет шрифт (особенно буквы т, д, г), и, во-вторых, курсив может использоваться для придания особого смысла выделенному курсивом тексту, например так: ~‘правильный’ (‘близкий к правильному’/‘приблизительно правильный’), а в математике знак ~ означает ‘приблизительно’’]]]]--></td></tr>
 </table>
 <i>Примечание:</i><br />
 Вот так не работает: <pre style="display: inline">~*‘жирный курсив’</pre> (будет просто ~<b>жирный</b>), пишите так: <pre style="display: inline">~‘*‘</pre><i><b>жирный курсив</b></i><pre style="display: inline">’’</pre> или так: <pre style="display: inline">*‘~‘</pre><b><i>жирный курсив</i></b><pre style="display: inline">’’</pre> (<abbr title="чтобы не злоупотреблять форматированием и чтобы лучше было видно в исходной пк-разметке такие места">так и задумано</abbr>).<br />
@@ -89,7 +89,8 @@ div.spoiler_text {
 <tr><td>ссылка[https://address ‘текст всплывающей подсказки’]</td><td>&lt;a href="https://address" title="текст всплывающей подсказки">ссылка&lt;/a></td><td><a href="https://address" title="текст всплывающей подсказки">ссылка</a></td></tr>
 <tr><td>текст[‘текст всплывающей подсказки’]</td><td>&lt;abbr title="текст всплывающей подсказки">текст&lt;/abbr></td><td><abbr title="текст всплывающей подсказки">текст</abbr></td></tr>
 </table>
-</div><br />
+</div>
+<br />
 <h3>Заголовки, картинки, цвет и таблицы</h3><table>
 <tr><td>Н (русская)</td><td>H (английская)</td><td>Название заголовка\Header</td></tr>
 <tr><td>Р (русская)</td><td>P (английская)</td><td><!--[[[изобРажение/каРтинка/]]]-->Рисунок\Picture <abbr title="предполагается расширить возможности P до аналога тега <picture> из HTML 5.1">[почему не I(image)]</abbr></td></tr>
@@ -191,7 +192,8 @@ div.spoiler_text {
 </table>
 </td></tr>
 </table>
-</div><br />
+</div>
+<br />
 <h3>Комментарии</h3><br />
 [[[комментарий/<abbr title="А что? :) Очень удобно таким способом прятать в исходном тексте лишние слова/мысли, которые жалко удалять.">контейнер для воды (:</abbr>]]]<br />
 <br />
@@ -200,14 +202,35 @@ div.spoiler_text {
 <h3>Спойлер (разворачиваемый блок информации)</h3><br />
 <table>
 <tr><th>Пк-разметка</th><th>Как выглядит</th></tr>
-<tr><td>‘Заголовок спойлера’{Содержимое спойлера}</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Заголовок спойлера<br /></span><div class="spoiler_text" style="display:none">Содержимое спойлера</div></td></tr>
+<tr><td>‘Заголовок спойлера’{Содержимое спойлера}</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Заголовок спойлера<br /></span><div class="spoiler_text" style="display:none">Содержимое спойлера</div>
+</td></tr>
 <tr><td>‘Заголовок спойлера’{<br />
 Содержимое<br />
 спойлера<br />
 }</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Заголовок спойлера<br /></span><div class="spoiler_text" style="display:none">Содержимое<br />
 спойлера<br />
-</div></td></tr>
+</div>
+</td></tr>
 <tr><td>текст {пояснение} продолжение текста</td><td>текст <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">пояснение</span><span class="cu_brackets_b">}</span></span> продолжение текста</td></tr>
+<tr><td colspan="2"><span class="spoiler_title" onclick="return spoiler2(this, event)">Для чего нужна последняя форма<br /></span><div class="spoiler_text" style="display:none">Если внимательно понаблюдать за собой, то возможно обнаружить <span class="sq"><span class="sq_brackets">[</span>такой факт<span class="sq_brackets">]</span></span>, что мышление в действительности не линейно, а<br />
+древовидно<!--[[[на мысль вставить символ новой строки перед словом ‘древовидно’ меня натолкнул тот факт, что на моём мониторе это слово перенеслось на новую строку, и я обратил внимание, что при чтении данного предложения это добавляет паузу перед прочтением этого слова, и подумав над этим, я решил/‘пришёл к выводу’, что пауза перед этим словом действительно необходима]]]-->.<br />
+<span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><br />
+&emsp;Нередко в процессе высказывания какой-либо длинной законченной мысли <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">а вернее: цепочки <span class="sq"><span class="sq_brackets">[</span>из<span class="sq_brackets">]</span></span> мыслей, или связанной последовательности мыслей</span><span class="cu_brackets_b">}</span></span> возникают уточняющие мысли <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">ну и, конечно же, ими не терпится сразу же поделиться <!--[[[(:]]]-->:)</span><span class="cu_brackets_b">}</span></span> ещё до того, как была высказана мысль изначальная.<br />
+&emsp;И дабы не запутывать слушателя или читателя <!--[[[своими ]]]-->несвязными потоками мыслей, разумнее/логичнее сначала полностью высказать/закончить изначальную <!--[[[законченную ]]]-->мысль<!--[[[ целиком]]]-->. Но если в разговоре сделать <abbr title="не отвлекаться на новые возникшие мысли, а продолжать последовательно излагать изначальную мысль">это</abbr> не так и просто, то для письменной формы <span class="sq"><span class="sq_brackets">[</span>высказывания/выражения своих мыслей<span class="sq_brackets">]</span></span> я предлагаю такой инструмент структурирования <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><!--[[[не очень подходящее слово]]]-->а точнее говоря, инструмент, который подсказывает читателю порядок чтения текста автора для более лёгкого и точного его понимания</span><span class="cu_brackets_b">}</span></span> мыслей, <abbr title="хотя согласен, что это больше похоже на усложнение, а не на облегчение, но без такой разметки получилось бы просто нагромождение слов, понять которые читая их последовательно было бы ещё сложнее">облегчающий</abbr> для читателя<!--[[[
+Говорить, что я ‘предлагаю инструмент, облегчающий для читателя’, не совсем [честно/]точно, так как [./praformat.txt]:‘
+Формат пк-разметки [[[изначально предназначался[/разрабатывался]]]/]предназначен‘*’[‘одно из предназначений’] для максимально точного [[[выражения/]оцифровки мыслей]/]~‘преобразования’[/сериализации] потоков[[[/нитей[/ветвей [дерева мысли]]]]] ~‘мыслей [[[и их записи]]] в цифровую форму’’
+Но это также не совсем честно, так как, во-первых, заключать текст в фигурные скобочки я стал ещё до использования парных кавычек, и [[[[ничто не мешает]]]]вполне возможно добавить функционал/возможность скрывания текста в фигурных скобочках в какую-то другую разметку текста, а, во-вторых, пк-разметка (а впрочем и никакая другая) никак не может гарантировать точность выражения мыслей автора.
+]]]--> понимание <b>всего</b><!--[[[ того]]]-->, что хотел сказать автор текста. Для того, чтобы это "работало", я предлагаю следовать такому простому правилу: раскрывать фигурные скобочки, то есть запись {…}, читателю следует после прочтения всего абзаца <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">ну или хотя бы <span class="sq"><span class="sq_brackets">[</span>соответствующего<span class="sq_brackets">]</span></span> предложения</span><span class="cu_brackets_b">}</span></span> <!--[[[до конца]/]]-->целиком.<br />
+<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">А для чего было заключать этот текст в [{такие}] скобочки?<br /></span><div class="spoiler_text" style="display:none"><ol>
+<li>Заключение текста в [{такие}] скобочки намекает на то, что его можно вообще не читать <!--[[[(:]]]-->:). И для тех, кто сможет использовать эту <abbr title="возможность лёгкого скрытия текста, просто поместив его в фигурные скобочки">возможность</abbr> <abbr title="понимаю, что большинство, скорее всего, не сможет (по крайней мере, сразу) отличать основные мысли от второстепенных/уточняющих, и тем более, отличать важные (для читателя!) от вспомогательных, но я считаю, что попробовать дать/предоставить такую возможность определённо стóит">разумно</abbr>, одного первого предложения <!--[[[будет ]]]-->вполне достаточно <span class="sq"><span class="sq_brackets">[</span>для пояснения того, зачем нужна эта возможность<span class="sq_brackets">]</span></span>.</li>
+<li>Чувствуя, что текст получился "не очень" (не очень красивым<span class="sq"><span class="sq_brackets">[</span>/точным/качественным<span class="sq_brackets">]</span></span> отражением того, что я хотел сказать), мне, как автору этого текста, становится немного стыдно за него и хочется, с одной стороны, показать это (что я и сам понимаю, что текст получился не очень красивым), а, с другой стороны, так как считаю это уточнение важным, совсем <abbr title="или убирать/скрывать в &quot;контейнер для воды&quot; :)">удалять</abbr> его <!--[[[из текста ]]]-->не хочется. Можно сказать, это пометка для задачи на будущее переформулировать/переписать этот текст так, чтобы избавиться от [{таких}] скобочек, оставив только {такие}.</li>
+<li>Чтобы читатель остановился на последнем <abbr title="речь, очевидно, о слове ‘древовидно’">слове</abbr> предложения перед <!--[[[следующим далее]]/]-->последующим <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">скрытым текстом</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span> и задумался. (Это же ответ на вопрос ‘для чего оставлять этот текст в {таких} скобочках’.)</li>
+</ol>
+</div>
+</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span><br />
+</div>
+</td></tr>
 </table>
 <br />
 <h3>Списки</h3><br />
@@ -245,10 +268,12 @@ div.spoiler_text {
 <tr><td><pre style="display: inline">''''‘‘‘‘Don’t! Don’t! Don’t!’'</pre></td><td colspan="2">Don’t! Don’t! Don’t!</td></tr>
 <tr><td><pre style="display: inline">Don'‘’t! Don'‘’t! Don'‘’t!</pre></td><td colspan="2">Don’t! Don’t! Don’t!</td></tr>
 </table>
-</div><br />
+</div>
+<br />
 !‘текст/код *‘без’ форматирования (обычным шрифтом)’<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Почему был выбран символ `!`<br /></span><div class="spoiler_text" style="display:none">Символ <pre style="display: inline">!</pre> ассоциируется у <!--[[[большинства]]]--> <abbr title="на языках, производных от Си">программистов</abbr> с not\отрицанием, и в данном случае текст под ! с кавычками ‘’ отрицает всё пк-форматирование.<br />
-</div><!--[[[Для текста без форматирования ещё можно использовать "сырой" HTML (но при этом символ `<` не будет заменяться на `&lt;`):
+</div>
+<!--[[[Для текста без форматирования ещё можно использовать "сырой" HTML (но при этом символ `<` не будет заменяться на `&lt;`):
 !‘'‘текст/код *‘без’ форматирования (обычным шрифтом)’'’]]]--><br />
 <br />
 <h3>Вставка исходного кода</h3><br />
@@ -275,14 +300,19 @@ div.spoiler_text {
 <pre style="display: inline">> ‘Текст ссылки’[http://...] продолжение текста.</pre><br />
 либо так:<br />
 <pre style="display: inline">>‘‘Текст ссылки’[http://...] продолжение текста.’</pre><br />
-</div><br />
+</div>
+<br />
 >‘Многострочная<br />
 цитата’<br />
 <blockquote>Многострочная<br />
 цитата</blockquote><br />
 <br />
 <h3>Выравнивание текста</h3><br />
-<div align="left">&lt;&lt;‘выравнивание по левому краю’</div><div align="right">>>‘выравнивание по правому краю’</div><div align="center">>&lt;‘выравнивание по центру’</div><div align="justify">&lt;>‘выравнивание по ширине’</div><br />
+<div align="left">&lt;&lt;‘выравнивание по левому краю’</div>
+<div align="right">>>‘выравнивание по правому краю’</div>
+<div align="center">>&lt;‘выравнивание по центру’</div>
+<div align="justify">&lt;>‘выравнивание по ширине’</div>
+<br />
 <sup>/\‘надстрочный’</sup> текст<br />
 <sub>\/‘подстрочный’</sub> текст<br />
 <br />
@@ -298,6 +328,7 @@ div.spoiler_text {
 >&lt; — по центру<br />
 &lt;> — по ширине<br />
 </div>
+
 </td></tr></table>
 </body>
 </html>

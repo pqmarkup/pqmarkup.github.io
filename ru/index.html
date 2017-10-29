@@ -49,7 +49,7 @@ span.sq_brackets {color: #DDD}
 span.cu_brackets {cursor: pointer}
 span.cu {background-color: #F7F7FF}
 abbr {text-decoration: none; border-bottom: 1px dotted}
-pre, code {font-family: 'Courier New'}
+pre, code {font-family: 'Courier New'; line-height: normal}
 table table {margin: 1.5em 0; border-collapse: collapse}
 table table th, table table td {padding: .3em; border: 1px solid #ccc}
 span.spoiler_title {
@@ -66,7 +66,23 @@ div.spoiler_text {
 </head>
 <body>
 <table width="55%" align="center"><tr><td>
-<div align="right"><sub><a href="./.." target="_self">(This page in English\Эта страница на английском)</a></sub></div><br />
+<div align="right"><sub><a href="./.." target="_self">(This page in English\Эта страница на английском)</a></sub></div>
+<br />
+<div align="center"><sub><sub><sub><sub><sub><br />
+<pre>
+████                                    ████
+  ██                                    ██  
+  ████  ████  ████        ████  ████  ████  
+    ██    ████    ██    ██    ████    ██    
+          ██      ██    ██      ██          
+          ██      ██    ██      ██          
+          ██      ██    ██      ██          
+          ████████        ████████          
+          ██                    ██          
+        ██████                ██████        
+</pre><br />
+</sub></sub></sub></sub></sub></div>
+<br />
 Пк-разметка\pqmarkup — это <a href="https://ru.wikipedia.org/wiki/Язык_разметки#.D0.9E.D0.B1.D0.BB.D0.B5.D0.B3.D1.87.D1.91.D0.BD.D0.BD.D1.8B.D0.B5_.D1.8F.D0.B7.D1.8B.D0.BA.D0.B8_.D1.80.D0.B0.D0.B7.D0.BC.D0.B5.D1.82.D0.BA.D0.B8">облегчённый язык разметки</a> текста (как Markdown, BBCode, вики-разметка и т.п.), основанный на одиночных парных кавычках — символах <pre style="display: inline">‘</pre> и <pre style="display: inline">’</pre>.<br />
 <br />
 <br />
@@ -85,7 +101,8 @@ div.spoiler_text {
 └───────┘</pre><br />
 Похоже на открывающую квадратную скобочку <pre style="display: inline">[</pre>.<!--]--><br />
 Очень легко запомнить.<br />
-</div></li>
+</div>
+</li>
 <li>С помощью программы <a href="https://autohotkey.com/download/">AutoHotkey</a> можно назначить например сочетания клавиш <!--[[[Right]]]-->Alt+9 и <!--[[[Right]]]-->Alt+0 для ввода одиночных парных кавычек добавив такие две строчки в файл-скрипт настроек:<br />
 <pre style="display: inline">
 Alt &amp; 9:: SendInput {‘}
@@ -110,11 +127,13 @@ Alt &amp; 0:: SendInput {’}
     { "keys": ["ctrl+alt+7"], "command": "insert", "args": {"characters": "&amp;"} },
 </pre><br />
 Это пригодится для ввода символов #, @, $, ^ и &amp; при активированной русской раскладке.<br />
-</div></li>
+</div>
+</li>
 <li>В Android можно используя клавиатуру <a href="https://play.google.com/store/apps/details?id=com.jbak.JbakKeyboard">Jbak Keyboard</a> устанавливать собственные раскладки.<br />
 <a href="./../files/keyboards.zip" target="_self">Вот архив</a><span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><span class="sq"><span class="sq_brackets">[</span>-Я использую собранную мной <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">даю <a href="./../files/Jbak%20Keyboard%20-%204PDA.htm" target="_self">ссылку</a> на <abbr title="которую я успел вытащить из кэша Google после того как заметил пропажу своих сообщений">копию</abbr> этой темы, так как по оригинальной теме словно ураган прошёлся :)(: — многие сообщения при переносе/разделении тем куда-то пропали, и <a href="http://4pda.ru/forum/index.php?showuser=3122901">у меня в профиле на 4pda.ru</a> до сих пор ошибочно отображается наличие 2 сообщений, но сами сообщения при этом не находятся</span><span class="cu_brackets_b">}</span></span> <a href="./../files/test-JbakKeyboard-0.97.8.apk.zip" target="_self" title="apk пришлось спрятать в zip, так как иначе GitHub ругается: It looks like you're using GitHub Pages to distribute binary files.">версию Jbak Keyboard</a>, в которой для выбора способа ввода (т.е. другой клавиатуры) используется код -508, и я не знаю, есть ли данный функционал в последней официальной версии, но я знаю, что он есть в <a href="https://play.google.com/store/apps/details?id=com.jbak2.JbakKeyboard">форке от wolf3d2</a> (правда не помню какой код используется там). Необходимо узнать, есть ли данная функциональность в оригинальной версии и поправить данные раскладки под неё.-<span class="sq_brackets">]</span></span></span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span> с раскладками с назначенными/добавленными символами ‘ и ’.</li>
 </ul>
-</div><br />
+</div>
+<br />
 <br />
 Базовая реализация на языке Python:<br />
 <ul>
@@ -126,11 +145,13 @@ Alt &amp; 0:: SendInput {’}
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Статьи по пк-разметке\pqmarkup<br /></span><div class="spoiler_text" style="display:none"><ul>
 <li>‘Статья на Хабрахабре ‘‘Новый облегчённый язык разметки текста на основе парных кавычек (pq)’’’<span class="sq"><span class="sq_brackets">[</span>-вставить ссылку после публикации статьи-<span class="sq_brackets">]</span></span></li>
 </ul>
-</div><br />
+</div>
+<br />
 <br />
 <br />
 <br />
 <div align="center"><a href="https://www.paypal.me/pqmarkup" title="Please donate to prevent further development of this project (: and so to keep it at maximum stable state :)."><img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" /></a></div>
+
 </td></tr></table>
 </body>
 </html>

@@ -49,7 +49,7 @@ span.sq_brackets {color: #DDD}
 span.cu_brackets {cursor: pointer}
 span.cu {background-color: #F7F7FF}
 abbr {text-decoration: none; border-bottom: 1px dotted}
-pre, code {font-family: 'Courier New'}
+pre, code {font-family: 'Courier New'; line-height: normal}
 table table {margin: 1.5em 0; border-collapse: collapse}
 table table th, table table td {padding: .3em; border: 1px solid #ccc}
 span.spoiler_title {
@@ -89,7 +89,8 @@ Text[‘tooltip text’]<br />
 <tr><td>link[https://address ‘tooltip text’]</td><td>&lt;a href="https://address" title="tooltip text">link&lt;/a></td><td><a href="https://address" title="tooltip text">link</a></td></tr>
 <tr><td>text[‘tooltip text’]</td><td>&lt;abbr title="tooltip text">text&lt;/abbr></td><td><abbr title="tooltip text">text</abbr></td></tr>
 </table>
-</div><br />
+</div>
+<br />
 <h3>Headers, pictures, colors and tables</h3><table>
 <tr><td>H</td><td>Header</td></tr>
 <tr><td>P</td><td>Picture <abbr title="It is supposed to extend capabilities of this tag to something like tag <picture> from HTML 5.1.">[why not I(image)]</abbr></td></tr>
@@ -130,7 +131,7 @@ Red text — C(red)‘text’<br />
 </table>
 </td></tr>
 <tr><th colspan="3"><sub>How to merge table cells</sub></th></tr>
-<tr><td colspan="3"><sub>To merge cells of the table you should replace each absent cell with a character <pre style="display: inline">-</pre> or character <pre style="display: inline">|</pre>, so moving left on characters <pre style="display: inline">-</pre> and moving up on characters <pre style="display: inline">|</pre> you can go out to the corresponding meaningful cell.</sub></td></tr>
+<tr><td colspan="3"><sub>To merge cells of the table you should replace each absent cell with a character <pre style="display: inline">-</pre> or character <pre style="display: inline">|</pre>, so moving left on characters <pre style="display: inline">-</pre> and moving up on characters <pre style="display: inline">|</pre> you can come to the corresponding meaningful cell.</sub></td></tr>
 <tr><td><pre style="display: inline">Т‘‘
 ‘A’ ‘B’
 ’‘
@@ -191,7 +192,8 @@ Red text — C(red)‘text’<br />
 </table>
 </td></tr>
 </table>
-</div><br />
+</div>
+<br />
 <h3>Comments</h3><br />
 [[[comment]]]<br />
 <br />
@@ -200,13 +202,15 @@ Red text — C(red)‘text’<br />
 <h3>Spoilers</h3><br />
 <table>
 <tr><th>pq markup</th><th>How it looks</th></tr>
-<tr><td>‘Spoiler title’{Spoiler contents}</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Spoiler title<br /></span><div class="spoiler_text" style="display:none">Spoiler contents</div></td></tr>
+<tr><td>‘Spoiler title’{Spoiler contents}</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Spoiler title<br /></span><div class="spoiler_text" style="display:none">Spoiler contents</div>
+</td></tr>
 <tr><td>‘Spoiler title’{<br />
 Spoiler<br />
 contents<br />
 }</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Spoiler title<br /></span><div class="spoiler_text" style="display:none">Spoiler<br />
 contents<br />
-</div></td></tr>
+</div>
+</td></tr>
 <tr><td>text {spoiler} continuation of the text</td><td>text <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">spoiler</span><span class="cu_brackets_b">}</span></span> continuation of the text</td></tr>
 </table>
 <br />
@@ -244,10 +248,12 @@ Horizontal rule tag (&lt;hr />) can be produced by placing three or more hyphens
 <tr><td><pre style="display: inline">''''‘‘‘‘Don’t! Don’t! Don’t!’'</pre></td><td colspan="2">Don’t! Don’t! Don’t!</td></tr>
 <tr><td><pre style="display: inline">Don'‘’t! Don'‘’t! Don'‘’t!</pre></td><td colspan="2">Don’t! Don’t! Don’t!</td></tr>
 </table>
-</div><br />
+</div>
+<br />
 !‘text/code *‘without’ formatting (normal font)’<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Why it was chosen character `!`<br /></span><div class="spoiler_text" style="display:none">Character <pre style="display: inline">!</pre> is associated among <!--[[[most]]]--> <abbr title="on languages based on C">programmers</abbr> with "logical not", and in that case text under ! with quotes ‘’ disables pq formatting.<br />
-</div><!--[[[For text without formatting "raw" HTML can be used also (but in that case character `<` will not be replaced with `&lt;`):
+</div>
+<!--[[[For text without formatting "raw" HTML can be used also (but in that case character `<` will not be replaced with `&lt;`):
 !‘'‘text/code *‘without’ formatting (normal font)’'’]]]--><br />
 <br />
 <h3>Code blocks</h3><br />
@@ -274,14 +280,19 @@ So, you should write:<br />
 <pre style="display: inline">> ‘Link text’[http://...] following text.</pre><br />
 or:<br />
 <pre style="display: inline">>‘‘Link text’[http://...] following text.’</pre><br />
-</div><br />
+</div>
+<br />
 >‘Multiline<br />
 blockquote’<br />
 <blockquote>Multiline<br />
 blockquote</blockquote><br />
 <br />
 <h3>Text alignment</h3><br />
-<div align="left">&lt;&lt;‘left alignment’</div><div align="right">>>‘right alignment’</div><div align="center">>&lt;‘center alignment’</div><div align="justify">&lt;>‘justify alignment’</div><br />
+<div align="left">&lt;&lt;‘left alignment’</div>
+<div align="right">>>‘right alignment’</div>
+<div align="center">>&lt;‘center alignment’</div>
+<div align="justify">&lt;>‘justify alignment’</div>
+<br />
 <sup>/\‘superscript’</sup> text<br />
 <sub>\/‘subscript’</sub> text<br />
 <br />
@@ -297,6 +308,7 @@ Horizontal:<br />
 >&lt; — center<br />
 &lt;> — justify<br />
 </div>
+
 </td></tr></table>
 </body>
 </html>
