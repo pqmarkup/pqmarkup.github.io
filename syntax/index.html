@@ -49,6 +49,7 @@ span.sq_brackets {color: #DDD}
 span.cu_brackets {cursor: pointer}
 span.cu {background-color: #F7F7FF}
 abbr {text-decoration: none; border-bottom: 1px dotted}
+pre {margin: 0}
 pre, code {font-family: 'Courier New'; line-height: normal}
 table table {margin: 1.5em 0; border-collapse: collapse}
 table table th, table table td {padding: .3em; border: 1px solid #ccc}
@@ -236,8 +237,8 @@ Horizontal rule tag (&lt;hr />) can be produced by placing three or more hyphens
 <hr />
 <br />
 <h3>Raw HTML</h3><br />
-<pre style="display: inline">'‘HTML-code...
-...’'</pre><br />
+<pre>'‘HTML-code...
+...’'</pre>
 (<!--[[[‘]]]-->If you want to insert unpaired single quotation mark characters ’ and ‘ into HTML-code then follow this rule: apostrophe ' before ‘such string’ <abbr title="one apostrophe character absorbs one single quotation mark character">absorbs</abbr> beginning ‘ characters, and after ‘such string’ absorbs ending ’ characters, and if string contains some unpaired single quotation mark characters, then it is necessary to add corresponding amount of apostrophes ' at correct side, for example: <pre style="display: inline">'''‘‘‘Don’t! Don’t!’'</pre>, unpaired quotes ’‘<!--[[[’]]]--> — <pre style="display: inline">''‘‘’‘’’''</pre> (<abbr title="may be this looks not very elegant, but [in most cases] raw strings with correct paired single quotes will look extremely briefly">note</abbr>).)<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Samples<br /></span><div class="spoiler_text" style="display:none"><table>
 <tr><th>pq markup</th><th>HTML</th><th>How it looks</th></tr>
@@ -271,8 +272,8 @@ Horizontal rule tag (&lt;hr />) can be produced by placing three or more hyphens
 <abbr title="same reason is applicable to lists (there also must be space character after `1.` and `.`)">Why</abbr> — to avoid problems in following cases<!--[[[ {and also in `<tag>text` [at the beginning of line] character `<` will not recognized as responding blockquote}]]]-->:<br />
 <pre style="display: inline">>‘Link text’[http://...] following text.</pre><br />
 can be treated as:<br />
-<pre style="display: inline">>‘Link text’
-[http://...] following text.</pre><br />
+<pre>>‘Link text’
+[http://...] following text.</pre>
 <!--[[[or (what is the same):
 `> Link text
 [http://...] following text.`]]]--><br />

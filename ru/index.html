@@ -49,6 +49,7 @@ span.sq_brackets {color: #DDD}
 span.cu_brackets {cursor: pointer}
 span.cu {background-color: #F7F7FF}
 abbr {text-decoration: none; border-bottom: 1px dotted}
+pre {margin: 0}
 pre, code {font-family: 'Courier New'; line-height: normal}
 table table {margin: 1.5em 0; border-collapse: collapse}
 table table th, table table td {padding: .3em; border: 1px solid #ccc}
@@ -80,8 +81,9 @@ div.spoiler_text {
           ████████        ████████          
           ██                    ██          
         ██████                ██████        
-</pre><br />
+</pre>
 </sub></sub></sub></sub></sub></div>
+<br />
 <br />
 Пк-разметка\pqmarkup — это <a href="https://ru.wikipedia.org/wiki/Язык_разметки#.D0.9E.D0.B1.D0.BB.D0.B5.D0.B3.D1.87.D1.91.D0.BD.D0.BD.D1.8B.D0.B5_.D1.8F.D0.B7.D1.8B.D0.BA.D0.B8_.D1.80.D0.B0.D0.B7.D0.BC.D0.B5.D1.82.D0.BA.D0.B8">облегчённый язык разметки</a> текста (как Markdown, BBCode, вики-разметка и т.п.), основанный на одиночных парных кавычках — символах <pre style="display: inline">‘</pre> и <pre style="display: inline">’</pre>.<br />
 <br />
@@ -104,10 +106,11 @@ div.spoiler_text {
 </div>
 </li>
 <li>С помощью программы <a href="https://autohotkey.com/download/">AutoHotkey</a> можно назначить например сочетания клавиш <!--[[[Right]]]-->Alt+9 и <!--[[[Right]]]-->Alt+0 для ввода одиночных парных кавычек добавив такие две строчки в файл-скрипт настроек:<br />
-<pre style="display: inline">
+<pre>
 Alt &amp; 9:: SendInput {‘}
 Alt &amp; 0:: SendInput {’}
-</pre></li>
+</pre>
+</li>
 <li>В <a href="https://www.sublimetext.com/3">Sublime Text 3</a> (для Windows, Linux или macOS): просто установите <a href="https://packagecontrol.io/packages/pqmarkup">плагин pqmarkup</a>.<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Можно дополнительно ещё добавить в файл настроек User/Default.sublime-keymap:<br /></span><div class="spoiler_text" style="display:none"><pre style="display: inline">
     { "keys": [     "alt+`"], "command": "pq_format_char", "args": {"char": "~"} },

@@ -49,6 +49,7 @@ span.sq_brackets {color: #DDD}
 span.cu_brackets {cursor: pointer}
 span.cu {background-color: #F7F7FF}
 abbr {text-decoration: none; border-bottom: 1px dotted}
+pre {margin: 0}
 pre, code {font-family: 'Courier New'; line-height: normal}
 table table {margin: 1.5em 0; border-collapse: collapse}
 table table th, table table td {padding: .3em; border: 1px solid #ccc}
@@ -256,8 +257,8 @@ div.spoiler_text {
 <hr />
 <br />
 <h3>"Сырой"\Raw HTML</h3><br />
-<pre style="display: inline">'‘HTML-код...
-...’'</pre><br />
+<pre>'‘HTML-код...
+...’'</pre>
 (<!--[[[‘]]]-->Вставка непарных кавычек ’ и ‘ внутри HTML-кода решается посредством такого синтаксического правила: символ апострофа ' перед ‘такой строкой’ <abbr title="один символ апострофа съедает один символ кавычки">съедает</abbr> начальные символы ‘, а после ‘такой строки’ съедает конечные символы ’, и если в тексте строки встречается несколько непарных кавычек, то необходимо добавить соответствующее количество апострофов ' с нужной стороны, например: <pre style="display: inline">'''‘‘‘Don’t! Don’t!’'</pre>, неправильные кавычки ’‘<!--[[[’]]]--> — <pre style="display: inline">''‘‘’‘’’''</pre> (<abbr title="может это и не очень красиво выглядит, зато [в подавляющем большинстве случаев] сырые\raw строки с корректной/соблюдённой парностью кавычек будут выглядеть очень кратко">примечание</abbr>).)<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Примеры<br /></span><div class="spoiler_text" style="display:none"><table>
 <tr><th>Пк-разметка</th><th>HTML</th><th>Как выглядит</th></tr>
@@ -291,8 +292,8 @@ div.spoiler_text {
 <abbr title="эта же причина подходит и к спискам (там тоже обязателен пробел после `1.` и `.`)">Зачем</abbr> — для избежания/исключения возможных проблем в случаях<!--[[[ {а также чтобы в записи `<тег>текст` [в начале строки] символ `<` не воспринимался как обозначение ответной цитаты}]]]-->:<br />
 <pre style="display: inline">>‘Текст ссылки’[http://...] продолжение текста.</pre><br />
 может быть неверно истолковано как:<br />
-<pre style="display: inline">>‘Текст ссылки’
-[http://...] продолжение текста.</pre><br />
+<pre>>‘Текст ссылки’
+[http://...] продолжение текста.</pre>
 <!--[[[или (что то же самое):
 `> Текст ссылки
 [http://...] продолжение текста.`]]]--><br />
