@@ -51,6 +51,7 @@ span.cu {background-color: #F7F7FF}
 abbr {text-decoration: none; border-bottom: 1px dotted}
 pre {margin: 0}
 pre, code {font-family: 'Courier New'; line-height: normal}
+ul li, ol li {padding: 9px 0;}
 table table {margin: 1.5em 0; border-collapse: collapse}
 table table th, table table td {padding: .3em; border: 1px solid #ccc}
 span.spoiler_title {
@@ -85,7 +86,7 @@ Link[http://address]<br />
 Link[http://address ‘tooltip text’]<br />
 Text[‘tooltip text’]<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">More (samples)<br /></span><div class="spoiler_text" style="display:none"><table>
-<tr><th>pq markup</th><th>HTML</th><th>How it looks</th></tr>
+<tr><th>pq markup</th><th>HTML</th><th>Renders as</th></tr>
 <tr><td>[http://address]</td><td>&lt;a href="http://address">http://address&lt;/a></td><td><a href="http://address">http://address</a></td></tr>
 <tr><td>link[http://address]</td><td>&lt;a href="http://address">link&lt;/a></td><td><a href="http://address">link</a></td></tr>
 <tr><td>link[https://address]</td><td>&lt;a href="https://address">link&lt;/a></td><td><a href="https://address">link</a></td></tr>
@@ -107,7 +108,7 @@ Header — H‘Header name’<br />
 Image — P‘http://image-url’<br />
 Red text — C(red)‘text’<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">More (samples)<br /></span><div class="spoiler_text" style="display:none"><table>
-<tr><th>pq markup</th><th>HTML</th><th>How it looks</th></tr>
+<tr><th>pq markup</th><th>HTML</th><th>Renders as</th></tr>
 <tr><th colspan="3">Headers</th></tr>
 <tr><td>H‘header’</td><td>&lt;h3>header&lt;/h3></td><td><h3>header</h3></td></tr>
 <tr><td>H(1)‘header’</td><td>&lt;h2>header&lt;/h2></td><td><h2>header</h2></td></tr>
@@ -209,7 +210,7 @@ Red text — C(red)‘text’<br />
 <h3>Spoilers</h3>
 <br />
 <table>
-<tr><th>pq markup</th><th>How it looks</th></tr>
+<tr><th>pq markup</th><th>Renders as</th></tr>
 <tr><td>‘Spoiler title’{Spoiler contents}</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Spoiler title<br /></span><div class="spoiler_text" style="display:none">Spoiler contents</div>
 </td></tr>
 <tr><td>‘Spoiler title’{<br />
@@ -251,7 +252,7 @@ Horizontal rule tag (&lt;hr />) can be produced by placing three or more hyphens
 ...’'</pre>
 (<!--[[[‘]]]-->If you want to insert unpaired single quotation mark characters ’ and ‘ into HTML-code then follow this rule: apostrophe ' before ‘such string’ <abbr title="one apostrophe character absorbs one single quotation mark character">absorbs</abbr> beginning ‘ characters, and after ‘such string’ absorbs ending ’ characters, and if string contains some unpaired single quotation mark characters, then it is necessary to add corresponding amount of apostrophes ' at correct side, for example: <pre style="display: inline">'''‘‘‘Don’t! Don’t!’'</pre>, unpaired quotes ’‘<!--[[[’]]]--> — <pre style="display: inline">''‘‘’‘’’''</pre> (<abbr title="may be this looks not very elegant, but [in most cases] raw strings with correct paired single quotes will look extremely briefly">note</abbr>).)<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Samples<br /></span><div class="spoiler_text" style="display:none"><table>
-<tr><th>pq markup</th><th>HTML</th><th>How it looks</th></tr>
+<tr><th>pq markup</th><th>HTML</th><th>Renders as</th></tr>
 <tr><td>&lt;</td><td>&amp;lt;</td><td>&lt;</td></tr>
 <tr><td><pre style="display: inline">'‘&lt;div>&amp;lt;&lt;/div>’'</pre></td><td>&lt;div>&amp;lt;&lt;/div></td><td><div>&lt;</div></td></tr>
 <tr><td><pre style="display: inline">'‘Don‘t! Don‘t! Don‘t!’’’’''''</pre></td><td colspan="2">Don‘t! Don‘t! Don‘t!</td></tr>
@@ -298,7 +299,7 @@ or:<br />
 >‘Multiline<br />
 blockquote’<br />
 <blockquote>Multiline<br />
-blockquote</blockquote><br />
+blockquote</blockquote>
 <br />
 <h3>Text alignment</h3>
 <br />
