@@ -13,6 +13,7 @@ function spoiler(element, event)
     element.firstChild.style.fontWeight =
     element. lastChild.style.fontWeight = (e.style.display == "" ? "normal" : "bold");
     event.stopPropagation();
+    //[-Чтобы была возможность выделять текст внутри раскрытого ‘скрытого текста’/спойлера, необходимо [скрытие/]закрытие спойлера делать не просто по нажатию левой кнопки мыши, а по отпусканию левой кнопки мыши при условии отсутствия движения курсора [мыши] после того, как была нажата левая кнопка мыши.-]
 }
 function spoiler2(element, event)
 {
@@ -51,7 +52,12 @@ span.cu {background-color: #F7F7FF}
 abbr {text-decoration: none; border-bottom: 1px dotted}
 pre {margin: 0}
 pre, code {font-family: 'Courier New'; line-height: normal}
-ul li, ol li {padding: 9px 0;}
+ul, ol {margin: 7px 0 0 0;}
+ul li, ol li {padding: 7px 0;}
+ul li:first-child, ol li:first-child {padding-top   : 0;}
+/*
+ul li: last-child, ol li: last-child {padding-bottom: 0;} /*not working? WTF? (оставлю эту строчку здесь до тех пор, пока не исправят CSS [не собираюсь привыкать к правилам, которые противоречат здравому смыслу])*/
+ul  li:last-child, ol  li:last-child {padding-bottom: 0;} /*this line works correctly*/
 table table {margin: 1.5em 0; border-collapse: collapse}
 table table th, table table td {padding: .3em; border: 1px solid #ccc}
 span.spoiler_title {
@@ -110,9 +116,10 @@ div.spoiler_text {
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Подробнее (больше примеров)<br /></span><div class="spoiler_text" style="display:none"><table>
 <tr><th>Пк-разметка</th><th>HTML</th><th>Как выглядит</th></tr>
 <tr><th colspan="3">Заголовки\Headers</th></tr>
-<tr><td>H‘заголовок’</td><td>&lt;h3>заголовок&lt;/h3></td><td><h3>заголовок</h3></td></tr>
-<tr><td>H(1)‘заголовок’</td><td>&lt;h2>заголовок&lt;/h2></td><td><h2>заголовок</h2></td></tr>
-<tr><td>H(+1)‘заголовок’</td><td>&lt;h2>заголовок&lt;/h2></td><td><h2>заголовок</h2></td></tr>
+<tr><td>H‘заголовок’</td><td rowspan="2">&lt;h3>заголовок&lt;/h3></td><td rowspan="2"><h3>заголовок</h3></td></tr>
+<tr><td>H(0)‘заголовок’</td></tr>
+<tr><td>H(1)‘заголовок’</td><td rowspan="2">&lt;h2>заголовок&lt;/h2></td><td rowspan="2"><h2>заголовок</h2></td></tr>
+<tr><td>H(+1)‘заголовок’</td></tr>
 <tr><td>H(-1)‘заголовок’</td><td>&lt;h4>заголовок&lt;/h4></td><td><h4>заголовок</h4></td></tr>
 <tr><th colspan="3">Изображения/картинки\Pictures</th></tr>
 <tr><td>P‘https://.../blue_circle.png’</td><td>&lt;img src="https://.../blue_circle.png" /></td><td><img src="https://bitbucket.org/pqmarkup/pqmarkup/raw/default/docs/images/blue_circle.png" /></td></tr>

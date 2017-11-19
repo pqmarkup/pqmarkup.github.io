@@ -13,6 +13,7 @@ function spoiler(element, event)
     element.firstChild.style.fontWeight =
     element. lastChild.style.fontWeight = (e.style.display == "" ? "normal" : "bold");
     event.stopPropagation();
+    //[-Чтобы была возможность выделять текст внутри раскрытого ‘скрытого текста’/спойлера, необходимо [скрытие/]закрытие спойлера делать не просто по нажатию левой кнопки мыши, а по отпусканию левой кнопки мыши при условии отсутствия движения курсора [мыши] после того, как была нажата левая кнопка мыши.-]
 }
 function spoiler2(element, event)
 {
@@ -51,7 +52,12 @@ span.cu {background-color: #F7F7FF}
 abbr {text-decoration: none; border-bottom: 1px dotted}
 pre {margin: 0}
 pre, code {font-family: 'Courier New'; line-height: normal}
-ul li, ol li {padding: 9px 0;}
+ul, ol {margin: 7px 0 0 0;}
+ul li, ol li {padding: 7px 0;}
+ul li:first-child, ol li:first-child {padding-top   : 0;}
+/*
+ul li: last-child, ol li: last-child {padding-bottom: 0;} /*not working? WTF? (оставлю эту строчку здесь до тех пор, пока не исправят CSS [не собираюсь привыкать к правилам, которые противоречат здравому смыслу])*/
+ul  li:last-child, ol  li:last-child {padding-bottom: 0;} /*this line works correctly*/
 table table {margin: 1.5em 0; border-collapse: collapse}
 table table th, table table td {padding: .3em; border: 1px solid #ccc}
 span.spoiler_title {
@@ -110,9 +116,10 @@ Red text — C(red)‘text’<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">More (samples)<br /></span><div class="spoiler_text" style="display:none"><table>
 <tr><th>pq markup</th><th>HTML</th><th>Renders as</th></tr>
 <tr><th colspan="3">Headers</th></tr>
-<tr><td>H‘header’</td><td>&lt;h3>header&lt;/h3></td><td><h3>header</h3></td></tr>
-<tr><td>H(1)‘header’</td><td>&lt;h2>header&lt;/h2></td><td><h2>header</h2></td></tr>
-<tr><td>H(+1)‘header’</td><td>&lt;h2>header&lt;/h2></td><td><h2>header</h2></td></tr>
+<tr><td>H‘header’</td><td rowspan="2">&lt;h3>header&lt;/h3></td><td rowspan="2"><h3>header</h3></td></tr>
+<tr><td>H(0)‘header’</td></tr>
+<tr><td>H(1)‘header’</td><td rowspan="2">&lt;h2>header&lt;/h2></td><td rowspan="2"><h2>header</h2></td></tr>
+<tr><td>H(+1)‘header’</td></tr>
 <tr><td>H(-1)‘header’</td><td>&lt;h4>header&lt;/h4></td><td><h4>header</h4></td></tr>
 <tr><th colspan="3">Images/Pictures</th></tr>
 <tr><td>P‘https://.../blue_circle.png’</td><td>&lt;img src="https://.../blue_circle.png" /></td><td><img src="https://bitbucket.org/pqmarkup/pqmarkup/raw/default/docs/images/blue_circle.png" /></td></tr>
@@ -282,7 +289,7 @@ Horizontal rule tag (&lt;hr />) can be produced by placing three or more hyphens
 > Blockquote<br />
 <blockquote>Blockquote</blockquote>
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Is space necessary here? Why?<br /></span><div class="spoiler_text" style="display:none">Yes, it is necessary.<br />
-<abbr title="same reason is applicable to lists (there also must be space character after `1.` and `.`)">Why</abbr> — to avoid problems in following cases<!--[[[ {and also in `<tag>text` [at the beginning of line] character `<` will not recognized as responding blockquote}]]]-->:<br />
+<abbr title="the same reason is applicable to lists (there also must be space character after `1.` and `.`)">Why</abbr> — to avoid problems in the following cases<!--[[[ {and also in `<tag>text` [at the beginning of line] character `<` will not recognized as responding blockquote}]]]-->:<br />
 <pre style="display: inline">>‘Link text’[http://...] following text.</pre><br />
 can be treated as:<br />
 <pre>>‘Link text’
