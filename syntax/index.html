@@ -55,11 +55,9 @@ pre, code {font-family: 'Courier New'; line-height: normal}
 ul, ol {margin: 7px 0 0 0;}
 ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
-/*
-ul li: last-child, ol li: last-child {padding-bottom: 0;} /*not working? WTF? (оставлю эту строчку здесь до тех пор, пока не исправят CSS [не собираюсь привыкать к правилам, которые противоречат здравому смыслу])*/
-ul  li:last-child, ol  li:last-child {padding-bottom: 0;} /*this line works correctly*/
-table table {margin: 1.5em 0; border-collapse: collapse}
-table table th, table table td {padding: .3em; border: 1px solid #ccc}
+ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
+table table {margin: 9px 0; border-collapse: collapse}
+table table th, table table td {padding: 6px 13px; border: 1px solid #ddd}
 span.spoiler_title {
     color: #548eaa;
     cursor: pointer;
@@ -77,6 +75,7 @@ div.spoiler_text {
 <h2>Basic Formatting Syntax</h2>
 <br />
 <h3>Styling text</h3>
+<br />
 <table>
 <tr><td><pre style="display: inline">*‘bold’</pre></td><td><b>bold</b></td></tr>
 <tr><td><pre style="display: inline">_‘underlined’</pre></td><td><u>underlined</u></td></tr>
@@ -85,6 +84,7 @@ div.spoiler_text {
 </table>
 <i>Remark</i>:<br />
 This does not work: <pre style="display: inline">~*‘bold italics’</pre> (it will be just ~<b>bold</b>), write this: <pre style="display: inline">~‘*‘</pre><i><b>bold italics</b></i><pre style="display: inline">’’</pre> or this: <pre style="display: inline">*‘~‘</pre><b><i>bold italics</i></b><pre style="display: inline">’’</pre>.<br />
+<br />
 <br />
 <h3>Links and tooltips</h3>
 <br />
@@ -102,7 +102,9 @@ Text[‘tooltip text’]<br />
 </table>
 </div>
 <br />
+<br />
 <h3>Headers, pictures, colors and tables</h3>
+<br />
 <table>
 <tr><td>H</td><td>Header</td></tr>
 <tr><td>P</td><td>Picture <abbr title="It is supposed to extend capabilities of this tag to something like tag <picture> from HTML 5.1.">[why not I(image)]</abbr></td></tr>
@@ -207,9 +209,11 @@ Red text — C(red)‘text’<br />
 </table>
 </div>
 <br />
+<br />
 <h3>Comments</h3>
 <br />
 [[[comment]]]<br />
+<br />
 <br />
 <h2>Advanced formatting</h2>
 <br />
@@ -230,34 +234,38 @@ contents<br />
 <tr><td>text {spoiler} continuation of the text</td><td>text <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">spoiler</span><span class="cu_brackets_b">}</span></span> continuation of the text</td></tr>
 </table>
 <br />
+<br />
 <h3>Lists</h3>
 <br />
-1. Ordered<br />
-2. list<br />
-3.‘multiline<br />
-list<br />
-element’<br />
+<pre style="display: inline">1. Ordered
+2. list
+3.‘multiline
+list
+element’</pre><br />
 <!--[[[-
   1. Nested
   2. list
 -]]]--><br />
-. Unordered<br />
-. list<br />
-.‘multiline<br />
-list<br />
-element’<br />
+<pre style="display: inline">. Unordered
+. list
+.‘multiline
+list
+element’</pre><br />
+<br />
 <br />
 <h3>Horizontal rule</h3>
 <br />
 Horizontal rule tag (&lt;hr />) can be produced by placing three or more hyphens<!--[[[ or equal signs]]]--> (and also line should not contain any other characters).<br />
 <pre style="display: inline">---</pre><br />
+Renders as:<br />
 <hr />
+<br />
 <br />
 <h3>Raw HTML</h3>
 <br />
 <pre>'‘HTML-code...
 ...’'</pre>
-(<!--[[[‘]]]-->If you want to insert unpaired single quotation mark characters ’ and ‘ into HTML-code then follow this rule: apostrophe ' before ‘such string’ <abbr title="one apostrophe character absorbs one single quotation mark character">absorbs</abbr> beginning ‘ characters, and after ‘such string’ absorbs ending ’ characters, and if string contains some unpaired single quotation mark characters, then it is necessary to add corresponding amount of apostrophes ' at correct side, for example: <pre style="display: inline">'''‘‘‘Don’t! Don’t!’'</pre>, unpaired quotes ’‘<!--[[[’]]]--> — <pre style="display: inline">''‘‘’‘’’''</pre> (<abbr title="may be this looks not very elegant, but [in most cases] raw strings with correct paired single quotes will look extremely briefly">note</abbr>).)<br />
+(<!--[[[‘]]]-->If you want to insert unpaired single quotation mark characters ’ and ‘ into HTML-code then follow this rule: apostrophes ' before ‘such string’ <abbr title="one apostrophe character absorbs one single quotation mark character">absorb</abbr> beginning ‘ characters, and after ‘such string’ absorb ending ’ characters, and if string contains some unpaired single quotation mark characters, then it is necessary to add corresponding amount of apostrophes ' at correct side, for example: <pre style="display: inline">'''‘‘‘Don’t! Don’t!’'</pre>, unpaired quotes ’‘<!--[[[’]]]--> — <pre style="display: inline">''‘‘’‘’’''</pre> (<abbr title="may be this looks not very elegant, but [in most cases] raw strings with correct paired single quotes will look extremely briefly">note</abbr>).)<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Samples<br /></span><div class="spoiler_text" style="display:none"><table>
 <tr><th>pq markup</th><th>HTML</th><th>Renders as</th></tr>
 <tr><td>&lt;</td><td>&amp;lt;</td><td>&lt;</td></tr>
@@ -269,19 +277,26 @@ Horizontal rule tag (&lt;hr />) can be produced by placing three or more hyphens
 </table>
 </div>
 <br />
-!‘text/code *‘without’ formatting (normal font)’<br />
+<br />
+<h3>Disabling pq formatting</h3>
+<br />
+!‘text/code *‘without’ formatting (with normal font)’<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Why it was chosen character `!`<br /></span><div class="spoiler_text" style="display:none">Character <pre style="display: inline">!</pre> is associated among <!--[[[most]]]--> <abbr title="on languages based on C">programmers</abbr> with "logical not", and in that case text under ! with quotes ‘’ disables pq formatting.<br />
 </div>
-<!--[[[For text without formatting "raw" HTML can be used also (but in that case character `<` will not be replaced with `&lt;`):
-!‘'‘text/code *‘without’ formatting (normal font)’'’]]]--><br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">For text without pq formatting you can use '‘raw HTML’'<br /></span><div class="spoiler_text" style="display:none">'‘text/code *‘without’ formatting (with normal font)’'<br />
 <br />
-<h3>Code blocks</h3>
+(Notation !‘...’ differs from the '‘raw HTML’' only by that in !‘...’ all characters <pre style="display: inline">&amp;</pre> are replaced with <pre style="display: inline">&amp;amp;</pre>, all characters <pre style="display: inline">&lt;</pre> are replaced with <pre style="display: inline">&amp;lt;</pre>, and before each new line character tag <pre style="display: inline">&lt;br /></pre> is inserted.)<br />
+</div>
+<br />
+<br />
+<h3>Code (spans and blocks)</h3>
 <br />
 `code`<br />
 ``code``<br />
 ```code```<br />
 #‘code’<br />
 #(language)‘code’ (for example: #(JavaScript)‘code’)<br />
+(Code spans and code blocks are rendered with <pre style="display: inline">monospaced font</pre>.)<br />
 <br />
 <br />
 <h3>Blockquotes</h3>

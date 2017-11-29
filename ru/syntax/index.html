@@ -55,11 +55,9 @@ pre, code {font-family: 'Courier New'; line-height: normal}
 ul, ol {margin: 7px 0 0 0;}
 ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
-/*
-ul li: last-child, ol li: last-child {padding-bottom: 0;} /*not working? WTF? (оставлю эту строчку здесь до тех пор, пока не исправят CSS [не собираюсь привыкать к правилам, которые противоречат здравому смыслу])*/
-ul  li:last-child, ol  li:last-child {padding-bottom: 0;} /*this line works correctly*/
-table table {margin: 1.5em 0; border-collapse: collapse}
-table table th, table table td {padding: .3em; border: 1px solid #ccc}
+ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
+table table {margin: 9px 0; border-collapse: collapse}
+table table th, table table td {padding: 6px 13px; border: 1px solid #ddd}
 span.spoiler_title {
     color: #548eaa;
     cursor: pointer;
@@ -77,6 +75,7 @@ div.spoiler_text {
 <h2>Базовое форматирование<!--[[[ (ядро)]]]--></h2>
 <br />
 <h3><!--[[[Стилизация/]]]-->Оформление текста</h3>
+<br />
 <table>
 <tr><td><pre style="display: inline">*‘жирный’</pre></td><td><b>жирный</b><!--[[[‘.’[‘символ * похож на букву ж’]]]]--></td></tr>
 <tr><td><pre style="display: inline">_‘подчёркнутый’</pre></td><td><u>подчёркнутый</u></td></tr>
@@ -85,6 +84,7 @@ div.spoiler_text {
 </table>
 <i>Примечание:</i><br />
 Вот так не работает: <pre style="display: inline">~*‘жирный курсив’</pre> (будет просто ~<b>жирный</b>), пишите так: <pre style="display: inline">~‘*‘</pre><i><b>жирный курсив</b></i><pre style="display: inline">’’</pre> или так: <pre style="display: inline">*‘~‘</pre><b><i>жирный курсив</i></b><pre style="display: inline">’’</pre> (<abbr title="чтобы не злоупотреблять форматированием и чтобы лучше было видно в исходной пк-разметке такие места">так и задумано</abbr>).<br />
+<br />
 <br />
 <h3>Ссылки и всплывающие подсказки</h3>
 <br />
@@ -102,7 +102,9 @@ div.spoiler_text {
 </table>
 </div>
 <br />
+<br />
 <h3>Заголовки, картинки, цвет и таблицы</h3>
+<br />
 <table>
 <tr><td>Н (русская)</td><td>H (английская)</td><td>Название заголовка\Header</td></tr>
 <tr><td>Р (русская)</td><td>P (английская)</td><td><!--[[[изобРажение/каРтинка/]]]-->Рисунок\Picture <abbr title="предполагается расширить возможности P до аналога тега <picture> из HTML 5.1">[почему не I(image)]</abbr></td></tr>
@@ -207,9 +209,11 @@ div.spoiler_text {
 </table>
 </div>
 <br />
+<br />
 <h3>Комментарии</h3>
 <br />
 [[[комментарий/<abbr title="А что? :) Очень удобно таким способом прятать в исходном тексте лишние слова/мысли, которые жалко удалять.">контейнер для воды (:</abbr>]]]<br />
+<br />
 <br />
 <h2>Дополнительные возможности форматирования</h2>
 <br />
@@ -249,35 +253,39 @@ div.spoiler_text {
 </td></tr>
 </table>
 <br />
+<br />
 <h3>Списки</h3>
 <br />
-1. Нумерованный<br />
-2. список<br />
-3.‘если<br />
-требуется<br />
-многострочный<br />
-элемент списка’<br />
+<pre style="display: inline">1. Нумерованный
+2. список
+3.‘если
+требуется
+многострочный
+элемент списка’</pre><br />
 <!--[[[-
   1. Вложенный
   2. список
 -]]]--><br />
-. Маркированный<br />
-. список<br />
-.‘многострочный<br />
-элемент<br />
-списка’<br />
+<pre style="display: inline">. Маркированный
+. список
+.‘многострочный
+элемент
+списка’</pre><br />
+<br />
 <br />
 <h3>Горизонтальная <!--[[[черта/]]]-->линия</h3>
 <br />
 Горизонтальная <!--[[[черта/]]]-->линия (HTML-тег &lt;hr />) вставляется посредством трёх или более дефисов<!--[[[ или знаков равенства]]]--> (также строка не должна содержать никаких других символов).<br />
 <pre style="display: inline">---</pre><br />
+Выглядит так:<br />
 <hr />
+<br />
 <br />
 <h3>"Сырой"\Raw HTML</h3>
 <br />
 <pre>'‘HTML-код...
 ...’'</pre>
-(<!--[[[‘]]]-->Вставка непарных кавычек ’ и ‘ внутри HTML-кода решается посредством такого синтаксического правила: символ апострофа ' перед ‘такой строкой’ <abbr title="один символ апострофа съедает один символ кавычки">съедает</abbr> начальные символы ‘, а после ‘такой строки’ съедает конечные символы ’, и если в тексте строки встречается несколько непарных кавычек, то необходимо добавить соответствующее количество апострофов ' с нужной стороны, например: <pre style="display: inline">'''‘‘‘Don’t! Don’t!’'</pre>, неправильные кавычки ’‘<!--[[[’]]]--> — <pre style="display: inline">''‘‘’‘’’''</pre> (<abbr title="может это и не очень красиво выглядит, зато [в подавляющем большинстве случаев] сырые\raw строки с корректной/соблюдённой парностью кавычек будут выглядеть очень кратко">примечание</abbr>).)<br />
+(<!--[[[‘]]]-->Вставка непарных кавычек ’ и ‘ внутри HTML-кода решается посредством такого синтаксического правила: символы апострофа ' перед ‘такой строкой’ <abbr title="один символ апострофа съедает один символ кавычки">съедают</abbr> начальные символы ‘, а после ‘такой строки’ съедают конечные символы ’, и если в тексте строки встречается несколько непарных кавычек, то необходимо добавить соответствующее количество апострофов ' с нужной стороны, например: <pre style="display: inline">'''‘‘‘Don’t! Don’t!’'</pre>, неправильные кавычки ’‘<!--[[[’]]]--> — <pre style="display: inline">''‘‘’‘’’''</pre> (<abbr title="может это и не очень красиво выглядит, зато [в подавляющем большинстве случаев] сырые\raw строки с корректной/соблюдённой парностью кавычек будут выглядеть очень кратко">примечание</abbr>).)<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Примеры<br /></span><div class="spoiler_text" style="display:none"><table>
 <tr><th>Пк-разметка</th><th>HTML</th><th>Как выглядит</th></tr>
 <tr><td>&lt;</td><td>&amp;lt;</td><td>&lt;</td></tr>
@@ -289,11 +297,17 @@ div.spoiler_text {
 </table>
 </div>
 <br />
+<br />
+<h3>Отключение пк-форматирования</h3>
+<br />
 !‘текст/код *‘без’ форматирования (обычным шрифтом)’<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Почему был выбран символ `!`<br /></span><div class="spoiler_text" style="display:none">Символ <pre style="display: inline">!</pre> ассоциируется у <!--[[[большинства]]]--> <abbr title="на языках, производных от Си">программистов</abbr> с not\отрицанием, и в данном случае текст под ! с кавычками ‘’ отрицает всё пк-форматирование.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Почему был выбран символ `!`<br /></span><div class="spoiler_text" style="display:none">Символ <pre style="display: inline">!</pre> ассоциируется у <!--[[[большинства]]]--> <abbr title="на языках, производных от Си">программистов</abbr> с not\отрицанием, и в данном случае текст под ! с кавычками ‘’ отрицает всё пк-форматирование. <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><!--[[[‘Возможно, стоит’/‘]]]-->Можно было бы<!--[[[’]]]--> использовать 0 или О (Отключение\Off)<!--[[[.../‘]]]-->, но такое обозначение слишком бросается в глаза.<!--[[[’]]]--></span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span><br />
 </div>
-<!--[[[Для текста без форматирования ещё можно использовать "сырой" HTML (но при этом символ `<` не будет заменяться на `&lt;`):
-!‘'‘текст/код *‘без’ форматирования (обычным шрифтом)’'’]]]--><br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Для вставки текста без пк-форматирования можно использовать '‘сырой HTML’'<br /></span><div class="spoiler_text" style="display:none">'‘текст/код *‘без’ форматирования (обычным шрифтом)’'<br />
+<br />
+(Запись !‘...’ отличается от '‘сырого HTML’' только тем, что в !‘...’ каждый символ <pre style="display: inline">&amp;</pre> заменяется на <pre style="display: inline">&amp;amp;</pre>, каждый символ <pre style="display: inline">&lt;</pre> заменяется на <pre style="display: inline">&amp;lt;</pre> и перед каждым символом новой строки вставляется тег <pre style="display: inline">&lt;br /></pre>.)<br />
+</div>
+<br />
 <br />
 <h3>Вставка исходного кода</h3>
 <br />
@@ -302,6 +316,7 @@ div.spoiler_text {
 ```код```<br />
 #‘код’<br />
 #(язык)‘код’ (например: #(JavaScript)‘код’)<br />
+(Код отображается <pre style="display: inline">моноширным шрифтом</pre>.)<br />
 <br />
 <br />
 <h3>Цитирование</h3>
