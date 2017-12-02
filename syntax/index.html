@@ -39,11 +39,16 @@ a:hover {
     text-decoration: underline;
     color: #4d7285;
 }
-h3 {
+h1, h2, h3, h4, h5, h6 {
     margin: 0;
-    font-size: 137.5%;
     font-weight: 400;
 }
+h1 {font-size: 190%; line-height: 120%;}
+h2 {font-size: 160%;}
+h3 {font-size: 137.5%;}
+h4 {font-size: 120%;}
+h5 {font-size: 110%;}
+h6 {font-size: 100%;}
 td {text-align: justify; /*font-family: Tahoma, sans-serif*/}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #DDD}
@@ -52,7 +57,7 @@ span.cu {background-color: #F7F7FF}
 abbr {text-decoration: none; border-bottom: 1px dotted}
 pre {margin: 0}
 pre, code {font-family: 'Courier New'; line-height: normal}
-ul, ol {margin: 7px 0 0 0;}
+ul, ol {margin: 11px 0 7px 0;}
 ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
 ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
@@ -68,6 +73,12 @@ div.spoiler_text {
     margin: 5px;
     padding: 3px;
 }
+blockquote {
+    margin: 0 0 7px 0;
+    padding: 7px 12px;
+}
+blockquote:not(.re) {border-left:  0.2em solid #90ddaa; background-color: #fbfffb;}
+blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff8;}
 </style>
 </head>
 <body>
@@ -283,7 +294,8 @@ Renders as:<br />
 !‘text/code *‘without’ formatting (with normal font)’<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Why it was chosen character `!`<br /></span><div class="spoiler_text" style="display:none">Character <pre style="display: inline">!</pre> is associated among <!--[[[most]]]--> <abbr title="on languages based on C">programmers</abbr> with "logical not", and in that case text under ! with quotes ‘’ disables pq formatting.<br />
 </div>
-<span class="spoiler_title" onclick="return spoiler2(this, event)">For text without pq formatting you can use '‘raw HTML’'<br /></span><div class="spoiler_text" style="display:none">'‘text/code *‘without’ formatting (with normal font)’'<br />
+<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">(For text without pq formatting you can use '‘raw HTML’')<br /></span><div class="spoiler_text" style="display:none">'‘text/code *‘without’ formatting (with normal font)’'<br />
 <br />
 (Notation !‘...’ differs from the '‘raw HTML’' only by that in !‘...’ all characters <pre style="display: inline">&amp;</pre> are replaced with <pre style="display: inline">&amp;amp;</pre>, all characters <pre style="display: inline">&lt;</pre> are replaced with <pre style="display: inline">&amp;lt;</pre>, and before each new line character tag <pre style="display: inline">&lt;br /></pre> is inserted.)<br />
 </div>
@@ -303,7 +315,7 @@ Renders as:<br />
 <br />
 > Blockquote<br />
 <blockquote>Blockquote</blockquote>
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Is space necessary here? Why?<br /></span><div class="spoiler_text" style="display:none">Yes, it is necessary.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Is space necessary after `>`? Why?<br /></span><div class="spoiler_text" style="display:none">Yes, it is necessary.<br />
 <abbr title="the same reason is applicable to lists (there also must be space character after `1.` and `.`)">Why</abbr> — to avoid problems in the following cases<!--[[[ {and also in `<tag>text` [at the beginning of line] character `<` will not recognized as responding blockquote}]]]-->:<br />
 <pre style="display: inline">>‘Link text’[http://...] following text.</pre><br />
 can be treated as:<br />
@@ -323,6 +335,29 @@ blockquote’<br />
 <blockquote>Multiline<br />
 blockquote</blockquote>
 <br />
+&lt; Reciprocal blockquote<br />
+<blockquote class="re">Reciprocal blockquote</blockquote>
+<span class="sq"><span class="sq_brackets">[</span>Sometimes it is convenient to just copy text from another message to answer the question.<span class="sq_brackets">]</span></span><br />
+<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Quotations with author name and/or url<br /></span><div class="spoiler_text" style="display:none"><table>
+<tr><td>>[http://address]:‘Quoted text.’</td><td><blockquote><a href="http://address"><i>http://address</i></a>:<br />
+Quoted text.</blockquote></td></tr>
+<tr><td>>[http://another-address][-1]:‘Quoted text.’<br />
+<br />
+>[-1]:‘Another quoted text.’</td><td><blockquote><a href="http://another-address">[1]<i>http://another-address</i></a>:<br />
+Quoted text.</blockquote>
+<blockquote><a href="http://another-address">[1]<i>http://another-address</i></a>:<br />
+Another quoted text.</blockquote></td></tr>
+<tr><td>>‘Author's name’[http://address]:‘Quoted text.’</td><td><blockquote><i><a href="http://address">Author's name</a></i>:<br />
+Quoted text.</blockquote></td></tr>
+<tr><td>>‘Author's name’:‘Quoted text.’</td><td><blockquote><i>Author's name</i>:<br />
+Quoted text.</blockquote></td></tr>
+<tr><td>‘Quoted text.’:‘Author's name’&lt;</td><td><blockquote>Quoted text.<br />
+<div align='right'><i>Author's name</i></div></blockquote></td></tr>
+</table>
+</div>
+<br />
+<br />
 <h3>Text alignment</h3>
 <br />
 <div align="left">&lt;&lt;‘left alignment’</div>
@@ -330,15 +365,15 @@ blockquote</blockquote>
 <div align="center">>&lt;‘center alignment’</div>
 <div align="justify">&lt;>‘justify alignment’</div>
 <br />
-<sup>/\‘superscript’</sup> text<br />
-<sub>\/‘subscript’</sub> text<br />
+<sup><pre style="display: inline">/\</pre>‘superscript’</sup> text<br />
+<sub><pre style="display: inline">\/</pre>‘subscript’</sub> text<br />
 <br />
 <br />
 <h3>Alignment in table cells</h3>
 <br />
 Vertical:<br />
-/\ — top<br />
-\/ — bottom<br />
+<pre style="display: inline">/\</pre> — top<br />
+<pre style="display: inline">\/</pre> — bottom<br />
 <br />
 Horizontal:<br />
 &lt;&lt; — left<br />

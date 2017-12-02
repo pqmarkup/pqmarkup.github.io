@@ -39,11 +39,16 @@ a:hover {
     text-decoration: underline;
     color: #4d7285;
 }
-h3 {
+h1, h2, h3, h4, h5, h6 {
     margin: 0;
-    font-size: 137.5%;
     font-weight: 400;
 }
+h1 {font-size: 190%; line-height: 120%;}
+h2 {font-size: 160%;}
+h3 {font-size: 137.5%;}
+h4 {font-size: 120%;}
+h5 {font-size: 110%;}
+h6 {font-size: 100%;}
 td {text-align: justify; /*font-family: Tahoma, sans-serif*/}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #DDD}
@@ -52,7 +57,7 @@ span.cu {background-color: #F7F7FF}
 abbr {text-decoration: none; border-bottom: 1px dotted}
 pre {margin: 0}
 pre, code {font-family: 'Courier New'; line-height: normal}
-ul, ol {margin: 7px 0 0 0;}
+ul, ol {margin: 11px 0 7px 0;}
 ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
 ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
@@ -68,6 +73,12 @@ div.spoiler_text {
     margin: 5px;
     padding: 3px;
 }
+blockquote {
+    margin: 0 0 7px 0;
+    padding: 7px 12px;
+}
+blockquote:not(.re) {border-left:  0.2em solid #90ddaa; background-color: #fbfffb;}
+blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff8;}
 </style>
 </head>
 <body>
@@ -236,7 +247,7 @@ div.spoiler_text {
 древовидно<!--[[[на мысль вставить символ новой строки перед словом ‘древовидно’ меня натолкнул тот факт, что на моём мониторе это слово перенеслось на новую строку, и я обратил внимание, что при чтении данного предложения это добавляет паузу перед прочтением этого слова, и подумав над этим, я решил/‘пришёл к выводу’, что пауза перед этим словом действительно необходима]]]-->.<br />
 <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><br />
 &emsp;Нередко в процессе высказывания какой-либо длинной законченной мысли <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">а вернее: цепочки <span class="sq"><span class="sq_brackets">[</span>из<span class="sq_brackets">]</span></span> мыслей, или связанной последовательности мыслей</span><span class="cu_brackets_b">}</span></span> возникают уточняющие мысли <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">ну и, конечно же, ими не терпится сразу же поделиться <!--[[[(:]]]-->:)</span><span class="cu_brackets_b">}</span></span> ещё до того, как была высказана мысль изначальная.<br />
-&emsp;И дабы не запутывать слушателя или читателя <!--[[[своими ]]]-->несвязными потоками мыслей, разумнее/логичнее сначала полностью высказать/закончить изначальную <!--[[[законченную ]]]-->мысль<!--[[[ целиком]]]-->. Но если в разговоре сделать <abbr title="не отвлекаться на новые возникшие мысли, а продолжать последовательно излагать изначальную мысль">это</abbr> не так и просто, то для письменной формы <span class="sq"><span class="sq_brackets">[</span>высказывания/выражения своих мыслей<span class="sq_brackets">]</span></span> я предлагаю такой инструмент структурирования <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><!--[[[не очень подходящее слово]]]-->а точнее говоря, инструмент, который подсказывает читателю порядок чтения текста автора для более лёгкого и точного его понимания</span><span class="cu_brackets_b">}</span></span> мыслей, <abbr title="хотя согласен, что это больше похоже на усложнение, а не на облегчение, но без такой разметки получилось бы просто нагромождение слов, понять которые читая их последовательно было бы ещё сложнее">облегчающий</abbr> для читателя<!--[[[
+&emsp;И дабы не запутывать слушателя или читателя <!--[[[своими ]]]-->несвязными потоками мыслей, разумнее/логичнее сначала полностью высказать/закончить изначальную <!--[[[законченную ]]]-->мысль<!--[[[ целиком]]]-->. Но если в разговоре сделать <abbr title="не отвлекаться на новые возникшие мысли, а продолжать последовательно излагать изначальную мысль">это</abbr> может быть не так <!--[[[и ]]]-->просто, то для письменной формы <span class="sq"><span class="sq_brackets">[</span>высказывания/выражения своих мыслей<span class="sq_brackets">]</span></span> я предлагаю такой инструмент структурирования <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><!--[[[не очень подходящее слово]]]-->а точнее говоря, инструмент, который подсказывает читателю порядок чтения текста автора для более лёгкого и точного его понимания</span><span class="cu_brackets_b">}</span></span> мыслей, <abbr title="хотя согласен, что это больше похоже на усложнение, а не на облегчение, но без такой разметки получилось бы просто нагромождение слов, понять которые читая их последовательно было бы ещё сложнее">облегчающий</abbr> для читателя<!--[[[
 Говорить, что я ‘предлагаю инструмент, облегчающий для читателя’, не совсем [честно/]точно, так как [./praformat.txt]:‘
 Формат пк-разметки [[[изначально предназначался[/разрабатывался]]]/]предназначен‘*’[‘одно из предназначений’] для максимально точного [[[выражения/]оцифровки мыслей]/]~‘преобразования’[/сериализации] потоков[[[/нитей[/ветвей [дерева мысли]]]]] ~‘мыслей [[[и их записи]]] в цифровую форму’’
 Но это также не совсем честно, так как, во-первых, заключать текст в фигурные скобочки я стал ещё до использования парных кавычек, и [[[[ничто не мешает]]]]вполне возможно добавить функционал/возможность скрывания текста в фигурных скобочках в какую-то другую разметку текста, а, во-вторых, пк-разметка (а впрочем и никакая другая) никак не может гарантировать точность выражения мыслей автора.
@@ -303,7 +314,8 @@ div.spoiler_text {
 !‘текст/код *‘без’ форматирования (обычным шрифтом)’<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Почему был выбран символ `!`<br /></span><div class="spoiler_text" style="display:none">Символ <pre style="display: inline">!</pre> ассоциируется у <!--[[[большинства]]]--> <abbr title="на языках, производных от Си">программистов</abbr> с not\отрицанием, и в данном случае текст под ! с кавычками ‘’ отрицает всё пк-форматирование. <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><!--[[[‘Возможно, стоит’/‘]]]-->Можно было бы<!--[[[’]]]--> использовать 0 или О (Отключение\Off)<!--[[[.../‘]]]-->, но такое обозначение слишком бросается в глаза.<!--[[[’]]]--></span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span><br />
 </div>
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Для вставки текста без пк-форматирования можно использовать '‘сырой HTML’'<br /></span><div class="spoiler_text" style="display:none">'‘текст/код *‘без’ форматирования (обычным шрифтом)’'<br />
+<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">(Для вставки текста без пк-форматирования можно использовать '‘сырой HTML’')<br /></span><div class="spoiler_text" style="display:none">'‘текст/код *‘без’ форматирования (обычным шрифтом)’'<br />
 <br />
 (Запись !‘...’ отличается от '‘сырого HTML’' только тем, что в !‘...’ каждый символ <pre style="display: inline">&amp;</pre> заменяется на <pre style="display: inline">&amp;amp;</pre>, каждый символ <pre style="display: inline">&lt;</pre> заменяется на <pre style="display: inline">&amp;lt;</pre> и перед каждым символом новой строки вставляется тег <pre style="display: inline">&lt;br /></pre>.)<br />
 </div>
@@ -323,7 +335,7 @@ div.spoiler_text {
 <br />
 > Цитата<br />
 <blockquote>Цитата</blockquote>
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Пробел ставить обязательно? Зачем?<br /></span><div class="spoiler_text" style="display:none">Да, обязательно.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Пробел после `>` ставить обязательно? Зачем?<br /></span><div class="spoiler_text" style="display:none">Да, обязательно.<br />
 <abbr title="эта же причина подходит и к спискам (там тоже обязателен пробел после `1.` и `.`)">Зачем</abbr> — для избежания/исключения возможных проблем в случаях<!--[[[ {а также чтобы в записи `<тег>текст` [в начале строки] символ `<` не воспринимался как обозначение ответной цитаты}]]]-->:<br />
 <pre style="display: inline">>‘Текст ссылки’[http://...] продолжение текста.</pre><br />
 может быть неверно истолковано как:<br />
@@ -343,6 +355,29 @@ div.spoiler_text {
 <blockquote>Многострочная<br />
 цитата</blockquote>
 <br />
+&lt; Ответная цитата<br />
+<blockquote class="re">Ответная цитата</blockquote>
+<span class="sq"><span class="sq_brackets">[</span>Иногда в ответ на сообщение удобно просто привести цитату из текста статьи или из другого сообщения.<span class="sq_brackets">]</span></span><br />
+<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Цитаты с указанием источника и/или автора<br /></span><div class="spoiler_text" style="display:none"><table>
+<tr><td>>[http://address]:‘Цитата из текста по ссылке.’</td><td><blockquote><a href="http://address"><i>http://address</i></a>:<br />
+Цитата из текста по ссылке.</blockquote></td></tr>
+<tr><td>>[http://another-address][-1]:‘Цитата из текста по ссылке.’<br />
+<br />
+>[-1]:‘Другая цитата из текста по этой же ссылке.’</td><td><blockquote><a href="http://another-address">[1]<i>http://another-address</i></a>:<br />
+Цитата из текста по ссылке.</blockquote>
+<blockquote><a href="http://another-address">[1]<i>http://another-address</i></a>:<br />
+Другая цитата из текста по этой же ссылке.</blockquote></td></tr>
+<tr><td>>‘Имя автора’[http://address]:‘Текст цитаты.’</td><td><blockquote><i><a href="http://address">Имя автора</a></i>:<br />
+Текст цитаты.</blockquote></td></tr>
+<tr><td>>‘Имя автора’:‘Текст цитаты.’</td><td><blockquote><i>Имя автора</i>:<br />
+Текст цитаты.</blockquote></td></tr>
+<tr><td>‘Текст цитаты.’:‘Имя автора’&lt;</td><td><blockquote>Текст цитаты.<br />
+<div align='right'><i>Имя автора</i></div></blockquote></td></tr>
+</table>
+</div>
+<br />
+<br />
 <h3>Выравнивание текста</h3>
 <br />
 <div align="left">&lt;&lt;‘выравнивание по левому краю’</div>
@@ -350,15 +385,15 @@ div.spoiler_text {
 <div align="center">>&lt;‘выравнивание по центру’</div>
 <div align="justify">&lt;>‘выравнивание по ширине’</div>
 <br />
-<sup>/\‘надстрочный’</sup> текст<br />
-<sub>\/‘подстрочный’</sub> текст<br />
+<sup><pre style="display: inline">/\</pre>‘надстрочный’</sup> текст<br />
+<sub><pre style="display: inline">\/</pre>‘подстрочный’</sub> текст<br />
 <br />
 <br />
 <h3>Выравнивание текста в ячейках таблиц</h3>
 <br />
 Вертикальное:<br />
-/\ — по верхнему краю<br />
-\/ — по нижнему краю<br />
+<pre style="display: inline">/\</pre> — по верхнему краю<br />
+<pre style="display: inline">\/</pre> — по нижнему краю<br />
 <br />
 Горизонтальное:<br />
 &lt;&lt; — по левому краю<br />

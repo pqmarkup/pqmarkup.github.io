@@ -39,11 +39,16 @@ a:hover {
     text-decoration: underline;
     color: #4d7285;
 }
-h3 {
+h1, h2, h3, h4, h5, h6 {
     margin: 0;
-    font-size: 137.5%;
     font-weight: 400;
 }
+h1 {font-size: 190%; line-height: 120%;}
+h2 {font-size: 160%;}
+h3 {font-size: 137.5%;}
+h4 {font-size: 120%;}
+h5 {font-size: 110%;}
+h6 {font-size: 100%;}
 td {text-align: justify; /*font-family: Tahoma, sans-serif*/}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #DDD}
@@ -52,7 +57,7 @@ span.cu {background-color: #F7F7FF}
 abbr {text-decoration: none; border-bottom: 1px dotted}
 pre {margin: 0}
 pre, code {font-family: 'Courier New'; line-height: normal}
-ul, ol {margin: 7px 0 0 0;}
+ul, ol {margin: 11px 0 7px 0;}
 ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
 ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
@@ -68,6 +73,12 @@ div.spoiler_text {
     margin: 5px;
     padding: 3px;
 }
+blockquote {
+    margin: 0 0 7px 0;
+    padding: 7px 12px;
+}
+blockquote:not(.re) {border-left:  0.2em solid #90ddaa; background-color: #fbfffb;}
+blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff8;}
 </style>
 </head>
 <body>
@@ -326,7 +337,7 @@ SC035   &amp; RCtrl:: SendInput {\}
 </div>
 <br />
 <br />
-Базовая реализация на языке Python:<br />
+<!--[[[Базовая/]Оригинальная[/Авторская] ]]-->Реализация на языке Python:<br />
 <ul>
 <li><a href="https://pypi.python.org/pypi/pqmarkup">Страница проекта pqmarkup в Python Package Index</a></li>
 <li><a href="https://bitbucket.org/pqmarkup/pqmarkup">Ссылка на основной репозиторий</a></li>
@@ -339,7 +350,7 @@ SC035   &amp; RCtrl:: SendInput {\}
 </div>
 <br />
 <br />
-<sub>(: Кстати, пользуясь случаем, передаю привет <a href="https://en.wikipedia.org/wiki/M4_(computer_language)" title="Unlike most languages, strings in m4 are quoted using the backtick (`) as the starting delimiter, and apostrophe (') as the ending delimiter.">m4</a> и <a href="http://web.archive.org/web/20040223210813/http://www.aaronsw.com/2002/atx/intro" title="<- https://en.wikipedia.org/wiki/Aaron_Swartz#atx <- вчера написал [pqmarkup/docs/ru/syntax.pq.txt]:‘Я постоянно путаюсь в обозначениях заголовков в других облегчённых языках разметки ...’, а сегодня решил поискать “atx’-style headers и наткнулся на atx">atx</a><abbr title="И хотите верьте, хотите нет, но про m4 и atx я узнал уже после того, как мне пришла идея использовать одиночные парные кавычки в пк-разметке.">!</abbr> :)</sub><br />
+<sub>(: Кстати, пользуясь случаем, передаю привет <a href="https://en.wikipedia.org/wiki/M4_(computer_language)" title="Unlike most languages, strings in m4 are quoted using the backtick (`) as the starting delimiter, and apostrophe (') as the ending delimiter. The use of separate starting and ending delimiters allows for the arbitrary nesting of quotation marks in strings...">m4</a> и <a href="http://web.archive.org/web/20040223210813/http://www.aaronsw.com/2002/atx/intro" title="<- https://en.wikipedia.org/wiki/Aaron_Swartz#atx <- вчера написал [pqmarkup/docs/ru/syntax.pq.txt]:‘Я постоянно путаюсь в обозначениях заголовков в других облегчённых языках разметки ...’, а сегодня решил поискать “atx’-style headers и наткнулся на atx">atx</a><abbr title="И хотите верьте, хотите нет, но про m4 и atx я узнал уже после того, как мне пришла идея использовать одиночные парные кавычки в пк-разметке.">!</abbr> :)</sub><br />
 <br />
 <br />
 <br />
