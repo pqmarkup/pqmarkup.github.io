@@ -49,20 +49,20 @@ h3 {font-size: 137.5%;}
 h4 {font-size: 120%;}
 h5 {font-size: 110%;}
 h6 {font-size: 100%;}
-td {text-align: justify; /*font-family: Tahoma, sans-serif*/}
+td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
-span.sq_brackets {color: #DDD}
-span.cu_brackets {cursor: pointer}
-span.cu {background-color: #F7F7FF}
-abbr {text-decoration: none; border-bottom: 1px dotted}
-pre {margin: 0}
+span.sq_brackets {color: #DFDFDF;}
+span.cu_brackets {cursor: pointer;}
+span.cu {background-color: #F7F7FF;}
+abbr {text-decoration: none; border-bottom: 1px dotted;}
+pre {margin: 0;}
 pre, code {font-family: 'Courier New'; line-height: normal}
 ul, ol {margin: 11px 0 7px 0;}
 ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
 ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
-table table {margin: 9px 0; border-collapse: collapse}
-table table th, table table td {padding: 6px 13px; border: 1px solid #ddd}
+table table {margin: 9px 0; border-collapse: collapse;}
+table table th, table table td {padding: 6px 13px; border: 1px solid #DFDFDF;}
 span.spoiler_title {
     color: #548eaa;
     cursor: pointer;
@@ -102,7 +102,7 @@ This does not work: <pre style="display: inline">~*‘bold italics’</pre> (it 
 Link[http://address]<br />
 Link[http://address ‘tooltip text’]<br />
 Text[‘tooltip text’]<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">More (samples)<br /></span><div class="spoiler_text" style="display:none"><table>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">More (samples)<br /></span><div class="spoiler_text" style="display: none"><table>
 <tr><th>pq markup</th><th>HTML</th><th>Renders as</th></tr>
 <tr><td>[http://address]</td><td>&lt;a href="http://address">http://address&lt;/a></td><td><a href="http://address">http://address</a></td></tr>
 <tr><td>link[http://address]</td><td>&lt;a href="http://address">link&lt;/a></td><td><a href="http://address">link</a></td></tr>
@@ -110,6 +110,28 @@ Text[‘tooltip text’]<br />
 <tr><td>‘multiword link’[http://address]</td><td>&lt;a href="http://address">multiword link&lt;/a></td><td><a href="http://address">multiword link</a></td></tr>
 <tr><td>link[https://address ‘tooltip text’]</td><td>&lt;a href="https://address" title="tooltip text">link&lt;/a></td><td><a href="https://address" title="tooltip text">link</a></td></tr>
 <tr><td>text[‘tooltip text’]</td><td>&lt;abbr title="tooltip text">text&lt;/abbr></td><td><abbr title="tooltip text">text</abbr></td></tr>
+<tr><td>link1[http://address1][-1]<br />
+link2[http://address2][-2]<br />
+‘link to address1’[-1]<br />
+‘link to address2’[-2]</td><td>&lt;a href="http://address1">link1&lt;/a>&lt;br /><br />
+&lt;a href="http://address2">link2&lt;/a>&lt;br /><br />
+&lt;a href="http://address1">link to address1&lt;/a>&lt;br /><br />
+&lt;a href="http://address2">link to address2&lt;/a><br />
+</td><td><a href="http://address1">link1</a><br />
+<a href="http://address2">link2</a><br />
+<a href="http://address1">link to address1</a><br />
+<a href="http://address2">link to address2</a></td></tr>
+<tr><td colspan="3"><span class="spoiler_title" onclick="return spoiler2(this, event)">Why [-1]?<br /></span><div class="spoiler_text" style="display: none">Earlier I wanted to use <pre style="display: inline">[-N]</pre> for referring previous links like this:<br />
+<pre style="display: inline">Look here[http://address1] and here[http://address2].
+Now this[-1] points to address2</pre><!--[[[,[?]]]]--><pre style="display: inline"> and this[-2] points to address1.</pre><br />
+<br />
+But it was a bad idea, because such link references are very easy to break via putting any unrelated link in the middle.<br />
+<br />
+So, to prevent using syntax <pre style="display: inline">[-N]</pre> for such very-easy-to-become-broken links I decided to use <abbr title="[-N], but not [=N], or anything like that">this syntax</abbr> the way showed above for not-so-very-easy-to-become-broken links <!--[[[(:]]]-->:).<br />
+<br />
+Also<!--[[[another reason why `[-1]`, and not say `[N]`]]]--> <pre style="display: inline">[N]</pre> occurs quite often in many different documents and web pages, so I decided not to use <pre style="display: inline">[N]</pre> at all.<br />
+</div>
+</td></tr>
 </table>
 </div>
 <br />
@@ -126,7 +148,7 @@ Text[‘tooltip text’]<br />
 Header — H‘Header name’<br />
 Image — P‘http://image-url’<br />
 Red text — C(red)‘text’<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">More (samples)<br /></span><div class="spoiler_text" style="display:none"><table>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">More (samples)<br /></span><div class="spoiler_text" style="display: none"><table>
 <tr><th>pq markup</th><th>HTML</th><th>Renders as</th></tr>
 <tr><th colspan="3">Headers</th></tr>
 <tr><td>H‘header’</td><td rowspan="2">&lt;h3>header&lt;/h3></td><td rowspan="2"><h3>header</h3></td></tr>
@@ -141,9 +163,9 @@ Red text — C(red)‘text’<br />
 <tr><td>P‘https://.../blue_circle.png’[http://address ‘tooltip text’]</td><td>&lt;a href="http://address" title="tooltip text">&lt;img src="https://.../blue_circle.png" />&lt;/a></td><td><a href="http://address" title="tooltip text"><img src="https://bitbucket.org/pqmarkup/pqmarkup/raw/default/docs/images/blue_circle.png" /></a></td></tr>
 <tr><th colspan="3">Color</th></tr>
 <tr><td colspan="3"><sub>Color can be specified in hexadecimal format #RRGGBB (Red, Green, Blue) or in format RGB as three digits (<abbr title="I consider that to decor most articles 9 levels/gradations for color components should be quite enough , maximum of 8 (not 9) was taken to obtain a gray color (444)">0 through 8</abbr>).</sub></td></tr>
-<tr><td>C(#ff0000)‘red text’</td><td>&lt;span style="color:#ff0000;">red text&lt;/span></td><td><span style="color:#ff0000;">red text</span></td></tr>
-<tr><td>C(800)‘also red text’</td><td>&lt;span style="color:#FF0000;">also red text&lt;/span></td><td><span style="color:#FF0000;">also red text</span></td></tr>
-<tr><td>C(000)‘black text’</td><td>&lt;span style="color:#000000;">black text&lt;/span></td><td><span style="color:#000000;">black text</span></td></tr>
+<tr><td>C(#ff0000)‘red text’</td><td>&lt;span style="color: #ff0000">red text&lt;/span></td><td><span style="color: #ff0000">red text</span></td></tr>
+<tr><td>C(800)‘also red text’</td><td>&lt;span style="color: #FF0000">also red text&lt;/span></td><td><span style="color: #FF0000">also red text</span></td></tr>
+<tr><td>C(000)‘black text’</td><td>&lt;span style="color: #000000">black text&lt;/span></td><td><span style="color: #000000">black text</span></td></tr>
 <tr><th colspan="3">Tables</th></tr>
 <tr><td><pre style="display: inline">Т‘
 Н‘‘A’ ‘B’ ‘C’’
@@ -228,21 +250,21 @@ Red text — C(red)‘text’<br />
 <br />
 <h2>Advanced formatting</h2>
 <br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Show/hide<br /></span><div class="spoiler_text" style="display:none"><br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Show/hide<br /></span><div class="spoiler_text" style="display: none"><br />
 <h3>Spoilers</h3>
 <br />
 <table>
 <tr><th>pq markup</th><th>Renders as</th></tr>
-<tr><td>‘Spoiler title’{Spoiler contents}</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Spoiler title<br /></span><div class="spoiler_text" style="display:none">Spoiler contents</div>
+<tr><td>‘Spoiler title’{Spoiler contents}</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Spoiler title<br /></span><div class="spoiler_text" style="display: none">Spoiler contents</div>
 </td></tr>
 <tr><td>‘Spoiler title’{<br />
 Spoiler<br />
 contents<br />
-}</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Spoiler title<br /></span><div class="spoiler_text" style="display:none">Spoiler<br />
+}</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Spoiler title<br /></span><div class="spoiler_text" style="display: none">Spoiler<br />
 contents<br />
 </div>
 </td></tr>
-<tr><td>text {spoiler} continuation of the text</td><td>text <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">spoiler</span><span class="cu_brackets_b">}</span></span> continuation of the text</td></tr>
+<tr><td>text {spoiler} continuation of the text</td><td>text <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">spoiler</span><span class="cu_brackets_b">}</span></span> continuation of the text</td></tr>
 </table>
 <br />
 <br />
@@ -277,7 +299,7 @@ Renders as:<br />
 <pre>'‘HTML-code...
 ...’'</pre>
 (<!--[[[‘]]]-->If you want to insert unpaired single quotation mark characters ’ and ‘ into HTML-code then follow this rule: apostrophes ' before ‘such string’ <abbr title="one apostrophe character absorbs one single quotation mark character">absorb</abbr> beginning ‘ characters, and after ‘such string’ absorb ending ’ characters, and if string contains some unpaired single quotation mark characters, then it is necessary to add corresponding amount of apostrophes ' at correct side, for example: <pre style="display: inline">'''‘‘‘Don’t! Don’t!’'</pre>, unpaired quotes ’‘<!--[[[’]]]--> — <pre style="display: inline">''‘‘’‘’’''</pre> (<abbr title="may be this looks not very elegant, but [in most cases] raw strings with correct paired single quotes will look extremely briefly">note</abbr>).)<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Samples<br /></span><div class="spoiler_text" style="display:none"><table>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Samples<br /></span><div class="spoiler_text" style="display: none"><table>
 <tr><th>pq markup</th><th>HTML</th><th>Renders as</th></tr>
 <tr><td>&lt;</td><td>&amp;lt;</td><td>&lt;</td></tr>
 <tr><td><pre style="display: inline">'‘&lt;div>&amp;lt;&lt;/div>’'</pre></td><td>&lt;div>&amp;lt;&lt;/div></td><td><div>&lt;</div></td></tr>
@@ -292,10 +314,10 @@ Renders as:<br />
 <h3>Disabling pq formatting</h3>
 <br />
 !‘text/code *‘without’ formatting (with normal font)’<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Why it was chosen character `!`<br /></span><div class="spoiler_text" style="display:none">Character <pre style="display: inline">!</pre> is associated among <!--[[[most]]]--> <abbr title="on languages based on C">programmers</abbr> with "logical not", and in that case text under ! with quotes ‘’ disables pq formatting.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Why it was chosen character `!`<br /></span><div class="spoiler_text" style="display: none">Character <pre style="display: inline">!</pre> is associated among <!--[[[most]]]--> <abbr title="on languages based on C">programmers</abbr> with "logical not", and in that case text under ! with quotes ‘’ disables pq formatting.<br />
 </div>
 <br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">(For text without pq formatting you can use '‘raw HTML’')<br /></span><div class="spoiler_text" style="display:none">'‘text/code *‘without’ formatting (with normal font)’'<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">(For text without pq formatting you can use '‘raw HTML’')<br /></span><div class="spoiler_text" style="display: none">'‘text/code *‘without’ formatting (with normal font)’'<br />
 <br />
 (Notation !‘...’ differs from the '‘raw HTML’' only by that in !‘...’ all characters <pre style="display: inline">&amp;</pre> are replaced with <pre style="display: inline">&amp;amp;</pre>, all characters <pre style="display: inline">&lt;</pre> are replaced with <pre style="display: inline">&amp;lt;</pre>, and before each new line character tag <pre style="display: inline">&lt;br /></pre> is inserted.)<br />
 </div>
@@ -315,7 +337,7 @@ Renders as:<br />
 <br />
 > Blockquote<br />
 <blockquote>Blockquote</blockquote>
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Is space necessary after `>`? Why?<br /></span><div class="spoiler_text" style="display:none">Yes, it is necessary.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Is space necessary after `>`? Why?<br /></span><div class="spoiler_text" style="display: none">Yes, it is necessary.<br />
 <abbr title="the same reason is applicable to lists (there also must be space character after `1.` and `.`)">Why</abbr> — to avoid problems in the following cases<!--[[[ {and also in `<tag>text` [at the beginning of line] character `<` will not recognized as responding blockquote}]]]-->:<br />
 <pre style="display: inline">>‘Link text’[http://...] following text.</pre><br />
 can be treated as:<br />
@@ -339,15 +361,15 @@ blockquote</blockquote>
 <blockquote class="re">Reciprocal blockquote</blockquote>
 <span class="sq"><span class="sq_brackets">[</span>Sometimes it is convenient to just copy text from another message to answer the question.<span class="sq_brackets">]</span></span><br />
 <br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Quotations with author name and/or url<br /></span><div class="spoiler_text" style="display:none"><table>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Quotations with author name and/or url<br /></span><div class="spoiler_text" style="display: none"><table>
 <tr><td>>[http://address]:‘Quoted text.’</td><td><blockquote><a href="http://address"><i>http://address</i></a>:<br />
 Quoted text.</blockquote></td></tr>
 <tr><td>>[http://another-address][-1]:‘Quoted text.’<br />
 <br />
->[-1]:‘Another quoted text.’</td><td><blockquote><a href="http://another-address">[1]<i>http://another-address</i></a>:<br />
+>[-1]:‘Another quoted text from another-address.’</td><td><blockquote><a href="http://another-address">[1]<i>http://another-address</i></a>:<br />
 Quoted text.</blockquote>
 <blockquote><a href="http://another-address">[1]<i>http://another-address</i></a>:<br />
-Another quoted text.</blockquote></td></tr>
+Another quoted text from another-address.</blockquote></td></tr>
 <tr><td>>‘Author's name’[http://address]:‘Quoted text.’</td><td><blockquote><i><a href="http://address">Author's name</a></i>:<br />
 Quoted text.</blockquote></td></tr>
 <tr><td>>‘Author's name’:‘Quoted text.’</td><td><blockquote><i>Author's name</i>:<br />

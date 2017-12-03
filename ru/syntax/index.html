@@ -49,20 +49,20 @@ h3 {font-size: 137.5%;}
 h4 {font-size: 120%;}
 h5 {font-size: 110%;}
 h6 {font-size: 100%;}
-td {text-align: justify; /*font-family: Tahoma, sans-serif*/}
+td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
-span.sq_brackets {color: #DDD}
-span.cu_brackets {cursor: pointer}
-span.cu {background-color: #F7F7FF}
-abbr {text-decoration: none; border-bottom: 1px dotted}
-pre {margin: 0}
+span.sq_brackets {color: #DFDFDF;}
+span.cu_brackets {cursor: pointer;}
+span.cu {background-color: #F7F7FF;}
+abbr {text-decoration: none; border-bottom: 1px dotted;}
+pre {margin: 0;}
 pre, code {font-family: 'Courier New'; line-height: normal}
 ul, ol {margin: 11px 0 7px 0;}
 ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
 ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
-table table {margin: 9px 0; border-collapse: collapse}
-table table th, table table td {padding: 6px 13px; border: 1px solid #ddd}
+table table {margin: 9px 0; border-collapse: collapse;}
+table table th, table table td {padding: 6px 13px; border: 1px solid #DFDFDF;}
 span.spoiler_title {
     color: #548eaa;
     cursor: pointer;
@@ -102,7 +102,7 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 Ссылка[http://адрес]<br />
 Ссылка[http://адрес ‘текст всплывающей подсказки’]<br />
 Текст[‘текст всплывающей подсказки’]<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Подробнее (больше примеров)<br /></span><div class="spoiler_text" style="display:none"><table>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Подробнее (больше примеров)<br /></span><div class="spoiler_text" style="display: none"><table>
 <tr><th>Пк-разметка</th><th>HTML</th><th>Как выглядит</th></tr>
 <tr><td>[http://address]</td><td>&lt;a href="http://address">http://address&lt;/a></td><td><a href="http://address">http://address</a></td></tr>
 <tr><td>ссылка[http://address]</td><td>&lt;a href="http://address">ссылка&lt;/a></td><td><a href="http://address">ссылка</a></td></tr>
@@ -110,6 +110,32 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 <tr><td>‘многословная ссылка’[http://address]</td><td>&lt;a href="http://address">многословная ссылка&lt;/a></td><td><a href="http://address">многословная ссылка</a></td></tr>
 <tr><td>ссылка[https://address ‘текст всплывающей подсказки’]</td><td>&lt;a href="https://address" title="текст всплывающей подсказки">ссылка&lt;/a></td><td><a href="https://address" title="текст всплывающей подсказки">ссылка</a></td></tr>
 <tr><td>текст[‘текст всплывающей подсказки’]</td><td>&lt;abbr title="текст всплывающей подсказки">текст&lt;/abbr></td><td><abbr title="текст всплывающей подсказки">текст</abbr></td></tr>
+<tr><td>ссылка1[http://address1][-1]<br />
+ссылка2[http://address2][-2]<br />
+‘ссылка на address1’[-1]<br />
+‘ссылка на address2’[-2]</td><td>&lt;a href="http://address1">ссылка1&lt;/a>&lt;br /><br />
+&lt;a href="http://address2">ссылка2&lt;/a>&lt;br /><br />
+&lt;a href="http://address1">ссылка на address1&lt;/a>&lt;br /><br />
+&lt;a href="http://address2">ссылка на address2&lt;/a><br />
+</td><td><a href="http://address1">ссылка1</a><br />
+<a href="http://address2">ссылка2</a><br />
+<a href="http://address1">ссылка на address1</a><br />
+<a href="http://address2">ссылка на address2</a></td></tr>
+<tr><td colspan="3"><span class="spoiler_title" onclick="return spoiler2(this, event)">Почему [-1]?<br /></span><div class="spoiler_text" style="display: none">Раньше я хотел использовать запись <pre style="display: inline">[-N]</pre> для указания на одну из предыдущих ссылок (<pre style="display: inline">[-1]</pre> указывает на предыдущую ссылку, <pre style="display: inline">[-2]</pre> на предпредыдущую и так далее), например:<br />
+<pre>
+Посмотрите сюда[http://address1] и сюда[http://address2].
+Теперь ‘эта ссылка’[-1] указывает на address2, а эта[-2] — на address1.
+</pre>
+<br />
+Но быстро пришёл к пониманию, что такие ссылки слишком легко ломаются — в данном примере достаточно просто вставить новую ссылку между любыми ссылками, и ссылка <pre style="display: inline">[-2]</pre> <abbr title="станет указывать на другую/неправильную ссылку">сломается</abbr>.<br />
+Поэтому, чтобы исключить соблазн задействовать в будущем запись <pre style="display: inline">[-N]</pre> для таких очень-легко-ломающихся ссылок, я решил <!--[[[занять/]]]-->задействовать <abbr title="[-N], а не [=N] или что-то другое">именно эту запись</abbr> для не-настолько-легко-ломающихся ссылок <!--[[[(:]]]-->:).<br />
+<br />
+А запись <pre style="display: inline">[N]</pre> я решил <!--[[[вообще ]]]-->не использовать, так как она достаточно часто встречается в документах и на различных веб-страницах, например:<br />
+<blockquote><a href="https://ru.wikipedia.org/wiki/Смещение_перигелия_Меркурия"><i>https://ru.wikipedia.org/wiki/Смещение_перигелия_Меркурия</i></a>:<br />
+<br />
+<b>Аномальное смещение перигелия Меркурия</b> — обнаруженная в 1859 году особенность движения планеты Меркурий, сыгравшая исключительную роль в истории физики<span class="sq"><span class="sq_brackets">[</span>1<span class="sq_brackets">]</span></span>.</blockquote>
+</div>
+</td></tr>
 </table>
 </div>
 <br />
@@ -126,7 +152,7 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 Заголовок — Н‘Название заголовка’<br />
 Картинка — Р‘http://адрес_картинки’<br />
 Текст красным цветом — С(#фф0000)‘текст’<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Подробнее (больше примеров)<br /></span><div class="spoiler_text" style="display:none"><table>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Подробнее (больше примеров)<br /></span><div class="spoiler_text" style="display: none"><table>
 <tr><th>Пк-разметка</th><th>HTML</th><th>Как выглядит</th></tr>
 <tr><th colspan="3">Заголовки\Headers</th></tr>
 <tr><td>H‘заголовок’</td><td rowspan="2">&lt;h3>заголовок&lt;/h3></td><td rowspan="2"><h3>заголовок</h3></td></tr>
@@ -141,9 +167,9 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 <tr><td>P‘https://.../blue_circle.png’[http://address ‘текст всплывающей подсказки’]</td><td>&lt;a href="http://address" title="текст всплывающей подсказки">&lt;img src="https://.../blue_circle.png" />&lt;/a></td><td><a href="http://address" title="текст всплывающей подсказки"><img src="https://bitbucket.org/pqmarkup/pqmarkup/raw/default/docs/images/blue_circle.png" /></a></td></tr>
 <tr><th colspan="3">Цвет текста</th></tr>
 <tr><td colspan="3"><sub>Цвет задаётся в формате #ККЗЗСС (Красный, Зелёный, Синий) посредством шестнадцатеричных цифр (можно использовать кириллицу: абсдеф/АБСДЕФ является аналогом abcdef/ABCDEF) или в формате КЗС посредством цифр <abbr title="считаю, что для оформления большинства статей 9 уровней/градаций для компонент цвета вполне достаточно , а максимум 8 (а не 9) выбран для того, чтобы можно было задавать серый цвет (444)">от 0 до 8</abbr>.</sub></td></tr>
-<tr><td>C(#ff0000)‘красный текст’</td><td>&lt;span style="color:#ff0000;">красный текст&lt;/span></td><td><span style="color:#ff0000;">красный текст</span></td></tr>
-<tr><td>C(800)‘тоже красный текст’</td><td>&lt;span style="color:#FF0000;">тоже красный текст&lt;/span></td><td><span style="color:#FF0000;">тоже красный текст</span></td></tr>
-<tr><td>C(000)‘чёрный текст’</td><td>&lt;span style="color:#000000;">чёрный текст&lt;/span></td><td><span style="color:#000000;">чёрный текст</span></td></tr>
+<tr><td>C(#ff0000)‘красный текст’</td><td>&lt;span style="color: #ff0000">красный текст&lt;/span></td><td><span style="color: #ff0000">красный текст</span></td></tr>
+<tr><td>C(800)‘тоже красный текст’</td><td>&lt;span style="color: #FF0000">тоже красный текст&lt;/span></td><td><span style="color: #FF0000">тоже красный текст</span></td></tr>
+<tr><td>C(000)‘чёрный текст’</td><td>&lt;span style="color: #000000">чёрный текст&lt;/span></td><td><span style="color: #000000">чёрный текст</span></td></tr>
 <tr><th colspan="3">Таблицы</th></tr>
 <tr><td><pre style="display: inline">Т‘
 Н‘‘A’ ‘B’ ‘C’’
@@ -228,35 +254,35 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 <br />
 <h2>Дополнительные возможности форматирования</h2>
 <br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Показать/скрыть<br /></span><div class="spoiler_text" style="display:none"><br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Показать/скрыть<br /></span><div class="spoiler_text" style="display: none"><br />
 <h3>Спойлер (разворачиваемый блок информации)</h3>
 <br />
 <table>
 <tr><th>Пк-разметка</th><th>Как выглядит</th></tr>
-<tr><td>‘Заголовок спойлера’{Содержимое спойлера}</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Заголовок спойлера<br /></span><div class="spoiler_text" style="display:none">Содержимое спойлера</div>
+<tr><td>‘Заголовок спойлера’{Содержимое спойлера}</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Заголовок спойлера<br /></span><div class="spoiler_text" style="display: none">Содержимое спойлера</div>
 </td></tr>
 <tr><td>‘Заголовок спойлера’{<br />
 Содержимое<br />
 спойлера<br />
-}</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Заголовок спойлера<br /></span><div class="spoiler_text" style="display:none">Содержимое<br />
+}</td><td><span class="spoiler_title" onclick="return spoiler2(this, event)">Заголовок спойлера<br /></span><div class="spoiler_text" style="display: none">Содержимое<br />
 спойлера<br />
 </div>
 </td></tr>
-<tr><td>текст {пояснение} продолжение текста</td><td>текст <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">пояснение</span><span class="cu_brackets_b">}</span></span> продолжение текста</td></tr>
-<tr><td colspan="2"><span class="spoiler_title" onclick="return spoiler2(this, event)">Для чего нужна последняя форма<br /></span><div class="spoiler_text" style="display:none">Если внимательно понаблюдать за собой, то возможно обнаружить <span class="sq"><span class="sq_brackets">[</span>такой факт<span class="sq_brackets">]</span></span>, что мышление в действительности не линейно, а<br />
+<tr><td>текст {пояснение} продолжение текста</td><td>текст <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">пояснение</span><span class="cu_brackets_b">}</span></span> продолжение текста</td></tr>
+<tr><td colspan="2"><span class="spoiler_title" onclick="return spoiler2(this, event)">Для чего нужна последняя форма<br /></span><div class="spoiler_text" style="display: none">Если внимательно понаблюдать за собой, то возможно обнаружить <span class="sq"><span class="sq_brackets">[</span>такой факт<span class="sq_brackets">]</span></span>, что мышление в действительности не линейно, а<br />
 древовидно<!--[[[на мысль вставить символ новой строки перед словом ‘древовидно’ меня натолкнул тот факт, что на моём мониторе это слово перенеслось на новую строку, и я обратил внимание, что при чтении данного предложения это добавляет паузу перед прочтением этого слова, и подумав над этим, я решил/‘пришёл к выводу’, что пауза перед этим словом действительно необходима]]]-->.<br />
-<span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><br />
-&emsp;Нередко в процессе высказывания какой-либо длинной законченной мысли <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">а вернее: цепочки <span class="sq"><span class="sq_brackets">[</span>из<span class="sq_brackets">]</span></span> мыслей, или связанной последовательности мыслей</span><span class="cu_brackets_b">}</span></span> возникают уточняющие мысли <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">ну и, конечно же, ими не терпится сразу же поделиться <!--[[[(:]]]-->:)</span><span class="cu_brackets_b">}</span></span> ещё до того, как была высказана мысль изначальная.<br />
-&emsp;И дабы не запутывать слушателя или читателя <!--[[[своими ]]]-->несвязными потоками мыслей, разумнее/логичнее сначала полностью высказать/закончить изначальную <!--[[[законченную ]]]-->мысль<!--[[[ целиком]]]-->. Но если в разговоре сделать <abbr title="не отвлекаться на новые возникшие мысли, а продолжать последовательно излагать изначальную мысль">это</abbr> может быть не так <!--[[[и ]]]-->просто, то для письменной формы <span class="sq"><span class="sq_brackets">[</span>высказывания/выражения своих мыслей<span class="sq_brackets">]</span></span> я предлагаю такой инструмент структурирования <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><!--[[[не очень подходящее слово]]]-->а точнее говоря, инструмент, который подсказывает читателю порядок чтения текста автора для более лёгкого и точного его понимания</span><span class="cu_brackets_b">}</span></span> мыслей, <abbr title="хотя согласен, что это больше похоже на усложнение, а не на облегчение, но без такой разметки получилось бы просто нагромождение слов, понять которые читая их последовательно было бы ещё сложнее">облегчающий</abbr> для читателя<!--[[[
+<span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+&emsp;Нередко в процессе высказывания какой-либо длинной законченной мысли <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">а вернее: цепочки <span class="sq"><span class="sq_brackets">[</span>из<span class="sq_brackets">]</span></span> мыслей, или связанной последовательности мыслей</span><span class="cu_brackets_b">}</span></span> возникают уточняющие мысли <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">ну и, конечно же, ими не терпится сразу же поделиться <!--[[[(:]]]-->:)</span><span class="cu_brackets_b">}</span></span> ещё до того, как была высказана мысль изначальная.<br />
+&emsp;И дабы не запутывать слушателя или читателя <!--[[[своими ]]]-->несвязными потоками мыслей, разумнее/логичнее сначала полностью высказать/закончить изначальную <!--[[[законченную ]]]-->мысль<!--[[[ целиком]]]-->. Но если в разговоре сделать <abbr title="не отвлекаться на новые возникшие мысли, а продолжать последовательно излагать изначальную мысль">это</abbr> может быть не так <!--[[[и ]]]-->просто, то для письменной формы <span class="sq"><span class="sq_brackets">[</span>высказывания/выражения своих мыслей<span class="sq_brackets">]</span></span> я предлагаю такой инструмент структурирования <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><!--[[[не очень подходящее слово]]]-->а точнее говоря, инструмент, который подсказывает читателю порядок чтения текста автора для более лёгкого и точного его понимания</span><span class="cu_brackets_b">}</span></span> мыслей, <abbr title="хотя согласен, что это больше похоже на усложнение, а не на облегчение, но без такой разметки получилось бы просто нагромождение слов, понять которые читая их последовательно было бы ещё сложнее">облегчающий</abbr> для читателя<!--[[[
 Говорить, что я ‘предлагаю инструмент, облегчающий для читателя’, не совсем [честно/]точно, так как [./praformat.txt]:‘
 Формат пк-разметки [[[изначально предназначался[/разрабатывался]]]/]предназначен‘*’[‘одно из предназначений’] для максимально точного [[[выражения/]оцифровки мыслей]/]~‘преобразования’[/сериализации] потоков[[[/нитей[/ветвей [дерева мысли]]]]] ~‘мыслей [[[и их записи]]] в цифровую форму’’
 Но это также не совсем честно, так как, во-первых, заключать текст в фигурные скобочки я стал ещё до использования парных кавычек, и [[[[ничто не мешает]]]]вполне возможно добавить функционал/возможность скрывания текста в фигурных скобочках в какую-то другую разметку текста, а, во-вторых, пк-разметка (а впрочем и никакая другая) никак не может гарантировать точность выражения мыслей автора.
-]]]--> понимание <b>всего</b><!--[[[ того]]]-->, что хотел сказать автор текста. Для того, чтобы это "работало", я предлагаю следовать такому простому правилу: раскрывать фигурные скобочки, то есть запись {…}, читателю следует после прочтения всего абзаца <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">ну или хотя бы <span class="sq"><span class="sq_brackets">[</span>соответствующего<span class="sq_brackets">]</span></span> предложения</span><span class="cu_brackets_b">}</span></span> <!--[[[до конца]/]]-->целиком.<br />
+]]]--> понимание <b>всего</b><!--[[[ того]]]-->, что хотел сказать автор текста. Для того, чтобы это "работало", я предлагаю следовать такому простому правилу: раскрывать фигурные скобочки, то есть запись {…}, читателю следует после прочтения всего абзаца <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">ну или хотя бы <span class="sq"><span class="sq_brackets">[</span>соответствующего<span class="sq_brackets">]</span></span> предложения</span><span class="cu_brackets_b">}</span></span> <!--[[[до конца]/]]-->целиком.<br />
 <br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">А для чего было заключать этот текст в [{такие}] скобочки?<br /></span><div class="spoiler_text" style="display:none"><ol>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">А для чего было заключать этот текст в [{такие}] скобочки?<br /></span><div class="spoiler_text" style="display: none"><ol>
 <li>Заключение текста в [{такие}] скобочки намекает на то, что его можно вообще не читать <!--[[[(:]]]-->:). И для тех, кто сможет использовать эту <abbr title="возможность лёгкого скрытия текста, просто поместив его в фигурные скобочки">возможность</abbr> <abbr title="понимаю, что большинство, скорее всего, не сможет (по крайней мере, сразу) отличать основные мысли от второстепенных/уточняющих, и тем более, отличать важные (для читателя!) от вспомогательных, но я считаю, что попробовать дать/предоставить такую возможность определённо стóит">разумно</abbr>, одного первого предложения <!--[[[будет ]]]-->вполне достаточно <span class="sq"><span class="sq_brackets">[</span>для пояснения того, зачем нужна эта возможность<span class="sq_brackets">]</span></span>.</li>
 <li>Чувствуя, что текст получился "не очень" (не очень красивым<span class="sq"><span class="sq_brackets">[</span>/точным/качественным<span class="sq_brackets">]</span></span> отражением того, что я хотел сказать), мне, как автору этого текста, становится немного стыдно за него и хочется, с одной стороны, показать это (что я и сам понимаю, что текст получился не очень красивым), а, с другой стороны, так как считаю это уточнение важным, совсем <abbr title="или убирать/скрывать в &quot;контейнер для воды&quot; :)">удалять</abbr> его <!--[[[из текста ]]]-->не хочется. Можно сказать, это пометка для задачи на будущее переформулировать/переписать этот текст так, чтобы избавиться от [{таких}] скобочек, оставив только {такие}.</li>
-<li>Чтобы читатель остановился на последнем <abbr title="речь, очевидно, о слове ‘древовидно’">слове</abbr> предложения перед <!--[[[следующим далее]]/]-->последующим <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">скрытым текстом</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span> и задумался. (Это же ответ на вопрос ‘для чего оставлять этот текст в {таких} скобочках’.)</li>
+<li>Чтобы читатель остановился на последнем <abbr title="речь, очевидно, о слове ‘древовидно’">слове</abbr> предложения перед <!--[[[следующим далее]]/]-->последующим <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">скрытым текстом</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span> и задумался. (Это же ответ на вопрос ‘для чего оставлять этот текст в {таких} скобочках’.)</li>
 </ol>
 </div>
 </span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span><br />
@@ -297,7 +323,7 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 <pre>'‘HTML-код...
 ...’'</pre>
 (<!--[[[‘]]]-->Вставка непарных кавычек ’ и ‘ внутри HTML-кода решается посредством такого синтаксического правила: символы апострофа ' перед ‘такой строкой’ <abbr title="один символ апострофа съедает один символ кавычки">съедают</abbr> начальные символы ‘, а после ‘такой строки’ съедают конечные символы ’, и если в тексте строки встречается несколько непарных кавычек, то необходимо добавить соответствующее количество апострофов ' с нужной стороны, например: <pre style="display: inline">'''‘‘‘Don’t! Don’t!’'</pre>, неправильные кавычки ’‘<!--[[[’]]]--> — <pre style="display: inline">''‘‘’‘’’''</pre> (<abbr title="может это и не очень красиво выглядит, зато [в подавляющем большинстве случаев] сырые\raw строки с корректной/соблюдённой парностью кавычек будут выглядеть очень кратко">примечание</abbr>).)<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Примеры<br /></span><div class="spoiler_text" style="display:none"><table>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Примеры<br /></span><div class="spoiler_text" style="display: none"><table>
 <tr><th>Пк-разметка</th><th>HTML</th><th>Как выглядит</th></tr>
 <tr><td>&lt;</td><td>&amp;lt;</td><td>&lt;</td></tr>
 <tr><td><pre style="display: inline">'‘&lt;div>&amp;lt;&lt;/div>’'</pre></td><td>&lt;div>&amp;lt;&lt;/div></td><td><div>&lt;</div></td></tr>
@@ -312,10 +338,10 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 <h3>Отключение пк-форматирования</h3>
 <br />
 !‘текст/код *‘без’ форматирования (обычным шрифтом)’<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Почему был выбран символ `!`<br /></span><div class="spoiler_text" style="display:none">Символ <pre style="display: inline">!</pre> ассоциируется у <!--[[[большинства]]]--> <abbr title="на языках, производных от Си">программистов</abbr> с not\отрицанием, и в данном случае текст под ! с кавычками ‘’ отрицает всё пк-форматирование. <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><!--[[[‘Возможно, стоит’/‘]]]-->Можно было бы<!--[[[’]]]--> использовать 0 или О (Отключение\Off)<!--[[[.../‘]]]-->, но такое обозначение слишком бросается в глаза.<!--[[[’]]]--></span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span><br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Почему был выбран символ `!`<br /></span><div class="spoiler_text" style="display: none">Символ <pre style="display: inline">!</pre> ассоциируется у <!--[[[большинства]]]--> <abbr title="на языках, производных от Си">программистов</abbr> с not\отрицанием, и в данном случае текст под ! с кавычками ‘’ отрицает всё пк-форматирование. <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><!--[[[‘Возможно, стоит’/‘]]]-->Можно было бы<!--[[[’]]]--> использовать 0 или О (Отключение\Off)<!--[[[.../‘]]]-->, но такое обозначение слишком бросается в глаза.<!--[[[’]]]--></span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span><br />
 </div>
 <br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">(Для вставки текста без пк-форматирования можно использовать '‘сырой HTML’')<br /></span><div class="spoiler_text" style="display:none">'‘текст/код *‘без’ форматирования (обычным шрифтом)’'<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">(Для вставки текста без пк-форматирования можно использовать '‘сырой HTML’')<br /></span><div class="spoiler_text" style="display: none">'‘текст/код *‘без’ форматирования (обычным шрифтом)’'<br />
 <br />
 (Запись !‘...’ отличается от '‘сырого HTML’' только тем, что в !‘...’ каждый символ <pre style="display: inline">&amp;</pre> заменяется на <pre style="display: inline">&amp;amp;</pre>, каждый символ <pre style="display: inline">&lt;</pre> заменяется на <pre style="display: inline">&amp;lt;</pre> и перед каждым символом новой строки вставляется тег <pre style="display: inline">&lt;br /></pre>.)<br />
 </div>
@@ -335,7 +361,7 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 <br />
 > Цитата<br />
 <blockquote>Цитата</blockquote>
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Пробел после `>` ставить обязательно? Зачем?<br /></span><div class="spoiler_text" style="display:none">Да, обязательно.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Пробел после `>` ставить обязательно? Зачем?<br /></span><div class="spoiler_text" style="display: none">Да, обязательно.<br />
 <abbr title="эта же причина подходит и к спискам (там тоже обязателен пробел после `1.` и `.`)">Зачем</abbr> — для избежания/исключения возможных проблем в случаях<!--[[[ {а также чтобы в записи `<тег>текст` [в начале строки] символ `<` не воспринимался как обозначение ответной цитаты}]]]-->:<br />
 <pre style="display: inline">>‘Текст ссылки’[http://...] продолжение текста.</pre><br />
 может быть неверно истолковано как:<br />
@@ -359,7 +385,7 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 <blockquote class="re">Ответная цитата</blockquote>
 <span class="sq"><span class="sq_brackets">[</span>Иногда в ответ на сообщение удобно просто привести цитату из текста статьи или из другого сообщения.<span class="sq_brackets">]</span></span><br />
 <br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Цитаты с указанием источника и/или автора<br /></span><div class="spoiler_text" style="display:none"><table>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Цитаты с указанием источника и/или автора<br /></span><div class="spoiler_text" style="display: none"><table>
 <tr><td>>[http://address]:‘Цитата из текста по ссылке.’</td><td><blockquote><a href="http://address"><i>http://address</i></a>:<br />
 Цитата из текста по ссылке.</blockquote></td></tr>
 <tr><td>>[http://another-address][-1]:‘Цитата из текста по ссылке.’<br />

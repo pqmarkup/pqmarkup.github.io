@@ -49,20 +49,20 @@ h3 {font-size: 137.5%;}
 h4 {font-size: 120%;}
 h5 {font-size: 110%;}
 h6 {font-size: 100%;}
-td {text-align: justify; /*font-family: Tahoma, sans-serif*/}
+td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
-span.sq_brackets {color: #DDD}
-span.cu_brackets {cursor: pointer}
-span.cu {background-color: #F7F7FF}
-abbr {text-decoration: none; border-bottom: 1px dotted}
-pre {margin: 0}
+span.sq_brackets {color: #DFDFDF;}
+span.cu_brackets {cursor: pointer;}
+span.cu {background-color: #F7F7FF;}
+abbr {text-decoration: none; border-bottom: 1px dotted;}
+pre {margin: 0;}
 pre, code {font-family: 'Courier New'; line-height: normal}
 ul, ol {margin: 11px 0 7px 0;}
 ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
 ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
-table table {margin: 9px 0; border-collapse: collapse}
-table table th, table table td {padding: 6px 13px; border: 1px solid #ddd}
+table table {margin: 9px 0; border-collapse: collapse;}
+table table th, table table td {padding: 6px 13px; border: 1px solid #DFDFDF;}
 span.spoiler_title {
     color: #548eaa;
     cursor: pointer;
@@ -107,9 +107,9 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 <b><!--[[[Описание ]]]--><a href="./syntax" target="_self">Синтаксис пк-разметки.</a></b><br />
 <br />
 <br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">‘Советы по набору’/‘способы набора’ символов одиночных парных кавычек ‘ и ’...<br /></span><div class="spoiler_text" style="display:none"><ul>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">‘Советы по набору’/‘способы набора’ символов одиночных парных кавычек ‘ и ’...<br /></span><div class="spoiler_text" style="display: none"><ul>
 <li>В Windows можно использовать без дополнительных настроек сочетание клавиш <abbr title="в русской раскладке работает только через левый Alt">Alt</abbr>+0145 (на цифровой клавиатуре) для открывающей кавычки <pre style="display: inline">‘</pre> и Alt+0146 для закрывающей <pre style="display: inline">’</pre><!--[[[ (правда, работает это не во всех программах)][-необходимо указать хотя бы один пример такой программы (вроде в Chrome не работало, но сейчас не повторяется/не воспроизводится)-]]]-->.<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Визуально на цифровой клавиатуре эти цифры расположены очень удачно:<br /></span><div class="spoiler_text" style="display:none"><pre>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Визуально на цифровой клавиатуре эти цифры расположены очень удачно:<br /></span><div class="spoiler_text" style="display: none"><pre>
 ┌───┬───┐
 │ 4 │ 5 │
 ├───┼───┘
@@ -127,7 +127,7 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 Alt &amp; 9:: SendInput {‘}
 Alt &amp; 0:: SendInput {’}
 </pre>
-<span class="spoiler_title" onclick="return spoiler2(this, event)">В этот же файл-скрипт можно дополнительно ещё добавить:<br /></span><div class="spoiler_text" style="display:none"><!--[[[```
+<span class="spoiler_title" onclick="return spoiler2(this, event)">В этот же файл-скрипт можно дополнительно ещё добавить:<br /></span><div class="spoiler_text" style="display: none"><!--[[[```
 ; Thanks to [https://autohotkey.com/docs/commands/_IfWinActive.htm
 ;            <- https://autohotkey.com/board/topic/117370-exclude-a-program-from-an-autohotkey/
 ;            <- google:‘autohotkey exclude sppecific program’]:‘#IfWinActive ahk_class Notepad’
@@ -185,7 +185,7 @@ Alt   &amp;  .:: SendInput {>}
 А также можно добавить такое переназначение (впрочем, оно довольно спорное и неоднозначное) для двух самых <abbr title="Почему клавиша `\|/` сложная:
 1. На разных клавиатурах она располагается по-разному (варианты: слева от клавиши Enter, между клавишами Enter и Backspace, слева от клавиши Backspace, справа от правого Shift).
 2. На некоторых клавиатурах эта клавиша присутствует дважды: рядом с правым Shift и справа от левого Shift.
-3. Нажатие на эту клавишу вводит символ `\` и в русской и в английской раскладках, но так как этот символ используется реже, чем `/`, то возникает соблазн переназначить эту клавишу так, чтобы она вводила символ `/` без Shift и символ `\` c нажатым Shift.">сложных</abbr> клавиш на клавиатуре (включая единственную клавишу на русской клавиатуре, на которой нарисовано 4 символа): <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><br />
+3. Нажатие на эту клавишу вводит символ `\` и в русской и в английской раскладках, но так как этот символ используется реже, чем `/`, то возникает соблазн переназначить эту клавишу так, чтобы она вводила символ `/` без Shift и символ `\` c нажатым Shift.">сложных</abbr> клавиш на клавиатуре (включая единственную клавишу на русской клавиатуре, на которой нарисовано 4 символа): <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
 <pre>
                           ; ┌─────┐
 Shift &amp; \:: SendInput {/} ; │ | / │
@@ -200,7 +200,7 @@ Alt   &amp; SC035:: SendInput {?} ; │ / . │
 RWin  &amp; SC035:: SendInput {/} ; └─────┘
 </pre>
 <br />
-Хотя<!--[[[...]]]--> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">внимательно посмотрев на расположение этой клавиши <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><sub><br />
+Хотя<!--[[[...]]]--> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">внимательно посмотрев на расположение этой клавиши <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><sub><br />
 <a href="https://avatars.mds.yandex.net/get-marketpic/220472/market_oXpbPtUa0WIF0N5aiuysIg/orig" title="archived:{[http://web.archive.org/web/20171113044325/https://avatars.mds.yandex.net/get-marketpic/220472/market_oXpbPtUa0WIF0N5aiuysIg/orig][http://archive.li/xTkTa ‘Error: Network error.’]} <- google[Картинки:Большие]:‘cougar 300k’">Cougar 300K</a>:<br />
 <!--[[[{]]]--><!--[--><pre>
 ┌─────┐ ┌─────────┐
@@ -212,7 +212,7 @@ RWin  &amp; SC035:: SendInput {/} ; └─────┘
   │ \   │ │       │
   └─────┘ └───────┘
 </pre>
-</sub></span><span class="cu_brackets_b">}</span></span> на самых <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><sub><br />
+</sub></span><span class="cu_brackets_b">}</span></span> на самых <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><sub><br />
 <a href="https://media2.24aul.ru/imgs/58b84ecc73fce80994b309d6/" title="archived:{[http://web.archive.org/web/20171113045421/https://media2.24aul.ru/imgs/58b84ecc73fce80994b309d6/][http://archive.li/lF7Pc]} <- google[Картинки:Большие]:‘KBS-8’">A4Tech KBS-8</a>:<br />
 <!--[[[{]]]--><!--[--><pre>
    ┌─────┐ ┌─────────┐
@@ -228,7 +228,7 @@ RWin  &amp; SC035:: SendInput {/} ; └─────┘
 │            │ │ \   │
 └────────────┘ └─────┘
 </pre>
-</sub></span><span class="cu_brackets_b">}</span></span> разных <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><sub><br />
+</sub></span><span class="cu_brackets_b">}</span></span> разных <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><sub><br />
 <a href="http://static.nix.ru/autocatalog/sony/sony_notebook/102601_2253_draft.jpg" title="archived:{[http://web.archive.org/web/20171113052955/http://static.nix.ru/autocatalog/sony/sony_notebook/102601_2253_draft.jpg][http://archive.li/xPNWY]} <- google[Картинки:Большие]:‘VPCEC2M1R/WI’">Sony VAIO VPCEC2M1R/WI</a>:<br />
 <!--[[[{]]]--><!--[--><pre>
   ┌─────┐ ┌─────────┐
@@ -244,7 +244,7 @@ RWin  &amp; SC035:: SendInput {/} ; └─────┘
 │                   │
 └───────────────────┘
 </pre>
-</sub></span><span class="cu_brackets_b">}</span></span> клавиатурах <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><sub><br />
+</sub></span><span class="cu_brackets_b">}</span></span> клавиатурах <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><sub><br />
 <a href="http://static.nix.ru/autocatalog/keyboards_genius/24941_2245_draft.jpg" title="archived:{[http://web.archive.org/web/20171113060426/http://static.nix.ru/autocatalog/keyboards_genius/24941_2245_draft.jpg][http://archive.li/aPILw]} <- google[Картинки:Большие]:‘kb-29e’">Genius K641/KB-29e</a>:<br />
 <!--[[[{]]]--><!--[--><pre>
     ┌─────┐ ┌─────┐
@@ -260,15 +260,15 @@ RWin  &amp; SC035:: SendInput {/} ; └─────┘
   │               │
   └───────────────┘
 </pre>
-</sub></span><span class="cu_brackets_b">}</span></span> у меня возникла такая мысль, что<!--[[[...]]]--> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">этой клавиши вообще быть не должно. <!--[[[(:]]]-->:)<br />
-<span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">Эта клавиша — кусочек, отколотый от <!--[[[соответствующей ]]]-->клавиши Enter, или от клавиши Backspace, или от клавиши Shift. <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">И этот кусочек <!--[[[нужно/]]]-->можно <!--[[[просто ]]]-->назначить на ту клавишу, от которой он был отколот, но лучше просто оставить незадействованным, чтобы не путаться:<br />
+</sub></span><span class="cu_brackets_b">}</span></span> у меня возникла такая мысль, что<!--[[[...]]]--> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">этой клавиши вообще быть не должно. <!--[[[(:]]]-->:)<br />
+<span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">Эта клавиша — кусочек, отколотый от <!--[[[соответствующей ]]]-->клавиши Enter, или от клавиши Backspace, или от клавиши Shift. <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">И этот кусочек <!--[[[нужно/]]]-->можно <!--[[[просто ]]]-->назначить на ту клавишу, от которой он был отколот, но лучше просто оставить незадействованным, чтобы не путаться:<br />
 <br />
 <pre>
 *\:: SendInput {}   ;[https://autohotkey.com/docs/Hotkeys.htm#Symbols]:‘
                     ;*...Wildcard: Fire the hotkey even if extra modifiers are being held down.’
 </pre>
 <br />
-А символы <pre style="display: inline">\</pre>, <pre style="display: inline">|</pre>, <pre style="display: inline">/</pre>, <pre style="display: inline">.</pre> и <pre style="display: inline">,</pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">можно набирать посредством одной клавиши <pre style="display: inline">/?,.</pre>:<br />
+А символы <pre style="display: inline">\</pre>, <pre style="display: inline">|</pre>, <pre style="display: inline">/</pre>, <pre style="display: inline">.</pre> и <pre style="display: inline">,</pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">можно набирать посредством одной клавиши <pre style="display: inline">/?,.</pre>:<br />
 <pre>
 /*
                         ┌─────┐
@@ -332,7 +332,7 @@ SC035   &amp; RCtrl:: SendInput {\}
 Это позволит унифицировать ввод символов `@`, `"`, `#`, `№`, `$`, `;`, `^`, `:`, `&` и `?`, сделав его независимым от текущей раскладки.
 }]Закомментировал, так как Shift+2 не работает в Sublime Text и это лучше делать через AutoHotkey.]]--></li>
 <li>В Android можно используя клавиатуру <a href="https://play.google.com/store/apps/details?id=com.jbak.JbakKeyboard">Jbak Keyboard</a> устанавливать собственные раскладки.<br />
-<a href="./../files/keyboards.zip" target="_self">Вот архив</a><span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none"><span class="sq"><span class="sq_brackets">[</span>-Я использую собранную мной <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display:none">даю <a href="./../files/Jbak%20Keyboard%20-%204PDA.htm" target="_self">ссылку</a> на <abbr title="которую я успел вытащить из кэша Google после того как заметил пропажу своих сообщений">копию страницы</abbr> этой темы, так как по оригинальной теме словно ураган прошёлся <!--[[[(:]]]-->:) — многие сообщения при переносе/разделении тем куда-то пропали, и <a href="http://4pda.ru/forum/index.php?showuser=3122901">у меня в профиле на 4pda.ru</a> до сих пор ошибочно отображается наличие 2 сообщений, но сами сообщения при этом не находятся</span><span class="cu_brackets_b">}</span></span> <a href="./../files/test-JbakKeyboard-0.97.8.apk.zip" target="_self" title="apk пришлось спрятать в zip, так как иначе GitHub ругается: It looks like you're using GitHub Pages to distribute binary files.">версию Jbak Keyboard</a>, в которой для выбора способа ввода (т.е. другой клавиатуры) используется код -508, и я не знаю, есть ли данный функционал в последней официальной версии, но я знаю, что он есть в <a href="https://play.google.com/store/apps/details?id=com.jbak2.JbakKeyboard">форке от wolf3d2</a> (правда не помню какой код используется там). Необходимо узнать, есть ли данная функциональность в оригинальной версии и поправить данные раскладки под неё.-<span class="sq_brackets">]</span></span></span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span> с раскладками с назначенными/добавленными символами ‘ и ’.</li>
+<a href="./../files/keyboards.zip" target="_self">Вот архив</a><span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><span class="sq"><span class="sq_brackets">[</span>-Я использую собранную мной <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">даю <a href="./../files/Jbak%20Keyboard%20-%204PDA.htm" target="_self">ссылку</a> на <abbr title="которую я успел вытащить из кэша Google после того как заметил пропажу своих сообщений">копию страницы</abbr> этой темы, так как по оригинальной теме словно ураган прошёлся <!--[[[(:]]]-->:) — многие сообщения при переносе/разделении тем куда-то пропали, и <a href="http://4pda.ru/forum/index.php?showuser=3122901">у меня в профиле на 4pda.ru</a> до сих пор ошибочно отображается наличие 2 сообщений, но сами сообщения при этом не находятся</span><span class="cu_brackets_b">}</span></span> <a href="./../files/test-JbakKeyboard-0.97.8.apk.zip" target="_self" title="apk пришлось спрятать в zip, так как иначе GitHub ругается: It looks like you're using GitHub Pages to distribute binary files.">версию Jbak Keyboard</a>, в которой для выбора способа ввода (т.е. другой клавиатуры) используется код -508, и я не знаю, есть ли данный функционал в последней официальной версии, но я знаю, что он есть в <a href="https://play.google.com/store/apps/details?id=com.jbak2.JbakKeyboard">форке от wolf3d2</a> (правда не помню какой код используется там). Необходимо узнать, есть ли данная функциональность в оригинальной версии и поправить данные раскладки под неё.-<span class="sq_brackets">]</span></span></span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span> с раскладками с назначенными/добавленными символами ‘ и ’.</li>
 </ul>
 </div>
 <br />
@@ -344,7 +344,7 @@ SC035   &amp; RCtrl:: SendInput {\}
 </ul>
 <br />
 <br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Статьи по пк-разметке\pqmarkup<br /></span><div class="spoiler_text" style="display:none"><ul>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Статьи по пк-разметке\pqmarkup<br /></span><div class="spoiler_text" style="display: none"><ul>
 <li>‘Статья на Хабрахабре ‘‘Новый облегчённый язык разметки текста на основе парных кавычек (pq)’’’<span class="sq"><span class="sq_brackets">[</span>-вставить ссылку после публикации статьи-<span class="sq_brackets">]</span></span></li>
 </ul>
 </div>
