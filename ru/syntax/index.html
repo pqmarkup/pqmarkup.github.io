@@ -51,7 +51,7 @@ h5 {font-size: 110%;}
 h6 {font-size: 100%;}
 td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
-span.sq_brackets {color: #DFDFDF;}
+span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
 span.cu {background-color: #F7F7FF;}
 abbr {text-decoration: none; border-bottom: 1px dotted;}
@@ -62,7 +62,7 @@ ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
 ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
 table table {margin: 9px 0; border-collapse: collapse;}
-table table th, table table td {padding: 6px 13px; border: 1px solid #DFDFDF;}
+table table th, table table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
 span.spoiler_title {
     color: #548eaa;
     cursor: pointer;
@@ -166,10 +166,11 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 <tr><td>P‘https://.../blue_circle.png’[‘текст всплывающей подсказки’]</td><td>&lt;img src="https://.../blue_circle.png" title="текст всплывающей подсказки" /></td><td><img src="https://bitbucket.org/pqmarkup/pqmarkup/raw/default/docs/images/blue_circle.png" title="текст всплывающей подсказки" /></td></tr>
 <tr><td>P‘https://.../blue_circle.png’[http://address ‘текст всплывающей подсказки’]</td><td>&lt;a href="http://address" title="текст всплывающей подсказки">&lt;img src="https://.../blue_circle.png" />&lt;/a></td><td><a href="http://address" title="текст всплывающей подсказки"><img src="https://bitbucket.org/pqmarkup/pqmarkup/raw/default/docs/images/blue_circle.png" /></a></td></tr>
 <tr><th colspan="3">Цвет текста</th></tr>
-<tr><td colspan="3"><sub>Цвет задаётся в формате #ККЗЗСС (Красный, Зелёный, Синий) посредством шестнадцатеричных цифр (можно использовать кириллицу: абсдеф/АБСДЕФ является аналогом abcdef/ABCDEF) или в формате КЗС посредством цифр <abbr title="считаю, что для оформления большинства статей 9 уровней/градаций для компонент цвета вполне достаточно , а максимум 8 (а не 9) выбран для того, чтобы можно было задавать серый цвет (444)">от 0 до 8</abbr>.</sub></td></tr>
-<tr><td>C(#ff0000)‘красный текст’</td><td>&lt;span style="color: #ff0000">красный текст&lt;/span></td><td><span style="color: #ff0000">красный текст</span></td></tr>
-<tr><td>C(800)‘тоже красный текст’</td><td>&lt;span style="color: #FF0000">тоже красный текст&lt;/span></td><td><span style="color: #FF0000">тоже красный текст</span></td></tr>
-<tr><td>C(000)‘чёрный текст’</td><td>&lt;span style="color: #000000">чёрный текст&lt;/span></td><td><span style="color: #000000">чёрный текст</span></td></tr>
+<tr><td colspan="3"><sub>Цвет задаётся в формате #ККЗЗСС (Красный, Зелёный, Синий) посредством шестнадцатеричных цифр (можно использовать кириллицу: абсдеф/АБСДЕФ является аналогом abcdef/ABCDEF) или в формате КЗС посредством цифр <abbr title="Считаю, что для оформления большинства статей 9 уровней/градаций для компонент цвета вполне достаточно , а максимум 8 (а не 9) выбран для того, чтобы можно было задавать серый цвет: С(444) или С(4).">от 0 до 8</abbr>.</sub></td></tr>
+<tr><td>С(#ff0000)‘красный текст’</td><td>&lt;span style="color: #ff0000">красный текст&lt;/span></td><td><span style="color: #ff0000">красный текст</span></td></tr>
+<tr><td>С(800)‘тоже красный текст’</td><td>&lt;span style="color: #FF0000">тоже красный текст&lt;/span></td><td><span style="color: #FF0000">тоже красный текст</span></td></tr>
+<tr><td>С(000)‘чёрный текст’</td><td>&lt;span style="color: #000000">чёрный текст&lt;/span></td><td><span style="color: #000000">чёрный текст</span></td></tr>
+<tr><td>С(4)‘серый текст’</td><td>&lt;span style="color: #808080">серый текст&lt;/span></td><td><span style="color: #808080">серый текст</span></td></tr>
 <tr><th colspan="3">Таблицы</th></tr>
 <tr><td><pre style="display: inline">Т‘
 Н‘‘A’ ‘B’ ‘C’’
@@ -276,7 +277,7 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 &emsp;И дабы не запутывать слушателя или читателя <!--[[[своими ]]]-->несвязными потоками мыслей, разумнее/логичнее сначала полностью высказать/закончить изначальную <!--[[[законченную ]]]-->мысль<!--[[[ целиком]]]-->. Но если в разговоре сделать <abbr title="не отвлекаться на новые возникшие мысли, а продолжать последовательно излагать изначальную мысль">это</abbr> может быть не так <!--[[[и ]]]-->просто, то для письменной формы <span class="sq"><span class="sq_brackets">[</span>высказывания/выражения своих мыслей<span class="sq_brackets">]</span></span> я предлагаю такой инструмент структурирования <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><!--[[[не очень подходящее слово]]]-->а точнее говоря, инструмент, который подсказывает читателю порядок чтения текста автора для более лёгкого и точного его понимания</span><span class="cu_brackets_b">}</span></span> мыслей, <abbr title="хотя согласен, что это больше похоже на усложнение, а не на облегчение, но без такой разметки получилось бы просто нагромождение слов, понять которые читая их последовательно было бы ещё сложнее">облегчающий</abbr> для читателя<!--[[[
 Говорить, что я ‘предлагаю инструмент, облегчающий для читателя’, не совсем [честно/]точно, так как [./praformat.txt]:‘
 Формат пк-разметки [[[изначально предназначался[/разрабатывался]]]/]предназначен‘*’[‘одно из предназначений’] для максимально точного [[[выражения/]оцифровки мыслей]/]~‘преобразования’[/сериализации] потоков[[[/нитей[/ветвей [дерева мысли]]]]] ~‘мыслей [[[и их записи]]] в цифровую форму’’
-Но это также не совсем честно, так как, во-первых, заключать текст в фигурные скобочки я стал ещё до использования парных кавычек, и [[[[ничто не мешает]]]]вполне возможно добавить функционал/возможность скрывания текста в фигурных скобочках в какую-то другую разметку текста, а, во-вторых, пк-разметка (а впрочем и никакая другая) никак не может гарантировать точность выражения мыслей автора.
+Но это также не совсем честно, так как, во-первых, заключать текст в фигурные скобочки я стал ещё до использования парных кавычек, и вполне возможно добавить функционал/возможность скрывания текста в фигурных скобочках в какую-то другую разметку текста, а, во-вторых, пк-разметка (а впрочем и никакая другая) никак не может гарантировать точность выражения мыслей автора.
 ]]]--> понимание <b>всего</b><!--[[[ того]]]-->, что хотел сказать автор текста. Для того, чтобы это "работало", я предлагаю следовать такому простому правилу: раскрывать фигурные скобочки, то есть запись {…}, читателю следует после прочтения всего абзаца <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">ну или хотя бы <span class="sq"><span class="sq_brackets">[</span>соответствующего<span class="sq_brackets">]</span></span> предложения</span><span class="cu_brackets_b">}</span></span> <!--[[[до конца]/]]-->целиком.<br />
 <br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">А для чего было заключать этот текст в [{такие}] скобочки?<br /></span><div class="spoiler_text" style="display: none"><ol>
@@ -362,7 +363,7 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 > Цитата<br />
 <blockquote>Цитата</blockquote>
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Пробел после `>` ставить обязательно? Зачем?<br /></span><div class="spoiler_text" style="display: none">Да, обязательно.<br />
-<abbr title="эта же причина подходит и к спискам (там тоже обязателен пробел после `1.` и `.`)">Зачем</abbr> — для избежания/исключения возможных проблем в случаях<!--[[[ {а также чтобы в записи `<тег>текст` [в начале строки] символ `<` не воспринимался как обозначение ответной цитаты}]]]-->:<br />
+<abbr title="эта же причина подходит и к спискам (там тоже обязателен пробел после `1.` и `.`)">Зачем</abbr> — для избежания/исключения возможных проблем в случаях <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">а также чтобы в записи <pre style="display: inline">&lt;тег>текст</pre> <span class="sq"><span class="sq_brackets">[</span>в начале строки<span class="sq_brackets">]</span></span> символ <pre style="display: inline">&lt;</pre> не воспринимался как обозначение ответной цитаты</span><span class="cu_brackets_b">}</span></span>:<br />
 <pre style="display: inline">>‘Текст ссылки’[http://...] продолжение текста.</pre><br />
 может быть неверно истолковано как:<br />
 <pre>>‘Текст ссылки’

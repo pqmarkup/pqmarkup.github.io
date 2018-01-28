@@ -51,7 +51,7 @@ h5 {font-size: 110%;}
 h6 {font-size: 100%;}
 td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
-span.sq_brackets {color: #DFDFDF;}
+span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
 span.cu {background-color: #F7F7FF;}
 abbr {text-decoration: none; border-bottom: 1px dotted;}
@@ -62,7 +62,7 @@ ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
 ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
 table table {margin: 9px 0; border-collapse: collapse;}
-table table th, table table td {padding: 6px 13px; border: 1px solid #DFDFDF;}
+table table th, table table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
 span.spoiler_title {
     color: #548eaa;
     cursor: pointer;
@@ -162,10 +162,11 @@ Red text — C(red)‘text’<br />
 <tr><td>P‘https://.../blue_circle.png’[‘tooltip text’]</td><td>&lt;img src="https://.../blue_circle.png" title="tooltip text" /></td><td><img src="https://bitbucket.org/pqmarkup/pqmarkup/raw/default/docs/images/blue_circle.png" title="tooltip text" /></td></tr>
 <tr><td>P‘https://.../blue_circle.png’[http://address ‘tooltip text’]</td><td>&lt;a href="http://address" title="tooltip text">&lt;img src="https://.../blue_circle.png" />&lt;/a></td><td><a href="http://address" title="tooltip text"><img src="https://bitbucket.org/pqmarkup/pqmarkup/raw/default/docs/images/blue_circle.png" /></a></td></tr>
 <tr><th colspan="3">Color</th></tr>
-<tr><td colspan="3"><sub>Color can be specified in hexadecimal format #RRGGBB (Red, Green, Blue) or in format RGB as three digits (<abbr title="I consider that to decor most articles 9 levels/gradations for color components should be quite enough , maximum of 8 (not 9) was taken to obtain a gray color (444)">0 through 8</abbr>).</sub></td></tr>
+<tr><td colspan="3"><sub>Color can be specified in hexadecimal format #RRGGBB (Red, Green, Blue) or in format RGB as three digits (<abbr title="I consider that to decor most articles 9 levels/gradations for color components should be quite enough , maximum of 8 (not 9) was taken to obtain a gray color: as C(444) or C(4)">0 through 8</abbr>).</sub></td></tr>
 <tr><td>C(#ff0000)‘red text’</td><td>&lt;span style="color: #ff0000">red text&lt;/span></td><td><span style="color: #ff0000">red text</span></td></tr>
 <tr><td>C(800)‘also red text’</td><td>&lt;span style="color: #FF0000">also red text&lt;/span></td><td><span style="color: #FF0000">also red text</span></td></tr>
 <tr><td>C(000)‘black text’</td><td>&lt;span style="color: #000000">black text&lt;/span></td><td><span style="color: #000000">black text</span></td></tr>
+<tr><td>C(4)‘gray text’</td><td>&lt;span style="color: #808080">gray text&lt;/span></td><td><span style="color: #808080">gray text</span></td></tr>
 <tr><th colspan="3">Tables</th></tr>
 <tr><td><pre style="display: inline">Т‘
 Н‘‘A’ ‘B’ ‘C’’
@@ -313,11 +314,11 @@ Renders as:<br />
 <br />
 <h3>Disabling pq formatting</h3>
 <br />
-!‘text/code *‘without’ formatting (with normal font)’<br />
+!‘text/code *‘without’ formatting (with regular font)’<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Why it was chosen character `!`<br /></span><div class="spoiler_text" style="display: none">Character <pre style="display: inline">!</pre> is associated among <!--[[[most]]]--> <abbr title="on languages based on C">programmers</abbr> with "logical not", and in that case text under ! with quotes ‘’ disables pq formatting.<br />
 </div>
 <br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">(For text without pq formatting you can use '‘raw HTML’')<br /></span><div class="spoiler_text" style="display: none">'‘text/code *‘without’ formatting (with normal font)’'<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">(For text without pq formatting you can use '‘raw HTML’')<br /></span><div class="spoiler_text" style="display: none">'‘text/code *‘without’ formatting (with regular font)’'<br />
 <br />
 (Notation !‘...’ differs from the '‘raw HTML’' only by that in !‘...’ all characters <pre style="display: inline">&amp;</pre> are replaced with <pre style="display: inline">&amp;amp;</pre>, all characters <pre style="display: inline">&lt;</pre> are replaced with <pre style="display: inline">&amp;lt;</pre>, and before each new line character tag <pre style="display: inline">&lt;br /></pre> is inserted.)<br />
 </div>
@@ -338,7 +339,7 @@ Renders as:<br />
 > Blockquote<br />
 <blockquote>Blockquote</blockquote>
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Is space necessary after `>`? Why?<br /></span><div class="spoiler_text" style="display: none">Yes, it is necessary.<br />
-<abbr title="the same reason is applicable to lists (there also must be space character after `1.` and `.`)">Why</abbr> — to avoid problems in the following cases<!--[[[ {and also in `<tag>text` [at the beginning of line] character `<` will not recognized as responding blockquote}]]]-->:<br />
+<abbr title="the same reason is applicable to lists (there also must be space character after `1.` and `.`)">Why</abbr> — to avoid problems in the following cases <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">and also in <pre style="display: inline">&lt;tag>text</pre> <span class="sq"><span class="sq_brackets">[</span>at the beginning of the line<span class="sq_brackets">]</span></span> character <pre style="display: inline">&lt;</pre> will not be recognized as the responding blockquote</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span>:<br />
 <pre style="display: inline">>‘Link text’[http://...] following text.</pre><br />
 can be treated as:<br />
 <pre>>‘Link text’
@@ -357,8 +358,8 @@ blockquote’<br />
 <blockquote>Multiline<br />
 blockquote</blockquote>
 <br />
-&lt; Reciprocal blockquote<br />
-<blockquote class="re">Reciprocal blockquote</blockquote>
+&lt; Reciprocal/responding blockquote<br />
+<blockquote class="re">Reciprocal/responding blockquote</blockquote>
 <span class="sq"><span class="sq_brackets">[</span>Sometimes it is convenient to just copy text from another message to answer the question.<span class="sq_brackets">]</span></span><br />
 <br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Quotations with author name and/or url<br /></span><div class="spoiler_text" style="display: none"><table>
