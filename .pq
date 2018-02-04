@@ -53,7 +53,7 @@ Original implementation in Python:
 
 
 ‘Articles on pqmarkup’{
-. ‘Article on habrahabr.ru (in Russian) titled ‘‘Новый облегчённый язык разметки текста на основе парных кавычек (pq)’’’[-вставить ссылку после публикации статьи-]
+. ‘Article on habrahabr.ru (in Russian) titled ‘‘Новый облегчённый язык разметки текста на основе парных кавычек (pq)’’’[https://habrahabr.ru/post/348218]
 }
 
 
