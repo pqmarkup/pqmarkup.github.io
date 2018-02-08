@@ -252,9 +252,8 @@ SC035   & RCtrl:: SendInput {\}
 . ‘Ссылка на основной репозиторий’[https://bitbucket.org/pqmarkup/pqmarkup]
 
 
-‘Статьи по пк-разметке\pqmarkup’{
+Статьи по пк-разметке\pqmarkup:
 . ‘Статья на Хабрахабре ‘‘Новый облегчённый язык разметки текста на основе парных кавычек (pq)’’’[https://habrahabr.ru/post/348218]
-}
 
 
 \/‘(: Кстати, пользуясь случаем, передаю привет m4[https://en.wikipedia.org/wiki/M4_(computer_language) ‘Unlike most languages, strings in m4 are quoted using the backtick (`) as the starting delimiter, and apostrophe (') as the ending delimiter. The use of separate starting and ending delimiters allows for the arbitrary nesting of quotation marks in strings...[[[ <- https://ru.wikipedia.org/wiki/Макропроцессор_m4 <- google:‘m4’ <- [http://www.linux.org.ru/forum/development/12280414/page1]:‘В C чудом осталась незанятой обратная кавычка, благодаря этому удалось более-менее сносно реализовать m4.’ <- https://bitbucket.org/budden/yar/src/4b7de82b26c6adfea6daedf23f656a6ea58ee26c/doc/обсуждения/лор-отнять-и-поделить.txt]]]’] и atx[http://web.archive.org/web/20040223210813/http://www.aaronsw.com/2002/atx/intro [[[ссылка на web.archive.org потому что в русской версии Windows страница [http://www.aaronsw.com/2002/atx/intro] отображается некорректно (по крайней мере, в Chrome и в Firefox)]]]<- https://en.wikipedia.org/wiki/Aaron_Swartz#atx <- вчера написал [pqmarkup/docs/ru/syntax.pq.txt]:‘Я постоянно путаюсь в обозначениях заголовков в других облегчённых языках разметки ...’, [[[‘]]]а сегодня решил поискать “atx’-style headers и наткнулся на atx]![‘И хотите верьте, хотите нет, но про m4 и atx я узнал уже после того, как мне пришла идея использовать одиночные парные кавычки в пк-разметке.’] :)’

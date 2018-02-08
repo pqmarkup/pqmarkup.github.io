@@ -52,9 +52,8 @@ Original implementation in Python:
 . ‘Link to the main repository’[https://bitbucket.org/pqmarkup/pqmarkup]
 
 
-‘Articles on pqmarkup’{
+Articles on pqmarkup:
 . ‘Article on habrahabr.ru (in Russian) titled ‘‘Новый облегчённый язык разметки текста на основе парных кавычек (pq)’’’[https://habrahabr.ru/post/348218]
-}
 
 
 \/‘(: On this occasion, I bring greetings to m4[https://en.wikipedia.org/wiki/M4_(computer_language) ‘Unlike most languages, strings in m4 are quoted using the backtick (`) as the starting delimiter, and apostrophe (') as the ending delimiter. The use of separate starting and ending delimiters allows for the arbitrary nesting of quotation marks in strings...[[[ <- https://ru.wikipedia.org/wiki/Макропроцессор_m4 <- google:‘m4’ <- [http://www.linux.org.ru/forum/development/12280414/page1]:‘В C чудом осталась незанятой обратная кавычка, благодаря этому удалось более-менее сносно реализовать m4.’ <- https://bitbucket.org/budden/yar/src/4b7de82b26c6adfea6daedf23f656a6ea58ee26c/doc/обсуждения/лор-отнять-и-поделить.txt]]]’] and atx[http://web.archive.org/web/20040223210813/http://www.aaronsw.com/2002/atx/intro [[[link to web.archive.org because in Russian version of Windows page [http://www.aaronsw.com/2002/atx/intro] displays incorrectly (at least in Chrome and in Firefox)]]]<- https://en.wikipedia.org/wiki/Aaron_Swartz#atx <- вчера написал [pqmarkup/docs/ru/syntax.pq.txt]:‘Я постоянно путаюсь в обозначениях заголовков в других облегчённых языках разметки ...’, [[[‘]]]а сегодня решил поискать “atx’-style headers и наткнулся на atx]![‘And believe it or not, I found out about m4 and atx after that I got an idea of using paired quotation marks in new markup language.’] :)’
