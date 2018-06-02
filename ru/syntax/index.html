@@ -79,6 +79,10 @@ blockquote {
 }
 blockquote:not(.re) {border-left:  0.2em solid #90ddaa; background-color: #fbfffb;}
 blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff8;}
+div.note {
+    padding: 18px 20px;
+    background: #ffffd7;
+}
 </style>
 </head>
 <body>
@@ -93,8 +97,9 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 <tr><td><pre style="display: inline">-‘зачёркнутый’</pre></td><td><s>зачёркнутый</s></td></tr>
 <tr><td><pre style="display: inline">~‘курсив’</pre></td><td><i>курсив</i><!--[[[‘.’[‘почему не /‘курсив’ — во-первых, курсив даёт не только наклон, но и изменяет шрифт (особенно буквы т, д, г), и, во-вторых, курсив может использоваться для придания особого смысла выделенному курсивом тексту, например так: ~‘правильный’ (‘близкий к правильному’/‘приблизительно правильный’), а в математике знак ~ означает ‘приблизительно’’]]]]--></td></tr>
 </table>
-<i>Примечание:</i><br />
+<div class="note"><i>Примечание:</i><br />
 Вот так не работает: <pre style="display: inline">~*‘жирный курсив’</pre> (будет просто ~<b>жирный</b>), пишите так: <pre style="display: inline">~‘*‘</pre><i><b>жирный курсив</b></i><pre style="display: inline">’’</pre> или так: <pre style="display: inline">*‘~‘</pre><b><i>жирный курсив</i></b><pre style="display: inline">’’</pre> (<abbr title="чтобы не злоупотреблять форматированием и чтобы лучше было видно в исходной пк-разметке такие места">так и задумано</abbr>).<br />
+Обратите внимание, что использование отдельных символов для открывающей и закрывающей кавычек предоставляет возможность неограниченной вложенности элементов форматирования.</div><br />
 <br />
 <br />
 <h3>Ссылки и всплывающие подсказки</h3>
@@ -339,13 +344,11 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 <br />
 <h3>Отключение пк-форматирования</h3>
 <br />
-!‘текст/код *‘без’ форматирования (обычным шрифтом)’<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Почему был выбран символ `!`<br /></span><div class="spoiler_text" style="display: none">Символ <pre style="display: inline">!</pre> ассоциируется у <!--[[[большинства]]]--> <abbr title="на языках, производных от Си">программистов</abbr> с not\отрицанием, и в данном случае текст под ! с кавычками ‘’ отрицает всё пк-форматирование. <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><!--[[[‘Возможно, стоит’/‘]]]-->Можно было бы<!--[[[’]]]--> использовать 0 или О (Отключение\Off)<!--[[[.../‘]]]-->, но такое обозначение слишком бросается в глаза.<!--[[[’]]]--></span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span><br />
-</div>
+0‘текст/код *‘без’ форматирования (обычным шрифтом)’<br />
 <br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">(Для вставки текста без пк-форматирования можно использовать '‘сырой HTML’')<br /></span><div class="spoiler_text" style="display: none">'‘текст/код *‘без’ форматирования (обычным шрифтом)’'<br />
 <br />
-(Запись !‘...’ отличается от '‘сырого HTML’' только тем, что в !‘...’ каждый символ <pre style="display: inline">&amp;</pre> заменяется на <pre style="display: inline">&amp;amp;</pre>, каждый символ <pre style="display: inline">&lt;</pre> заменяется на <pre style="display: inline">&amp;lt;</pre> и перед каждым символом новой строки вставляется тег <pre style="display: inline">&lt;br /></pre>.)<br />
+(Запись 0‘...’ отличается от '‘сырого HTML’' только тем, что в 0‘...’ каждый символ <pre style="display: inline">&amp;</pre> заменяется на <pre style="display: inline">&amp;amp;</pre>, каждый символ <pre style="display: inline">&lt;</pre> заменяется на <pre style="display: inline">&amp;lt;</pre> и перед каждым символом новой строки вставляется тег <pre style="display: inline">&lt;br /></pre>.)<br />
 </div>
 <br />
 <br />
@@ -357,6 +360,12 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 #‘код’<br />
 #(язык)‘код’ (например: #(JavaScript)‘код’)<br />
 (Код отображается <pre style="display: inline">моноширным шрифтом</pre>.)<br />
+<br />
+<br />
+<h3>Примечание</h3>
+<br />
+!‘Примечание’<br />
+<div class="note">Примечание</div><br />
 <br />
 <br />
 <h3>Цитирование</h3>

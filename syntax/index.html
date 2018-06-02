@@ -79,6 +79,10 @@ blockquote {
 }
 blockquote:not(.re) {border-left:  0.2em solid #90ddaa; background-color: #fbfffb;}
 blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff8;}
+div.note {
+    padding: 18px 20px;
+    background: #ffffd7;
+}
 </style>
 </head>
 <body>
@@ -93,8 +97,9 @@ blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff
 <tr><td><pre style="display: inline">-‘strikethrough’</pre></td><td><s>strikethrough</s></td></tr>
 <tr><td><pre style="display: inline">~‘italic’</pre></td><td><i>italic</i></td></tr>
 </table>
-<i>Remark</i>:<br />
+<div class="note"><i>Remark</i>:<br />
 This does not work: <pre style="display: inline">~*‘bold italics’</pre> (it will be just ~<b>bold</b>), write this: <pre style="display: inline">~‘*‘</pre><i><b>bold italics</b></i><pre style="display: inline">’’</pre> or this: <pre style="display: inline">*‘~‘</pre><b><i>bold italics</i></b><pre style="display: inline">’’</pre>.<br />
+Also note that separate starting and ending quotes allows the arbitrary nesting of formatting elements to be used.</div><br />
 <br />
 <br />
 <h3>Links and tooltips</h3>
@@ -313,15 +318,13 @@ Renders as:<br />
 </div>
 <br />
 <br />
-<h3>Disabling pq formatting</h3>
+<h3>Disabling/turning off pq formatting</h3>
 <br />
-!‘text/code *‘without’ formatting (with regular font)’<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Why it was chosen character `!`<br /></span><div class="spoiler_text" style="display: none">Character <pre style="display: inline">!</pre> is associated among <!--[[[most]]]--> <abbr title="on languages based on C">programmers</abbr> with "logical not", and in that case text under ! with quotes ‘’ disables pq formatting.<br />
-</div>
+0‘text/code *‘without’ formatting (with regular font)’<br />
 <br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">(For text without pq formatting you can use '‘raw HTML’')<br /></span><div class="spoiler_text" style="display: none">'‘text/code *‘without’ formatting (with regular font)’'<br />
 <br />
-(Notation !‘...’ differs from the '‘raw HTML’' only by that in !‘...’ all characters <pre style="display: inline">&amp;</pre> are replaced with <pre style="display: inline">&amp;amp;</pre>, all characters <pre style="display: inline">&lt;</pre> are replaced with <pre style="display: inline">&amp;lt;</pre>, and before each new line character tag <pre style="display: inline">&lt;br /></pre> is inserted.)<br />
+(Notation 0‘...’ differs from the '‘raw HTML’' only by that in 0‘...’ all characters <pre style="display: inline">&amp;</pre> are replaced with <pre style="display: inline">&amp;amp;</pre>, all characters <pre style="display: inline">&lt;</pre> are replaced with <pre style="display: inline">&amp;lt;</pre>, and before each new line character tag <pre style="display: inline">&lt;br /></pre> is inserted.)<br />
 </div>
 <br />
 <br />
@@ -333,6 +336,12 @@ Renders as:<br />
 #‘code’<br />
 #(language)‘code’ (for example: #(JavaScript)‘code’)<br />
 (Code spans and code blocks are rendered with <pre style="display: inline">monospaced font</pre>.)<br />
+<br />
+<br />
+<h3>Note/remark</h3>
+<br />
+!‘Note/remark’<br />
+<div class="note">Note/remark</div><br />
 <br />
 <br />
 <h3>Blockquotes</h3>
