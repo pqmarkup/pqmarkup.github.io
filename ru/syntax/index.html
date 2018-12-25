@@ -83,6 +83,14 @@ div.note {
     padding: 18px 20px;
     background: #ffffd7;
 }
+pre.code_block {padding: 6px 0;}
+pre.inline_code {
+    display: inline;
+    padding: 0px 3px;
+    border: 1px solid #E5E5E5;
+    background-color: #FAFAFA;
+    border-radius: 3px;
+}
 </style>
 </head>
 <body>
@@ -99,7 +107,7 @@ div.note {
 <tr><td><pre style="display: inline">~‘курсив’</pre></td><td><i>курсив</i><!--[[[‘.’[‘почему не /‘курсив’ — во-первых, курсив даёт не только наклон, но и изменяет шрифт (особенно буквы т, д, г), и, во-вторых, курсив может использоваться для придания особого смысла выделенному курсивом тексту, например так: ~‘правильный’ (‘близкий к правильному’/‘приблизительно правильный’), а в математике знак ~ означает ‘приблизительно’’]]]]--></td></tr>
 </table>
 <div class="note"><i>Примечание:</i><br />
-Вот так не работает: <pre style="display: inline">~*‘жирный курсив’</pre> (будет просто ~<b>жирный</b>), пишите так: <pre style="display: inline">~‘*‘</pre><i><b>жирный курсив</b></i><pre style="display: inline">’’</pre> или так: <pre style="display: inline">*‘~‘</pre><b><i>жирный курсив</i></b><pre style="display: inline">’’</pre> (<abbr title="чтобы не злоупотреблять форматированием и чтобы лучше было видно в исходной пк-разметке такие места">так и задумано</abbr>).<br />
+Вот так не работает: <code>~*‘жирный курсив’</code> (будет просто ~<b>жирный</b>), пишите так: <code>~‘*‘</code><i><b>жирный курсив</b></i><code>’’</code> или так: <code>*‘~‘</code><b><i>жирный курсив</i></b><code>’’</code> (<abbr title="чтобы не злоупотреблять форматированием и чтобы лучше было видно в исходной пк-разметке такие места">так и задумано</abbr>).<br />
 Обратите внимание, что использование отдельных символов для открывающей и закрывающей кавычек предоставляет возможность неограниченной вложенности элементов форматирования.</div>
 <br />
 <br />
@@ -127,16 +135,16 @@ div.note {
 <a href="http://address2">ссылка2</a><br />
 <a href="http://address1">ссылка на address1</a><br />
 <a href="http://address2">ссылка на address2</a></td></tr>
-<tr><td colspan="3"><span class="spoiler_title" onclick="return spoiler2(this, event)">Почему [-1]?<br /></span><div class="spoiler_text" style="display: none">Раньше я хотел использовать запись <pre style="display: inline">[-N]</pre> для указания на одну из предыдущих ссылок (<pre style="display: inline">[-1]</pre> указывает на предыдущую ссылку, <pre style="display: inline">[-2]</pre> на предпредыдущую и так далее), например:<br />
+<tr><td colspan="3"><span class="spoiler_title" onclick="return spoiler2(this, event)">Почему [-1]?<br /></span><div class="spoiler_text" style="display: none">Раньше я хотел использовать запись <pre class="inline_code">[-N]</pre> для указания на одну из предыдущих ссылок (<pre class="inline_code">[-1]</pre> указывает на предыдущую ссылку, <pre class="inline_code">[-2]</pre> на предпредыдущую и так далее), например:<br />
 <pre>
 Посмотрите сюда[http://address1] и сюда[http://address2].
 Теперь ‘эта ссылка’[-1] указывает на address2, а эта[-2] — на address1.
 </pre>
 <br />
-Но быстро пришёл к пониманию, что такие ссылки слишком легко ломаются — в данном примере достаточно просто вставить новую ссылку между любыми ссылками, и ссылка <pre style="display: inline">[-2]</pre> <abbr title="станет указывать на другую/неправильную ссылку">сломается</abbr>.<br />
-Поэтому, чтобы исключить соблазн задействовать в будущем запись <pre style="display: inline">[-N]</pre> для таких очень-легко-ломающихся ссылок, я решил <!--[[[занять/]]]-->задействовать <abbr title="[-N], а не [=N] или что-то другое">именно эту запись</abbr> для не-настолько-легко-ломающихся ссылок <!--[[[(:]]]-->:).<br />
+Но быстро пришёл к пониманию, что такие ссылки слишком легко ломаются — в данном примере достаточно просто вставить новую ссылку между любыми ссылками, и ссылка <pre class="inline_code">[-2]</pre> <abbr title="станет указывать на другую/неправильную ссылку">сломается</abbr>.<br />
+Поэтому, чтобы исключить соблазн задействовать в будущем запись <pre class="inline_code">[-N]</pre> для таких очень-легко-ломающихся ссылок, я решил <!--[[[занять/]]]-->задействовать <abbr title="[-N], а не [=N] или что-то другое">именно эту запись</abbr> для не-настолько-легко-ломающихся ссылок <!--[[[(:]]]-->:).<br />
 <br />
-А запись <pre style="display: inline">[N]</pre> я решил <!--[[[вообще ]]]-->не использовать, так как она достаточно часто встречается в документах и на различных веб-страницах, например:<br />
+А запись <pre class="inline_code">[N]</pre> я решил <!--[[[вообще ]]]-->не использовать, так как она достаточно часто встречается в документах и на различных веб-страницах, например:<br />
 <blockquote><a href="https://ru.wikipedia.org/wiki/Смещение_перигелия_Меркурия"><i>https://ru.wikipedia.org/wiki/Смещение_перигелия_Меркурия</i></a>:<br />
 <br />
 <b>Аномальное смещение перигелия Меркурия</b> — обнаруженная в 1859 году особенность движения планеты Меркурий, сыгравшая исключительную роль в истории физики<span class="sq"><span class="sq_brackets">[</span>1<span class="sq_brackets">]</span></span>.</blockquote>
@@ -191,7 +199,7 @@ div.note {
 </table>
 </td></tr>
 <tr><th colspan="3"><sub>Объединение ячеек таблицы</sub></th></tr>
-<tr><td colspan="3"><sub>Чтобы объединить ячейки таблицы, нужно каждую отсутствующую ячейку заменить на символ <pre style="display: inline">-</pre> или символ <pre style="display: inline">|</pre> таким образом, чтобы следуя по символу <pre style="display: inline">-</pre> влево и по символу <pre style="display: inline">|</pre> вверх можно было выйти на соответствующую значимую ячейку.</sub></td></tr>
+<tr><td colspan="3"><sub>Чтобы объединить ячейки таблицы, нужно каждую отсутствующую ячейку заменить на символ <pre class="inline_code">-</pre> или символ <pre class="inline_code">|</pre> таким образом, чтобы следуя по символу <pre class="inline_code">-</pre> влево и по символу <pre class="inline_code">|</pre> вверх можно было выйти на соответствующую значимую ячейку.</sub></td></tr>
 <tr><td><pre style="display: inline">Т‘‘
 ‘A’ ‘B’
 ’‘
@@ -233,7 +241,7 @@ div.note {
 <tr><td colspan="3">2</td></tr>
 </table>
 </td></tr>
-<tr><td colspan="3"><sub>Для больших объединений ячеек (2х2 и более): вправо от значимой ячейки идут символы <pre style="display: inline">-</pre>, вниз идут символы <pre style="display: inline">|</pre>, а остальные отсутствующие ячейки можно заполнять либо символом <pre style="display: inline">-</pre> либо <pre style="display: inline">|</pre>, но рекомендуется всегда использовать <pre style="display: inline">-</pre>.</sub></td></tr>
+<tr><td colspan="3"><sub>Для больших объединений ячеек (2х2 и более): вправо от значимой ячейки идут символы <pre class="inline_code">-</pre>, вниз идут символы <pre class="inline_code">|</pre>, а остальные отсутствующие ячейки можно заполнять либо символом <pre class="inline_code">-</pre> либо <pre class="inline_code">|</pre>, но рекомендуется всегда использовать <pre class="inline_code">-</pre>.</sub></td></tr>
 <tr><td><pre style="display: inline">T‘‘
 ‘1’  -   -  ‘2’ ’‘
  |   -   -  ‘3’ ’‘
@@ -349,7 +357,7 @@ div.note {
 <br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">(Для вставки текста без пк-форматирования можно использовать '‘сырой HTML’')<br /></span><div class="spoiler_text" style="display: none">'‘текст/код *‘без’ форматирования (обычным шрифтом)’'<br />
 <br />
-(Запись 0‘...’ отличается от '‘сырого HTML’' только тем, что в 0‘...’ каждый символ <pre style="display: inline">&amp;</pre> заменяется на <pre style="display: inline">&amp;amp;</pre>, каждый символ <pre style="display: inline">&lt;</pre> заменяется на <pre style="display: inline">&amp;lt;</pre> и перед каждым символом новой строки вставляется тег <pre style="display: inline">&lt;br /></pre>.)<br />
+(Запись 0‘...’ отличается от '‘сырого HTML’' только тем, что в 0‘...’ каждый символ <pre class="inline_code">&amp;</pre> заменяется на <pre class="inline_code">&amp;amp;</pre>, каждый символ <pre class="inline_code">&lt;</pre> заменяется на <pre class="inline_code">&amp;lt;</pre> и перед каждым символом новой строки вставляется тег <pre class="inline_code">&lt;br /></pre>.)<br />
 </div>
 <br />
 <br />
@@ -374,8 +382,10 @@ div.note {
 > Цитата<br />
 <blockquote>Цитата</blockquote>
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Пробел после `>` ставить обязательно? Зачем?<br /></span><div class="spoiler_text" style="display: none">Да, обязательно.<br />
-<abbr title="эта же причина подходит и к спискам (там тоже обязателен пробел после `1.` и `.`)">Зачем</abbr> — для избежания/исключения возможных проблем в случаях <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">а также чтобы в записи <pre style="display: inline">&lt;тег>текст</pre> <span class="sq"><span class="sq_brackets">[</span>в начале строки<span class="sq_brackets">]</span></span> символ <pre style="display: inline">&lt;</pre> не воспринимался как обозначение ответной цитаты</span><span class="cu_brackets_b">}</span></span>:<br />
-<pre style="display: inline">>‘Текст ссылки’[http://...] продолжение текста.</pre><br />
+<abbr title="эта же причина подходит и к спискам (там тоже обязателен пробел после `1.` и `.`)">Зачем</abbr> — для избежания/исключения возможных проблем в случаях <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">а также чтобы в записи <pre class="inline_code">&lt;тег>текст</pre> <span class="sq"><span class="sq_brackets">[</span>в начале строки<span class="sq_brackets">]</span></span> символ <pre class="inline_code">&lt;</pre> не воспринимался как обозначение ответной цитаты</span><span class="cu_brackets_b">}</span></span>:<br />
+<pre>
+>‘Текст ссылки’[http://...] продолжение текста.
+</pre>
 может быть неверно истолковано как:<br />
 <pre>>‘Текст ссылки’
 [http://...] продолжение текста.</pre>
@@ -383,9 +393,13 @@ div.note {
 `> Текст ссылки
 [http://...] продолжение текста.`]]]--><br />
 Поэтому, следует писать так:<br />
-<pre style="display: inline">> ‘Текст ссылки’[http://...] продолжение текста.</pre><br />
+<pre>
+> ‘Текст ссылки’[http://...] продолжение текста.
+</pre>
 либо так:<br />
-<pre style="display: inline">>‘‘Текст ссылки’[http://...] продолжение текста.’</pre><br />
+<pre>
+>‘‘Текст ссылки’[http://...] продолжение текста.’
+</pre>
 </div>
 <br />
 >‘Многострочная<br />

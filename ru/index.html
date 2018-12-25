@@ -83,6 +83,14 @@ div.note {
     padding: 18px 20px;
     background: #ffffd7;
 }
+pre.code_block {padding: 6px 0;}
+pre.inline_code {
+    display: inline;
+    padding: 0px 3px;
+    border: 1px solid #E5E5E5;
+    background-color: #FAFAFA;
+    border-radius: 3px;
+}
 </style>
 </head>
 <body>
@@ -105,14 +113,14 @@ div.note {
 </sub></sub></sub></sub></sub></div>
 <br />
 <br />
-пк-разметка\pqmarkup — это <a href="https://ru.wikipedia.org/wiki/Язык_разметки#.D0.9E.D0.B1.D0.BB.D0.B5.D0.B3.D1.87.D1.91.D0.BD.D0.BD.D1.8B.D0.B5_.D1.8F.D0.B7.D1.8B.D0.BA.D0.B8_.D1.80.D0.B0.D0.B7.D0.BC.D0.B5.D1.82.D0.BA.D0.B8">облегчённый язык разметки</a> текста (как Markdown, BBCode, вики-разметка и т.п.), основанный на одиночных<!--[[[на мысль вставить сюда символ новой строки меня натолкнул тот факт, что на моём мониторе слова ‘парных кавычках’ оказались в самом начале новой [второй] строки после того, как я заменил ‘Пк-’ на ‘пк-’, но я отказался от этой идеи, чтобы не сбивать отображение этих строк в меньшем разрешении экрана ("аналогичный" символ новой строки в `pqmarkup/docs/ru/syntax.pq.txt` решил пока оставить)]]]--> парных кавычках — символах <pre style="display: inline">‘</pre> и <pre style="display: inline">’</pre>.<br />
+пк-разметка\pqmarkup — это <a href="https://ru.wikipedia.org/wiki/Язык_разметки#.D0.9E.D0.B1.D0.BB.D0.B5.D0.B3.D1.87.D1.91.D0.BD.D0.BD.D1.8B.D0.B5_.D1.8F.D0.B7.D1.8B.D0.BA.D0.B8_.D1.80.D0.B0.D0.B7.D0.BC.D0.B5.D1.82.D0.BA.D0.B8">облегчённый язык разметки</a> текста (как Markdown, BBCode, вики-разметка и т.п.), основанный на одиночных<!--[[[на мысль вставить сюда символ новой строки меня натолкнул тот факт, что на моём мониторе слова ‘парных кавычках’ оказались в самом начале новой [второй] строки после того, как я заменил ‘Пк-’ на ‘пк-’, но я отказался от этой идеи, чтобы не сбивать отображение этих строк в меньшем разрешении экрана ("аналогичный" символ новой строки в `pqmarkup/docs/ru/syntax.pq.txt` решил пока оставить)]]]--> парных кавычках — символах <pre class="inline_code">‘</pre> и <pre class="inline_code">’</pre>.<br />
 <br />
 <br />
 <b><!--[[[Описание ]]]--><a href="./syntax" target="_self">Синтаксис пк-разметки.</a></b><br />
 <br />
 <br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">‘Советы по набору’/‘способы набора’ символов одиночных парных кавычек ‘ и ’...<br /></span><div class="spoiler_text" style="display: none"><ul>
-<li>В Windows можно использовать без дополнительных настроек сочетание клавиш <abbr title="в русской раскладке работает только через левый Alt">Alt</abbr>+0145 (на цифровой клавиатуре) для открывающей кавычки <pre style="display: inline">‘</pre> и Alt+0146 для закрывающей <pre style="display: inline">’</pre><!--[[[ (правда, работает это не во всех программах)][-необходимо указать хотя бы один пример такой программы (вроде в Chrome не работало, но сейчас не повторяется/не воспроизводится)-]]]-->.<br />
+<li>В Windows можно использовать без дополнительных настроек сочетание клавиш <abbr title="в русской раскладке работает только через левый Alt">Alt</abbr>+0145 (на цифровой клавиатуре) для открывающей кавычки <pre class="inline_code">‘</pre> и Alt+0146 для закрывающей <pre class="inline_code">’</pre><!--[[[ (правда, работает это не во всех программах)][-необходимо указать хотя бы один пример такой программы (вроде в Chrome не работало, но сейчас не повторяется/не воспроизводится)-]]]-->.<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Визуально на цифровой клавиатуре эти цифры расположены очень удачно:<br /></span><div class="spoiler_text" style="display: none"><pre>
 ┌───┬───┐
 │ 4 │ 5 │
@@ -122,7 +130,7 @@ div.note {
 │ 0     │
 └───────┘
 </pre>
-Похоже на открывающую квадратную скобочку <pre style="display: inline">[</pre>.<!--]--><br />
+Похоже на открывающую квадратную скобочку <pre class="inline_code">[</pre>.<!--]--><br />
 Очень легко запомнить.<br />
 </div>
 </li>
@@ -185,7 +193,7 @@ Alt   &amp;  ,:: SendInput {&lt;}
 Alt   &amp;  .:: SendInput {>}
 </pre>
 <br />
-Это позволит унифицировать ввод символов <pre style="display: inline">@"#№$;^:&amp;?[]{}'&lt;></pre>, сделав его независимым от текущей раскладки.<br />
+Это позволит унифицировать ввод символов <pre class="inline_code">@"#№$;^:&amp;?[]{}'&lt;></pre>, сделав его независимым от текущей раскладки.<br />
 <br />
 А также можно добавить такое переназначение (впрочем, оно довольно спорное и неоднозначное) для двух самых <abbr title="Почему клавиша `\|/` сложная:
 1. На разных клавиатурах она располагается по-разному (варианты: слева от клавиши Enter, между клавишами Enter и Backspace, слева от клавиши Backspace, справа от правого Shift).
@@ -273,7 +281,7 @@ RWin  &amp; SC035:: SendInput {/} ; └─────┘
                     ;*...Wildcard: Fire the hotkey even if extra modifiers are being held down.’
 </pre>
 <br />
-А символы <pre style="display: inline">\</pre>, <pre style="display: inline">|</pre>, <pre style="display: inline">/</pre>, <pre style="display: inline">.</pre> и <pre style="display: inline">,</pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">можно набирать посредством одной клавиши <pre style="display: inline">/?,.</pre>:<br />
+А символы <pre class="inline_code">\</pre>, <pre class="inline_code">|</pre>, <pre class="inline_code">/</pre>, <pre class="inline_code">.</pre> и <pre class="inline_code">,</pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">можно набирать посредством одной клавиши <pre class="inline_code">/?,.</pre>:<br />
 <pre>
 /*
                         ┌─────┐

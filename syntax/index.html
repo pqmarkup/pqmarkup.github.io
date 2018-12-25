@@ -83,6 +83,14 @@ div.note {
     padding: 18px 20px;
     background: #ffffd7;
 }
+pre.code_block {padding: 6px 0;}
+pre.inline_code {
+    display: inline;
+    padding: 0px 3px;
+    border: 1px solid #E5E5E5;
+    background-color: #FAFAFA;
+    border-radius: 3px;
+}
 </style>
 </head>
 <body>
@@ -99,7 +107,7 @@ div.note {
 <tr><td><pre style="display: inline">~‘italic’</pre></td><td><i>italic</i></td></tr>
 </table>
 <div class="note"><i>Remark</i>:<br />
-This does not work: <pre style="display: inline">~*‘bold italics’</pre> (it will be just ~<b>bold</b>), write this: <pre style="display: inline">~‘*‘</pre><i><b>bold italics</b></i><pre style="display: inline">’’</pre> or this: <pre style="display: inline">*‘~‘</pre><b><i>bold italics</i></b><pre style="display: inline">’’</pre>.<br />
+This does not work: <code>~*‘bold italics’</code> (it will be just ~<b>bold</b>), write this: <code>~‘*‘</code><i><b>bold italics</b></i><code>’’</code> or this: <code>*‘~‘</code><b><i>bold italics</i></b><code>’’</code>.<br />
 Also note that separate starting and ending quotes allows the arbitrary nesting of formatting elements to be used.</div>
 <br />
 <br />
@@ -127,15 +135,15 @@ link2[http://address2][-2]<br />
 <a href="http://address2">link2</a><br />
 <a href="http://address1">link to address1</a><br />
 <a href="http://address2">link to address2</a></td></tr>
-<tr><td colspan="3"><span class="spoiler_title" onclick="return spoiler2(this, event)">Why [-1]?<br /></span><div class="spoiler_text" style="display: none">Earlier I wanted to use <pre style="display: inline">[-N]</pre> for referring previous links like this:<br />
+<tr><td colspan="3"><span class="spoiler_title" onclick="return spoiler2(this, event)">Why [-1]?<br /></span><div class="spoiler_text" style="display: none">Earlier I wanted to use <pre class="inline_code">[-N]</pre> for referring previous links like this:<br />
 <pre style="display: inline">Look here[http://address1] and here[http://address2].
 Now this[-1] points to address2</pre><!--[[[,[?]]]]--><pre style="display: inline"> and this[-2] points to address1.</pre><br />
 <br />
 But it was a bad idea, because such link references are very easy to break via putting any unrelated link in the middle.<br />
 <br />
-So, to prevent using syntax <pre style="display: inline">[-N]</pre> for such very-easy-to-become-broken links I decided to use <abbr title="[-N], but not [=N], or anything like that">this syntax</abbr> the way showed above for not-so-very-easy-to-become-broken links <!--[[[(:]]]-->:).<br />
+So, to prevent using syntax <pre class="inline_code">[-N]</pre> for such very-easy-to-become-broken links I decided to use <abbr title="[-N], but not [=N], or anything like that">this syntax</abbr> the way showed above for not-so-very-easy-to-become-broken links <!--[[[(:]]]-->:).<br />
 <br />
-Also<!--[[[another reason why `[-1]`, and not say `[N]`]]]--> <pre style="display: inline">[N]</pre> occurs quite often in many different documents and web pages, so I decided not to use <pre style="display: inline">[N]</pre> at all.<br />
+Also<!--[[[another reason why `[-1]`, and not say `[N]`]]]--> <pre class="inline_code">[N]</pre> occurs quite often in many different documents and web pages, so I decided not to use <pre class="inline_code">[N]</pre> at all.<br />
 </div>
 </td></tr>
 </table>
@@ -187,7 +195,7 @@ Red text — C(red)‘text’<br />
 </table>
 </td></tr>
 <tr><th colspan="3"><sub>How to merge table cells</sub></th></tr>
-<tr><td colspan="3"><sub>To merge cells of the table you should replace each absent cell with a character <pre style="display: inline">-</pre> or character <pre style="display: inline">|</pre>, so moving left on characters <pre style="display: inline">-</pre> and moving up on characters <pre style="display: inline">|</pre> you can come to the corresponding meaningful cell.</sub></td></tr>
+<tr><td colspan="3"><sub>To merge cells of the table you should replace each absent cell with a character <pre class="inline_code">-</pre> or character <pre class="inline_code">|</pre>, so moving left on characters <pre class="inline_code">-</pre> and moving up on characters <pre class="inline_code">|</pre> you can come to the corresponding meaningful cell.</sub></td></tr>
 <tr><td><pre style="display: inline">Т‘‘
 ‘A’ ‘B’
 ’‘
@@ -229,7 +237,7 @@ Red text — C(red)‘text’<br />
 <tr><td colspan="3">2</td></tr>
 </table>
 </td></tr>
-<tr><td colspan="3"><sub>To merge cells 2x2 and more: put characters <pre style="display: inline">-</pre> to the right of the merged cell, and put characters <pre style="display: inline">|</pre> downwards, and the rest absent cells should be filled with character <pre style="display: inline">-</pre> (recommended) or character <pre style="display: inline">|</pre>.</sub></td></tr>
+<tr><td colspan="3"><sub>To merge cells 2x2 and more: put characters <pre class="inline_code">-</pre> to the right of the merged cell, and put characters <pre class="inline_code">|</pre> downwards, and the rest absent cells should be filled with character <pre class="inline_code">-</pre> (recommended) or character <pre class="inline_code">|</pre>.</sub></td></tr>
 <tr><td><pre style="display: inline">T‘‘
 ‘1’  -   -  ‘2’ ’‘
  |   -   -  ‘3’ ’‘
@@ -325,7 +333,7 @@ Renders as:<br />
 <br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">(For text without pq formatting you can use '‘raw HTML’')<br /></span><div class="spoiler_text" style="display: none">'‘text/code *‘without’ formatting (with regular font)’'<br />
 <br />
-(Notation 0‘...’ differs from the '‘raw HTML’' only by that in 0‘...’ all characters <pre style="display: inline">&amp;</pre> are replaced with <pre style="display: inline">&amp;amp;</pre>, all characters <pre style="display: inline">&lt;</pre> are replaced with <pre style="display: inline">&amp;lt;</pre>, and before each new line character tag <pre style="display: inline">&lt;br /></pre> is inserted.)<br />
+(Notation 0‘...’ differs from the '‘raw HTML’' only by that in 0‘...’ all characters <pre class="inline_code">&amp;</pre> are replaced with <pre class="inline_code">&amp;amp;</pre>, all characters <pre class="inline_code">&lt;</pre> are replaced with <pre class="inline_code">&amp;lt;</pre>, and before each new line character tag <pre class="inline_code">&lt;br /></pre> is inserted.)<br />
 </div>
 <br />
 <br />
@@ -350,8 +358,10 @@ Renders as:<br />
 > Blockquote<br />
 <blockquote>Blockquote</blockquote>
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Is space necessary after `>`? Why?<br /></span><div class="spoiler_text" style="display: none">Yes, it is necessary.<br />
-<abbr title="the same reason is applicable to lists (there also must be space character after `1.` and `.`)">Why</abbr> — to avoid problems in the following cases <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">and also in <pre style="display: inline">&lt;tag>text</pre> <span class="sq"><span class="sq_brackets">[</span>at the beginning of the line<span class="sq_brackets">]</span></span> character <pre style="display: inline">&lt;</pre> will not be recognized as the responding blockquote</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span>:<br />
-<pre style="display: inline">>‘Link text’[http://...] following text.</pre><br />
+<abbr title="the same reason is applicable to lists (there also must be space character after `1.` and `.`)">Why</abbr> — to avoid problems in the following cases <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">and also in <pre class="inline_code">&lt;tag>text</pre> <span class="sq"><span class="sq_brackets">[</span>at the beginning of the line<span class="sq_brackets">]</span></span> character <pre class="inline_code">&lt;</pre> will not be recognized as the responding blockquote</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span>:<br />
+<pre>
+>‘Link text’[http://...] following text.
+</pre>
 can be treated as:<br />
 <pre>>‘Link text’
 [http://...] following text.</pre>
@@ -359,9 +369,13 @@ can be treated as:<br />
 `> Link text
 [http://...] following text.`]]]--><br />
 So, you should write:<br />
-<pre style="display: inline">> ‘Link text’[http://...] following text.</pre><br />
+<pre>
+> ‘Link text’[http://...] following text.
+</pre>
 or:<br />
-<pre style="display: inline">>‘‘Link text’[http://...] following text.’</pre><br />
+<pre>
+>‘‘Link text’[http://...] following text.’
+</pre>
 </div>
 <br />
 >‘Multiline<br />
