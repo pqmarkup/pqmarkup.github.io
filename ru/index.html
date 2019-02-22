@@ -91,6 +91,7 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
@@ -119,9 +120,11 @@ pre.inline_code {
 <b><!--[[[Описание ]]]--><a href="./syntax" target="_self">Синтаксис пк-разметки.</a></b><br />
 <br />
 <br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">‘Советы по набору’/‘способы набора’ символов одиночных парных кавычек ‘ и ’...<br /></span><div class="spoiler_text" style="display: none"><ul>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">‘Советы по набору’/‘способы набора’ символов одиночных парных кавычек ‘ и ’...<br /></span><div class="spoiler_text" style="display: none">
+<ul>
 <li>В Windows можно использовать без дополнительных настроек сочетание клавиш <abbr title="в русской раскладке работает только через левый Alt">Alt</abbr>+0145 (на цифровой клавиатуре) для открывающей кавычки <pre class="inline_code">‘</pre> и Alt+0146 для закрывающей <pre class="inline_code">’</pre><!--[[[ (правда, работает это не во всех программах)][-необходимо указать хотя бы один пример такой программы (вроде в Chrome не работало, но сейчас не повторяется/не воспроизводится)-]]]-->.<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Визуально на цифровой клавиатуре эти цифры расположены очень удачно:<br /></span><div class="spoiler_text" style="display: none"><pre>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Визуально на цифровой клавиатуре эти цифры расположены очень удачно:<br /></span><div class="spoiler_text" style="display: none">
+<pre>
 ┌───┬───┐
 │ 4 │ 5 │
 ├───┼───┘
@@ -140,7 +143,8 @@ pre.inline_code {
 Alt &amp; 9:: SendInput {‘}
 Alt &amp; 0:: SendInput {’}
 </pre>
-<span class="spoiler_title" onclick="return spoiler2(this, event)">В этот же файл-скрипт можно дополнительно ещё добавить:<br /></span><div class="spoiler_text" style="display: none"><!--[[[```
+<span class="spoiler_title" onclick="return spoiler2(this, event)">В этот же файл-скрипт можно дополнительно ещё добавить:<br /></span><div class="spoiler_text" style="display: none">
+<!--[[[```
 ; Thanks to [https://autohotkey.com/docs/commands/_IfWinActive.htm
 ;            <- https://autohotkey.com/board/topic/117370-exclude-a-program-from-an-autohotkey/
 ;            <- google:‘autohotkey exclude sppecific program’]:‘#IfWinActive ahk_class Notepad’
