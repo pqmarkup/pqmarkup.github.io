@@ -37,7 +37,7 @@ pqmarkup is a ‘lightweight markup language’[https://en.wikipedia.org/wiki/Li
 It is similar to the left square bracket `[`.'‘<!--]-->’'
 So it's very easy to remember.
 }’
-. In Ubuntu and other Linux distributions: enter Ctrl+Shift+u, release, then type 2018 for opening quotation mark or 2019 for closing quotation mark, and press Enter or Space.
+. In Ubuntu and other Linux distributions: [[[enter/]]]press Ctrl+Shift+u, release, then type 2018 for opening quotation mark or 2019 for closing quotation mark, and press Enter or Space.
 .‘Using program AutoHotkey[https://autohotkey.com/download/] you can assign for example hotkeys [[[Right]]]Alt+9 and [[[Right]]]Alt+0 to insert single quotation marks by adding this two lines in your ahk-file:
 `
 Alt & 9:: SendInput {‘}
