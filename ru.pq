@@ -250,7 +250,7 @@ SC035   & RCtrl:: SendInput {\}
 
 [[[Базовая/]Оригинальная[/Авторская] ]]Реализация на языке Python:
 . ‘Страница проекта pqmarkup в Python Package Index’[https://pypi.python.org/pypi/pqmarkup]
-. ‘Ссылка на основной репозиторий’[https://bitbucket.org/pqmarkup/pqmarkup]
+. ‘Ссылка на основной репозиторий’[https://sourceforge.net/p/pqmarkup/code/ <- https://bitbucket.org/pqmarkup/pqmarkup]
 
 
 Статьи по пк-разметке\pqmarkup:

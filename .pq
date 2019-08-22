@@ -51,7 +51,7 @@ Alt & 0:: SendInput {’}
 
 Original implementation in Python:
 . ‘Project pqmarkup at the Python Package Index’[https://pypi.python.org/pypi/pqmarkup]
-. ‘Link to the main repository’[https://bitbucket.org/pqmarkup/pqmarkup]
+. ‘Link to the main repository’[https://sourceforge.net/p/pqmarkup/code/ <- https://bitbucket.org/pqmarkup/pqmarkup]
 
 
 Articles on pqmarkup:
