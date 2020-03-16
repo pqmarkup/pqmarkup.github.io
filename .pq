@@ -54,7 +54,7 @@ Original implementation in Python:
 . ‘Link to the main repository’[https://sourceforge.net/p/pqmarkup/code/ <- https://bitbucket.org/pqmarkup/pqmarkup]
 
 
-Standalone Windows [[[binary]]]executable: pqmarkup.exe[./pqmarkup.exe] (use command line argument `-h` to show help message).
+Standalone Windows [[[binary]]]executable: pqmarkup.exe[https://sourceforge.net/projects/pqmarkup/files/pqmarkup.exe/download] (use command line argument `-h` to show help message).
 
 
 Articles on pqmarkup:
