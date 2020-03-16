@@ -253,6 +253,9 @@ SC035   & RCtrl:: SendInput {\}
 . ‘Ссылка на основной репозиторий’[https://sourceforge.net/p/pqmarkup/code/ <- https://bitbucket.org/pqmarkup/pqmarkup]
 
 
+Исполняемый файл под Windows: pqmarkup.exe[./../pqmarkup.exe] (используйте аргумент командной строки `-h` для вывода справки).
+
+
 Статьи по пк-разметке\pqmarkup:
 . ‘Статья на Хабре ‘‘Новый облегчённый язык разметки текста на основе парных кавычек (pq)’’’[https://habr.com/ru/post/348218/]
 

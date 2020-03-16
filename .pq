@@ -54,6 +54,9 @@ Original implementation in Python:
 . ‘Link to the main repository’[https://sourceforge.net/p/pqmarkup/code/ <- https://bitbucket.org/pqmarkup/pqmarkup]
 
 
+Standalone Windows [[[binary]]]executable: pqmarkup.exe[./pqmarkup.exe] (use command line argument `-h` to show help message).
+
+
 Articles on pqmarkup:
 . ‘Article on habr.com (in Russian) titled ‘‘Новый облегчённый язык разметки текста на основе парных кавычек (pq)’’’[https://habr.com/ru/post/348218/]
 
