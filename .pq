@@ -24,8 +24,9 @@ pqmarkup is a ‘lightweight markup language’[https://en.wikipedia.org/wiki/Li
 
 
 ‘How to type paired single quotation marks (characters ‘ and ’)...’{
-.‘In Windows you can use without additional settings hotkey Alt+0145 (on the numeric keypad) for the [[[left/]]]opening quotation mark `‘` and hotkey Alt+0146 for the [[[right/]]]closing quotation mark `’`[[[ (though it works not at all programs/applications)]]]. (In many applications (Google Chrome, Sublime Text, Atom, VS Code) it ‘does not work’/‘works incorrectly’ when Num Lock is off!)
-‘By the way, this numbers on the numeric keypad are situated very felicitously:’{
+.‘In Windows you can use without additional settings hotkey Alt+0145 (on the numeric keypad) for the [[[left/]]]opening quotation mark `‘` and hotkey Alt+0146 for the [[[right/]]]closing quotation mark `’`[[[ (though it works not at all programs/applications)]]]. (In many applications (e.g. Google Chrome, Sublime Text, Atom, VS Code) it ‘does not work’/‘works incorrectly’ when Num Lock is off!)
+
+By the way, this numbers on the numeric keypad are situated very felicitously:
 ```
 ┌───┬───┐
 │ 4 │ 5 │
@@ -36,8 +37,7 @@ pqmarkup is a ‘lightweight markup language’[https://en.wikipedia.org/wiki/Li
 └───────┘
 ```
 It is similar to the left square bracket `[`.'‘<!--]-->’'
-So it's very easy to remember.
-}’
+So it's very easy to remember.’
 . In Ubuntu and other Linux distributions: [[[enter/]]]press Ctrl+Shift+u, release, then type 2018 for opening quotation mark or 2019 for closing quotation mark, and press Enter or Space.
 .‘Using program AutoHotkey[https://autohotkey.com/download/] you can assign for example hotkeys [[[Right]]]Alt+9 and [[[Right]]]Alt+0 to insert single quotation marks by adding this two lines in your ahk-file:
 `
