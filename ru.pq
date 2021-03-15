@@ -254,7 +254,9 @@ SC035   & RCtrl:: SendInput {\}
 . ‘Ссылка на основной репозиторий’[https://sourceforge.net/p/pqmarkup/code/ <- https://bitbucket.org/pqmarkup/pqmarkup]
 
 
-Исполняемый файл под Windows: pqmarkup.exe[https://sourceforge.net/projects/pqmarkup/files/pqmarkup.exe/download] (используйте аргумент командной строки `-h` для вывода справки).
+Исполняемый файл под Windows: pqmarkup.exe[https://sourceforge.net/projects/pqmarkup/files/pqmarkup.exe/download] (используйте аргумент командной строки `-h` для вывода справки, типичное использование: {
+`pqmarkup.exe input_file -f output_file.html --output-html-document`
+}).
 
 
 Статьи по пк-разметке\pqmarkup:
